@@ -1,0 +1,168 @@
+:root {
+  --bg: #f0f4f8;
+  --brand: #1a365d;
+  --card: #ffffff;
+  --accent: #2b6cb0;
+  --text: #2d3748;
+  --muted: #718096;
+  --radius: 10px;
+  --gap: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  background: var(--brand);
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-title {
+  font-weight: 600;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* Nav */
+.main-nav {
+  display: none;
+}
+.main-nav.open {
+  display: block;
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+.nav-list a {
+  display: block;
+  padding: 0.7rem;
+  background: var(--brand);
+  color: white;
+  border-radius: var(--radius);
+  text-decoration: none;
+  margin: 0.3rem 0;
+  transition: all 0.3s ease;
+}
+.nav-list a:hover {
+  background: #2b6cb0;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Profile */
+.profile-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.photo-card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* Courses */
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.filter-btn {
+  border: 1px solid #cbd5e0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+.filter-btn:hover {
+  background: #edf2f7;
+}
+.filter-btn[aria-pressed="true"] {
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+}
+.course-list {
+  display: grid;
+  gap: 0.5rem;
+}
+.course-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  padding: 0.7rem;
+  transition: all 0.3s ease;
+}
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 108, 176, 0.15);
+  border-color: #2b6cb0;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.socials a {
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+.socials a:hover {
+  color: var(--accent);
+}
+.site-footer p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
