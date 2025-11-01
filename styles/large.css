@@ -69,5 +69,43 @@
 
   h1 {
     font-size: 2rem;
+    color: var(--brand);
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.5rem;
+  }
+
+  /* Profile section improvements for desktop */
+  .profile-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-section h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Courses section improvements for desktop */
+  .courses h2 {
+    font-size: 1.5rem;
+  }
+
+  .course-card h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+  }
+
+  /* Resources section improvements for desktop */
+  .resources h2 {
+    font-size: 1.5rem;
+  }
+
+  .resources ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .resources li {
+    margin-bottom: 0;
   }
 }
