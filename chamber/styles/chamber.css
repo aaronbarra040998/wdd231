@@ -1,4 +1,4 @@
-/* styles/chamber.css - Enhanced with better accessibility and styling */
+/* styles/chamber.css - Cleaned and validated CSS */
 :root {
   --primary: #0056b3;
   --primary-dark: #004494;
@@ -12,7 +12,6 @@
   --shadow: rgba(0, 0, 0, 0.1);
   --gap: 1rem;
   --radius: 8px;
-  font-size: 16px;
 }
 
 /* Reset and base styles */
@@ -23,8 +22,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -158,7 +156,7 @@ h1 {
   max-width: 600px;
 }
 
-/* Hero section for homepage */
+/* Hero section */
 .hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
@@ -218,7 +216,7 @@ h1 {
   color: white;
 }
 
-/* Features grid for homepage */
+/* Features grid */
 .features {
   margin: 3rem 0;
 }
@@ -397,19 +395,16 @@ h1 {
 .card[data-membership="gold"] .badge {
   background: linear-gradient(135deg, #FFD700, #FFA500);
   color: #000;
-  font-weight: 700;
 }
 
 .card[data-membership="silver"] .badge {
   background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
   color: #000;
-  font-weight: 700;
 }
 
 .card[data-membership="member"] .badge {
   background: linear-gradient(135deg, #CD7F32, #8B4513);
   color: #fff;
-  font-weight: 700;
 }
 
 /* LIST view */
@@ -425,7 +420,6 @@ h1 {
   text-align: left;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--border);
-  flex-direction: row;
 }
 
 .list-view .card img {
@@ -520,7 +514,6 @@ h1 {
   line-height: 1.5;
 }
 
-/* Event tag styles */
 .event-tag {
   display: inline-block;
   padding: 0.25rem 0.75rem;
@@ -674,7 +667,7 @@ h1 {
   opacity: 0.9;
 }
 
-/* Focus styles for accessibility */
+/* Focus styles */
 button:focus,
 a:focus,
 input:focus,
@@ -684,7 +677,7 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-/* New sections for personalized content */
+/* Stats section */
 .section-title {
   text-align: center;
   margin: 3rem 0 2rem;
@@ -767,10 +760,8 @@ textarea:focus {
   .main-nav a:hover,
   .main-nav a:focus {
     background: var(--card);
-    border: none;
   }
   
-  /* List view mobile */
   .list-view .card {
     grid-template-columns: 1fr;
     gap: 0.75rem;
@@ -781,7 +772,6 @@ textarea:focus {
     text-align: center;
   }
   
-  /* Controls mobile */
   .controls {
     flex-direction: column;
     align-items: stretch;
@@ -792,20 +782,17 @@ textarea:focus {
     justify-content: center;
   }
   
-  /* Contact grid mobile */
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   
-  /* Footer mobile */
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     text-align: center;
   }
   
-  /* Hero actions mobile */
   .hero-actions {
     flex-direction: column;
     align-items: center;
@@ -817,7 +804,6 @@ textarea:focus {
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
   .grid-view {
     grid-template-columns: 1fr;
@@ -852,17 +838,15 @@ textarea:focus {
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    min-width: auto;
   }
 }
 
-/* High contrast mode support */
+/* High contrast mode */
 @media (prefers-contrast: high) {
   :root {
-    --primary: #0000FF;
+    --primary: #0000ff;
     --text: #000000;
     --border: #000000;
-    --shadow: rgba(0, 0, 0, 0.5);
   }
   
   .card {
@@ -874,7 +858,7 @@ textarea:focus {
   }
 }
 
-/* Reduced motion support */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

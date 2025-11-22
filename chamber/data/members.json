@@ -1,7 +1,7 @@
 {
   "members": [
     {
-      "name": "Tech Solutions Arequipa",
+      "name": "Solutiones Tech",
       "address": "Av. Ejército 1204, Cerro Colorado, Arequipa",
       "phone": "948123456",
       "website": "https://techsolutionsaqp.com",
@@ -12,7 +12,7 @@
       "hours": "Mon-Fri 8:00 AM - 6:00 PM"
     },
     {
-      "name": "Café Tradición Arequipeña",
+      "name": "Cafetería La Plaza",
       "address": "Calle San Francisco 315, Historic Center, Arequipa",
       "phone": "948234567",
       "website": "https://cafetradicionaqp.com",
@@ -23,7 +23,7 @@
       "hours": "Mon-Sun 7:00 AM - 10:00 PM"
     },
     {
-      "name": "Architecture & Design AQP",
+      "name": "Arquitectos Unidos",
       "address": "Av. Parra 567, Cercado, Arequipa",
       "phone": "948345678",
       "website": "https://architecturedesignaqp.pe",
@@ -34,7 +34,7 @@
       "hours": "Mon-Fri 9:00 AM - 5:00 PM"
     },
     {
-      "name": "EcoMarket Arequipa",
+      "name": "Tienda Verde",
       "address": "Av. Goyeneche 789, Yanahuara, Arequipa",
       "phone": "948456789",
       "website": "https://ecomarketaqp.com",
@@ -45,7 +45,7 @@
       "hours": "Mon-Sat 9:00 AM - 8:00 PM, Sun 10:00 AM - 6:00 PM"
     },
     {
-      "name": "Fast Logistics AQP",
+      "name": "Transporte Rápido",
       "address": "Av. Alcides Carrión 234, José Luis Bustamante, Arequipa",
       "phone": "948567890",
       "website": "https://fastlogisticsaqp.com.pe",
@@ -56,7 +56,7 @@
       "hours": "24/7 emergency services available"
     },
     {
-      "name": "Flowers of Misti",
+      "name": "Floristería Aurora",
       "address": "San Camilo Market, Stand 45, Cercado, Arequipa",
       "phone": "948678901",
       "website": "https://flowersofmisti.pe",
@@ -67,7 +67,7 @@
       "hours": "Mon-Sat 6:00 AM - 7:00 PM, Sun 7:00 AM - 3:00 PM"
     },
     {
-      "name": "Volcanic Gym",
+      "name": "Centro Fitness Active",
       "address": "Av. Cayma 1234, Cayma, Arequipa",
       "phone": "948789012",
       "website": "https://volcanic-gym.pe",
