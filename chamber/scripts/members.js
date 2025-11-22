@@ -1,11 +1,11 @@
-// scripts/members.js - Enhanced with better error handling and accessibility
+// scripts/members.js - Updated for Arequipa Chamber
 const dataUrl = 'data/members.json';
 const directory = document.getElementById('directory');
 const memberCount = document.getElementById('memberCount');
 const gridBtn = document.getElementById('gridBtn');
 const listBtn = document.getElementById('listBtn');
 
-// Loading state with accessible announcement
+// Loading state in English
 directory.innerHTML = `
   <div class="loading-state" role="status" aria-live="polite">
     <p>Loading business directory information...</p>
@@ -14,7 +14,7 @@ directory.innerHTML = `
 
 // Add loading state to member count
 if (memberCount) {
-  memberCount.textContent = 'Loading members...';
+  memberCount.textContent = 'Loading businesses...';
 }
 
 async function fetchMembers() {
@@ -22,25 +22,25 @@ async function fetchMembers() {
     const res = await fetch(dataUrl);
     
     if (!res.ok) {
-      throw new Error(`Network response was not ok: ${res.status} ${res.statusText}`);
+      throw new Error(`Network error: ${res.status} ${res.statusText}`);
     }
     
     const json = await res.json();
     const members = json.members || [];
     
     if (members.length === 0) {
-      throw new Error('No member data available in the directory');
+      throw new Error('No business data available in the directory');
     }
     
     renderMembers(members);
     
   } catch (err) {
-    console.error('Error loading member directory:', err);
+    console.error('Error loading directory:', err);
     showErrorState('Unable to load business directory. Please check your connection and try again later.');
     
     // Update member count to show error state
     if (memberCount) {
-      memberCount.textContent = 'Error loading members';
+      memberCount.textContent = 'Error loading businesses';
     }
   }
 }
@@ -81,7 +81,7 @@ function createMemberCard(member, index) {
   img.height = 160;
   img.onerror = function() {
     this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDI4MCAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMTYwIiBmaWxsPSIjRjhGOUZBIi8+CjxwYXRoIGQ9Ik0xMDggODBMMTIwIDkyTDEzMiA4MEwxNDQgOTJMMTU2IDgwTDE2OCA5MkwxODAgODBMMTkyIDkyTDIwNCA4MEwyMTYgOTJMMjI4IDgwIiBzdHJva2U9IiNERURGREYiIHN0cm9rZS13aWR0aD0iMiIvPgo8Y2lyY2xlIGN4PSI3MCIgY3k9IjYwIiByPSI4IiBmaWxsPSIjREVERkRGIi8+Cjx0ZXh0IHg9IjE0MCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjQTVBNUE1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiPkJ1c2luZXNzIEltYWdlPC90ZXh0Pgo8L3N2Zz4K';
-    this.alt = 'Default business image - no logo available';
+    this.alt = 'Default business image - logo not available';
   };
 
   // Create member name heading
@@ -223,8 +223,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 100);
 });
-
-// Export for potential testing
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { fetchMembers, getMembershipLevel, createMemberCard };
-}

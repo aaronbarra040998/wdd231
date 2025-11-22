@@ -1,81 +1,81 @@
 {
   "members": [
     {
-      "name": "Soluciones Tech S.A.",
-      "address": "Av. Principal 123, Your City, YC 12345",
-      "phone": "(01) 234-5678",
-      "website": "https://solucionestech.example",
+      "name": "Tech Solutions Arequipa",
+      "address": "Av. Ejército 1204, Cerro Colorado, Arequipa",
+      "phone": "948123456",
+      "website": "https://techsolutionsaqp.com",
       "image": "member1.jpg",
       "membership": 3,
-      "description": "Leading software development and IT consulting services for businesses of all sizes.",
+      "description": "IT consulting and software development for Arequipa businesses since 2012.",
       "category": "Technology",
       "hours": "Mon-Fri 8:00 AM - 6:00 PM"
     },
     {
-      "name": "Cafetería La Plaza",
-      "address": "Calle Central 45, Your City, YC 12345",
-      "phone": "(01) 987-6543",
-      "website": "https://cafeterialaplaza.example",
+      "name": "Café Tradición Arequipeña",
+      "address": "Calle San Francisco 315, Historic Center, Arequipa",
+      "phone": "948234567",
+      "website": "https://cafetradicionaqp.com",
       "image": "member2.jpg",
       "membership": 2,
-      "description": "Artisanal coffee shop and bakery featuring locally sourced ingredients and handmade pastries.",
+      "description": "Traditional coffee house featuring organic coffee from Arequipa valleys and local pastries.",
       "category": "Food & Beverage",
-      "hours": "Mon-Sun 6:30 AM - 9:00 PM"
+      "hours": "Mon-Sun 7:00 AM - 10:00 PM"
     },
     {
-      "name": "Arquitectos Unidos",
-      "address": "Jr. Diseño 88, Your City, YC 12345",
-      "phone": "(01) 345-6789",
-      "website": "https://arquitectosunidos.example",
+      "name": "Architecture & Design AQP",
+      "address": "Av. Parra 567, Cercado, Arequipa",
+      "phone": "948345678",
+      "website": "https://architecturedesignaqp.pe",
       "image": "member3.jpg",
       "membership": 1,
-      "description": "Full-service architecture firm specializing in residential and commercial design projects.",
+      "description": "Architecture firm specializing in seismic design and construction with volcanic stone.",
       "category": "Professional Services",
       "hours": "Mon-Fri 9:00 AM - 5:00 PM"
     },
     {
-      "name": "Tienda Verde",
-      "address": "Plaza Verde 12, Your City, YC 12345",
-      "phone": "(01) 444-3333",
-      "website": "https://tiendaverde.example",
+      "name": "EcoMarket Arequipa",
+      "address": "Av. Goyeneche 789, Yanahuara, Arequipa",
+      "phone": "948456789",
+      "website": "https://ecomarketaqp.com",
       "image": "member4.jpg",
       "membership": 2,
-      "description": "Eco-friendly products store offering sustainable alternatives for everyday living.",
+      "description": "Sustainable products and eco-friendly alternatives for conscious consumers.",
       "category": "Retail",
-      "hours": "Mon-Sat 10:00 AM - 8:00 PM, Sun 11:00 AM - 6:00 PM"
+      "hours": "Mon-Sat 9:00 AM - 8:00 PM, Sun 10:00 AM - 6:00 PM"
     },
     {
-      "name": "Transporte Rápido",
-      "address": "Av. Logística 7, Your City, YC 12345",
-      "phone": "(01) 222-1111",
-      "website": "https://transporterapido.example",
+      "name": "Fast Logistics AQP",
+      "address": "Av. Alcides Carrión 234, José Luis Bustamante, Arequipa",
+      "phone": "948567890",
+      "website": "https://fastlogisticsaqp.com.pe",
       "image": "member5.jpg",
       "membership": 3,
-      "description": "Reliable transportation and courier services with same-day delivery options.",
+      "description": "Logistics and delivery services throughout Arequipa and southern Peru.",
       "category": "Logistics",
-      "hours": "24/7 Emergency Services Available"
+      "hours": "24/7 emergency services available"
     },
     {
-      "name": "Floristería Aurora",
-      "address": "Calle Flores 10, Your City, YC 12345",
-      "phone": "(01) 666-7777",
-      "website": "https://floristeriaaurora.example",
+      "name": "Flowers of Misti",
+      "address": "San Camilo Market, Stand 45, Cercado, Arequipa",
+      "phone": "948678901",
+      "website": "https://flowersofmisti.pe",
       "image": "member6.jpg",
       "membership": 1,
-      "description": "Floral arrangements and event decorations for all special occasions.",
+      "description": "Fresh floral arrangements and decorative plants for all occasions.",
       "category": "Retail",
-      "hours": "Mon-Sat 8:00 AM - 7:00 PM, Sun 9:00 AM - 5:00 PM"
+      "hours": "Mon-Sat 6:00 AM - 7:00 PM, Sun 7:00 AM - 3:00 PM"
     },
     {
-      "name": "Centro Fitness Active",
-      "address": "Av. Salud 55, Your City, YC 12345",
-      "phone": "(01) 555-8888",
-      "website": "https://fitnessactive.example",
+      "name": "Volcanic Gym",
+      "address": "Av. Cayma 1234, Cayma, Arequipa",
+      "phone": "948789012",
+      "website": "https://volcanic-gym.pe",
       "image": "member7.jpg",
       "membership": 2,
-      "description": "Modern fitness center offering group classes, personal training, and wellness programs.",
+      "description": "Modern fitness center with personal training and group classes.",
       "category": "Health & Wellness",
-      "hours": "Mon-Fri 5:00 AM - 11:00 PM, Weekends 6:00 AM - 9:00 PM"
+      "hours": "Mon-Fri 5:00 AM - 11:00 PM, Sat-Sun 6:00 AM - 9:00 PM"
     }
   ]
 }
