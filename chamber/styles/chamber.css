@@ -1,4 +1,4 @@
-/* styles/chamber.css - Cleaned and validated CSS */
+/* styles/chamber.css - Validated and optimized CSS */
 :root {
   --primary: #0056b3;
   --primary-dark: #004494;
@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -60,7 +60,7 @@ body {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -299,7 +299,7 @@ h1 {
 .view-toggle button[aria-pressed="true"] {
   background: var(--primary);
   color: white;
-  border-color: var(--primary);
+  border-color: var(--primary-dark);
 }
 
 .btn-icon {
@@ -616,7 +616,7 @@ h1 {
 .membership-cta .btn-secondary {
   background: white;
   color: var(--primary);
-  border-color: white;
+  border-color: var(--primary-dark);
 }
 
 .membership-cta .btn-secondary:hover {
@@ -841,8 +841,8 @@ textarea:focus {
   }
 }
 
-/* High contrast mode */
-@media (prefers-contrast: high) {
+/* High contrast mode - CORREGIDO: usar 'more' en lugar de 'high' */
+@media (prefers-contrast: more) {
   :root {
     --primary: #0000ff;
     --text: #000000;
@@ -863,10 +863,10 @@ textarea:focus {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
   }
   
   .card:hover,
