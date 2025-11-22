@@ -195,6 +195,8 @@ h1 {
 .btn-primary {
   background: var(--primary);
   color: white;
+  border-color: white;
+
 }
 
 .btn-primary:hover,
@@ -206,14 +208,16 @@ h1 {
 
 .btn-secondary {
   background: transparent;
-  color: var(--primary);
-  border-color: var(--primary);
+  color: white;
+  border-color: white;
+
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background: var(--primary);
-  color: white;
+  background:white ;
+  color: var(--primary);
+
 }
 
 /* Features grid */
