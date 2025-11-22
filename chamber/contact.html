@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Your City Chamber of Commerce</title>
+  <meta name="description" content="Contact Your City Chamber of Commerce for membership information, event inquiries, and business support services.">
+  <meta name="author" content="Tu Nombre - WDD231">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Contact — Your City Chamber of Commerce" />
+  <meta property="og:description" content="Get in touch with Your City Chamber of Commerce for membership and business support." />
+  <meta property="og:image" content="https://tuusuario.github.io/wdd231/chamber/images/og-image.jpg" />
+  <meta property="og:url" content="https://tuusuario.github.io/wdd231/chamber/contact.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Your City Chamber" />
+  <meta name="twitter:description" content="Get in touch with Your City Chamber of Commerce." />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/chamber.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="logo">
+        <a href="index.html" aria-label="Your City Chamber of Commerce homepage">
+          <span class="logo-text">YourCity Chamber</span>
+        </a>
+      </div>
+      <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+        <span class="menu-icon">☰</span>
+      </button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="wrap">
+    <h1>Contact Us</h1>
+    <p class="page-description">Get in touch with the Your City Chamber of Commerce. We're here to support your business and our community.</p>
+
+    <div class="contact-grid">
+      <section class="contact-info">
+        <h2>Our Information</h2>
+        <div class="contact-item">
+          <h3>📍 Address</h3>
+          <p>123 Main Street<br>Your City, YC 12345</p>
+        </div>
+        <div class="contact-item">
+          <h3>📞 Phone</h3>
+          <p>(123) 456-7890</p>
+        </div>
+        <div class="contact-item">
+          <h3>✉️ Email</h3>
+          <p>info@yourcitychamber.example</p>
+        </div>
+        <div class="contact-item">
+          <h3>🕒 Office Hours</h3>
+          <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+        </div>
+      </section>
+
+      <section class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="business">Business Name</label>
+            <input type="text" id="business" name="business">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a topic...</option>
+              <option value="membership">Membership Inquiry</option>
+              <option value="event">Event Information</option>
+              <option value="support">Business Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="membership-cta">
+      <h2>Interested in Membership?</h2>
+      <p>Join the Your City Chamber of Commerce and connect with local businesses, access resources, and grow your network.</p>
+      <a href="directory.html" class="btn btn-secondary">View Member Benefits</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Information</h3>
+          <p>Email: info@yourcitychamber.example</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Main Street, Your City</p>
+        </div>
+        <div class="footer-section">
+          <h3>Development Info</h3>
+          <p>Tu Nombre | WDD 231</p>
+          <p id="lastModified">Last modified: Loading...</p>
+          <p>&copy; <span id="currentYear"></span> Your City Chamber of Commerce</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+</body>
+</html>
