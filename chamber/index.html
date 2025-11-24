@@ -10,7 +10,7 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Arequipa Chamber of Commerce" />
   <meta property="og:description" content="Supporting local businesses and economic growth in Arequipa, Peru since 1990." />
-  <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/chamber/images/chamber-logo.png" />
+  <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/chamber/images/hero-image.jpg" />
   <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/chamber/index.html" />
   <meta property="og:type" content="website" />
 
@@ -49,9 +49,8 @@
   </header>
 
   <main id="main-content" class="wrap">
-    <h1>Arequipa Chamber of Commerce</h1>
-    
-    <section class="hero">
+    <!-- Hero Section with Image -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 68, 148, 0.8)), url('images/hero-image.jpg');">
       <div class="hero-content">
         <h2>Building Arequipa's Economic Future Together</h2>
         <p>For over 30 years, we've been connecting businesses, fostering innovation, and driving economic growth across the Arequipa region.</p>
@@ -62,6 +61,118 @@
       </div>
     </section>
 
+    <!-- Current Events Section -->
+    <section class="current-events" aria-labelledby="events-heading">
+      <h2 id="events-heading" class="section-title">Current Events</h2>
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-date">
+            <span class="event-month">NOV</span>
+            <span class="event-day">15</span>
+          </div>
+          <div class="event-details">
+            <h3>Monthly Business Networking Mixer</h3>
+            <p class="event-time">🕒 6:00 PM - 8:30 PM</p>
+            <p class="event-description">Connect with fellow chamber members and business leaders in Arequipa.</p>
+          </div>
+        </article>
+        
+        <article class="event-card">
+          <div class="event-date">
+            <span class="event-month">NOV</span>
+            <span class="event-day">22</span>
+          </div>
+          <div class="event-details">
+            <h3>Digital Marketing Workshop</h3>
+            <p class="event-time">🕒 9:00 AM - 1:00 PM</p>
+            <p class="event-description">Learn effective digital marketing strategies for SMEs in Arequipa.</p>
+          </div>
+        </article>
+      </div>
+      <div class="events-cta">
+        <a href="events.html" class="btn btn-secondary">View All Events</a>
+      </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather-section" aria-labelledby="weather-heading">
+      <h2 id="weather-heading" class="section-title">Arequipa Weather</h2>
+      <div class="weather-container">
+        <div class="current-weather">
+          <h3>Current Weather</h3>
+          <div class="weather-display">
+            <div class="weather-icon">☀️</div>
+            <div class="weather-info">
+              <span class="temperature">22°C</span>
+              <span class="conditions">Sunny</span>
+            </div>
+          </div>
+          <div class="weather-details">
+            <p>Humidity: 45%</p>
+            <p>Wind: 15 km/h</p>
+          </div>
+        </div>
+        
+        <div class="weather-forecast">
+          <h3>3-Day Forecast</h3>
+          <div class="forecast-grid">
+            <div class="forecast-day">
+              <span class="day">Tomorrow</span>
+              <span class="forecast-temp">23°C</span>
+              <span class="forecast-condition">☀️</span>
+            </div>
+            <div class="forecast-day">
+              <span class="day">Wed</span>
+              <span class="forecast-temp">21°C</span>
+              <span class="forecast-condition">⛅</span>
+            </div>
+            <div class="forecast-day">
+              <span class="day">Thu</span>
+              <span class="forecast-temp">20°C</span>
+              <span class="forecast-condition">🌧️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Spotlights Section -->
+    <section class="spotlights" aria-labelledby="spotlights-heading">
+      <h2 id="spotlights-heading" class="section-title">Featured Businesses</h2>
+      <div class="spotlight-grid">
+        <article class="spotlight-card">
+          <img src="images/member1.jpg" alt="Soluciones Tech - IT consulting services" loading="lazy">
+          <div class="spotlight-content">
+            <h3>Soluciones Tech</h3>
+            <p class="spotlight-description">Leading IT consulting and software development for Arequipa businesses since 2012.</p>
+            <div class="spotlight-badge gold">Gold Member</div>
+            <a href="directory.html" class="btn btn-primary">Learn More</a>
+          </div>
+        </article>
+        
+        <article class="spotlight-card">
+          <img src="images/member5.jpg" alt="Transporte Rápido logistics services" loading="lazy">
+          <div class="spotlight-content">
+            <h3>Transporte Rápido</h3>
+            <p class="spotlight-description">Reliable logistics and delivery services throughout Arequipa and southern Peru.</p>
+            <div class="spotlight-badge gold">Gold Member</div>
+            <a href="directory.html" class="btn btn-primary">Learn More</a>
+          </div>
+        </article>
+        
+        <article class="spotlight-card">
+          <img src="images/member2.jpg" alt="Cafetería La Plaza coffee shop" loading="lazy">
+          <div class="spotlight-content">
+            <h3>Cafetería La Plaza</h3>
+            <p class="spotlight-description">Traditional coffee house featuring organic coffee from Arequipa valleys.</p>
+            <div class="spotlight-badge silver">Silver Member</div>
+            <a href="directory.html" class="btn btn-primary">Learn More</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Existing Features Section -->
     <section class="features">
       <h2 class="section-title">Why Join Arequipa Chamber?</h2>
       <div class="feature-grid">
@@ -83,6 +194,7 @@
       </div>
     </section>
 
+    <!-- Existing Stats Section -->
     <section class="stats-section">
       <h2 class="section-title">Our Impact in Arequipa</h2>
       <div class="stats-grid">
