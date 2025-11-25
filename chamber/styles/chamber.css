@@ -159,7 +159,7 @@ h1 {
 /* ===== HERO SECTION OPTIMIZED ===== */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 87, 179, 0.95) 0%, rgba(0, 69, 148, 0.9) 100%), 
+  background: linear-gradient(135deg, rgba(0, 87, 179, 0.98) 0%, rgba(0, 69, 148, 0.95) 100%), 
               url('images/hero-aqp.jpg') center/cover no-repeat;
   color: white;
   padding: 3rem 1.5rem;
@@ -189,7 +189,7 @@ h1 {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-  color: #f8f9fa;
+  color: #f0f0f0;
 }
 
 .hero-actions {
@@ -889,6 +889,11 @@ h1 {
   font-size: 1.5rem;
 }
 
+.cta-section p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
 /* Contact page styles */
 .contact-grid {
   display: grid;
@@ -916,6 +921,11 @@ h1 {
   color: var(--primary);
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
+}
+
+.contact-item p {
+  color: var(--text);
+  margin: 0;
 }
 
 .form-group {
@@ -962,6 +972,11 @@ h1 {
   margin-bottom: 1rem;
   color: white;
   font-size: 1.375rem;
+}
+
+.membership-cta p {
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
 }
 
 .membership-cta .action-secondary {
@@ -1017,6 +1032,7 @@ h1 {
   margin: 0.5rem 0;
   opacity: 0.9;
   font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Focus styles */
@@ -1335,4 +1351,53 @@ img {
     min-height: auto;
     padding: 1rem;
   }
+}
+
+/* ===== CORRECCIONES ESPECÍFICAS DE CONTRASTE ===== */
+
+/* Asegurar que todos los textos tengan suficiente contraste */
+.hero-content p {
+  color: #f0f0f0 !important;
+}
+
+/* Corregir cualquier elemento que use colores muy claros como texto */
+.contact-item p,
+.footer-section p,
+.cta-section p,
+.membership-cta p {
+  color: var(--text) !important;
+}
+
+.membership-cta p {
+  color: #f0f0f0 !important;
+}
+
+.footer-section p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Asegurar que ningún texto use var(--card) como color */
+* {
+  color: var(--text);
+}
+
+/* Excepciones para elementos que deben mantener colores específicos */
+.hero *,
+.hero-content *,
+.action-secondary,
+.membership-cta *,
+.site-footer * {
+  color: inherit;
+}
+
+.loading-state,
+.error-state,
+.weather-error,
+.weather-detail .label,
+.event-time,
+.current-events .event-time,
+.page-description,
+.stat-label,
+.forecast-note small {
+  color: var(--text-muted) !important;
 }
