@@ -1,4 +1,4 @@
-// scripts/weather.js - OpenWeatherMap Current Weather API Integration
+// scripts/weather.js - OpenWeatherMap Current Weather and Forecast API Integration
 (function() {
   'use strict';
   
@@ -18,21 +18,21 @@
       currentWeatherEl.innerHTML = '<div class="loading-weather">Cargando clima actual...</div>';
       weatherForecastEl.innerHTML = '<div class="loading-weather">Cargando pronóstico...</div>';
       
-      // Fetch current weather using city name
-      const currentResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY}&units=${UNITS}&lang=${LANG}&appid=${API_KEY}`
-      );
+      // Fetch current weather and 5-day forecast in parallel
+      const [currentResponse, forecastResponse] = await Promise.all([
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY}&units=${UNITS}&lang=${LANG}&appid=${API_KEY}`),
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY},${COUNTRY}&units=${UNITS}&lang=${LANG}&appid=${API_KEY}`)
+      ]);
       
-      if (!currentResponse.ok) {
-        throw new Error(`Weather API error: ${currentResponse.status} ${currentResponse.statusText}`);
+      if (!currentResponse.ok || !forecastResponse.ok) {
+        throw new Error(`API error: ${currentResponse.status} ${forecastResponse.status}`);
       }
       
       const currentData = await currentResponse.json();
+      const forecastData = await forecastResponse.json();
       
-      // For 3-day forecast, we'll use the same current data and create a simple forecast
-      // since the free tier doesn't include detailed forecast
       displayCurrentWeather(currentData);
-      displaySimpleForecast(currentData);
+      displayRealForecast(forecastData);
       
     } catch (error) {
       console.error('Error fetching weather data:', error);
@@ -47,7 +47,7 @@
     const windSpeed = data.wind.speed;
     const feelsLike = Math.round(data.main.feels_like);
     const pressure = data.main.pressure;
-    const visibility = data.visibility / 1000; // Convert to km
+    const visibility = data.visibility / 1000;
     
     currentWeatherEl.innerHTML = `
       <div class="weather-main">
@@ -90,40 +90,22 @@
     `;
   }
   
-  function displaySimpleForecast(currentData) {
-    // Create a simple 3-day forecast based on current conditions
-    // This is a simulation since free API doesn't include detailed forecast
-    const baseTemp = Math.round(currentData.main.temp);
-    const baseDescription = currentData.weather[0].description;
+  function displayRealForecast(forecastData) {
+    // Process 5-day forecast data to get 3-day forecast
+    const dailyForecasts = getThreeDayForecast(forecastData.list);
     
-    const forecastDays = [];
-    const today = new Date();
-    
-    for (let i = 1; i <= 3; i++) {
-      const forecastDate = new Date(today);
-      forecastDate.setDate(today.getDate() + i);
-      
-      // Simulate temperature variations (±3 degrees)
-      const tempVariation = Math.round((Math.random() * 6) - 3);
-      const forecastTemp = baseTemp + tempVariation;
-      
-      // Simulate different weather conditions
-      const conditions = [
-        'soleado', 'parcialmente nublado', 'nublado', 
-        'lluvia ligera', 'despejado'
-      ];
-      const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
-      
-      forecastDays.push({
-        date: forecastDate,
-        temp: forecastTemp,
-        condition: randomCondition
-      });
+    if (dailyForecasts.length === 0) {
+      weatherForecastEl.innerHTML = `
+        <div class="weather-error">
+          No se pudo cargar el pronóstico extendido
+        </div>
+      `;
+      return;
     }
     
     weatherForecastEl.innerHTML = `
       <div class="forecast-days">
-        ${forecastDays.map(day => `
+        ${dailyForecasts.map(day => `
           <div class="forecast-day">
             <span class="forecast-date">${formatForecastDate(day.date)}</span>
             <span class="forecast-temp">${day.temp}°C</span>
@@ -132,9 +114,73 @@
         `).join('')}
       </div>
       <div class="forecast-note">
-        <small>* Pronóstico simulado basado en condiciones actuales</small>
+        <small>* Pronóstico oficial de OpenWeatherMap</small>
       </div>
     `;
+  }
+  
+  function getThreeDayForecast(forecastList) {
+    const dailyForecasts = [];
+    const processedDays = new Set();
+    
+    // Get today's date for comparison
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    for (const forecast of forecastList) {
+      const forecastDate = new Date(forecast.dt * 1000);
+      const dayKey = forecastDate.toDateString();
+      
+      // Skip today and already processed days
+      if (forecastDate <= today || processedDays.has(dayKey)) {
+        continue;
+      }
+      
+      // We want forecasts around midday for representative temperatures
+      if (forecastDate.getHours() >= 10 && forecastDate.getHours() <= 14) {
+        dailyForecasts.push({
+          date: forecastDate,
+          temp: Math.round(forecast.main.temp),
+          condition: forecast.weather[0].description
+        });
+        
+        processedDays.add(dayKey);
+        
+        // Stop when we have 3 days
+        if (dailyForecasts.length >= 3) {
+          break;
+        }
+      }
+    }
+    
+    // If we don't have 3 midday forecasts, take the first available for each day
+    if (dailyForecasts.length < 3) {
+      processedDays.clear();
+      dailyForecasts.length = 0;
+      
+      for (const forecast of forecastList) {
+        const forecastDate = new Date(forecast.dt * 1000);
+        const dayKey = forecastDate.toDateString();
+        
+        if (forecastDate <= today || processedDays.has(dayKey)) {
+          continue;
+        }
+        
+        dailyForecasts.push({
+          date: forecastDate,
+          temp: Math.round(forecast.main.temp),
+          condition: forecast.weather[0].description
+        });
+        
+        processedDays.add(dayKey);
+        
+        if (dailyForecasts.length >= 3) {
+          break;
+        }
+      }
+    }
+    
+    return dailyForecasts;
   }
   
   function formatForecastDate(date) {
@@ -155,92 +201,13 @@
     weatherForecastEl.innerHTML = `<div class="weather-error">${message}</div>`;
   }
   
-  // Fallback demo data in case API fails
-  function loadDemoWeather() {
-    console.log('Using demo weather data as fallback');
-    
-    const currentDate = new Date();
-    
-    // Demo current weather
-    currentWeatherEl.innerHTML = `
-      <div class="weather-main">
-        <div class="weather-temp">22°C</div>
-        <div class="weather-desc">parcialmente nublado</div>
-        <div class="weather-location">📍 Arequipa, PE</div>
-      </div>
-      <div class="weather-details">
-        <div class="weather-detail">
-          <span class="label">Sensación</span>
-          <span class="value">21°C</span>
-        </div>
-        <div class="weather-detail">
-          <span class="label">Humedad</span>
-          <span class="value">45%</span>
-        </div>
-        <div class="weather-detail">
-          <span class="label">Viento</span>
-          <span class="value">3.2 m/s</span>
-        </div>
-        <div class="weather-detail">
-          <span class="label">Presión</span>
-          <span class="value">1015 hPa</span>
-        </div>
-        <div class="weather-detail">
-          <span class="label">Visibilidad</span>
-          <span class="value">10 km</span>
-        </div>
-        <div class="weather-detail">
-          <span class="label">Mínima</span>
-          <span class="value">18°C</span>
-        </div>
-        <div class="weather-detail">
-          <span class="label">Máxima</span>
-          <span class="value">25°C</span>
-        </div>
-      </div>
-    `;
-    
-    // Demo 3-day forecast
-    const demoForecast = [];
-    for (let i = 1; i <= 3; i++) {
-      const date = new Date(currentDate);
-      date.setDate(currentDate.getDate() + i);
-      demoForecast.push({
-        date: date,
-        temp: 20 + Math.floor(Math.random() * 5),
-        condition: ['soleado', 'parcialmente nublado', 'nublado'][i % 3]
-      });
-    }
-    
-    weatherForecastEl.innerHTML = `
-      <div class="forecast-days">
-        ${demoForecast.map(day => `
-          <div class="forecast-day">
-            <span class="forecast-date">${formatForecastDate(day.date)}</span>
-            <span class="forecast-temp">${day.temp}°C</span>
-            <span class="forecast-condition">${day.condition}</span>
-          </div>
-        `).join('')}
-      </div>
-      <div class="forecast-note">
-        <small>* Datos de demostración</small>
-      </div>
-    `;
-  }
-  
   // Initialize weather when DOM is loaded
   function initWeather() {
-    if (API_KEY && API_KEY !== '4161701363130adfe0d53c363fcc9d47') {
-      fetchWeatherData().catch(error => {
-        console.error('Weather API failed, using demo data:', error);
-        loadDemoWeather();
-      });
-    } else {
-      fetchWeatherData().catch(error => {
-        console.error('Weather API failed, using demo data:', error);
-        loadDemoWeather();
-      });
-    }
+    fetchWeatherData().catch(error => {
+      console.error('Weather API failed:', error);
+      // Don't load demo data - show error instead for transparency
+      showWeatherError('Servicio de clima temporalmente no disponible');
+    });
   }
   
   if (document.readyState === 'loading') {

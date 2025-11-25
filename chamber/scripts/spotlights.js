@@ -1,4 +1,4 @@
-// scripts/spotlights.js - Random Gold/Silver Member Spotlights
+// scripts/spotlights.js - Enhanced Random Gold/Silver Member Spotlights
 (function() {
   'use strict';
   
@@ -39,12 +39,23 @@
       return;
     }
     
-    // Randomly select 2-3 members
-    const numToShow = Math.random() > 0.5 ? 3 : 2; // 50% chance for 2 or 3
-    const shuffled = [...eligibleMembers].sort(() => 0.5 - Math.random());
-    const selectedMembers = shuffled.slice(0, Math.min(numToShow, eligibleMembers.length));
+    // Enhanced random selection with Fisher-Yates shuffle
+    const shuffledMembers = shuffleArray([...eligibleMembers]);
+    
+    // Select 2-3 members (prefer 3 if available, otherwise 2)
+    const numToShow = Math.min(shuffledMembers.length, Math.random() > 0.3 ? 3 : 2);
+    const selectedMembers = shuffledMembers.slice(0, numToShow);
     
     renderSpotlightCards(selectedMembers);
+  }
+  
+  function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
   }
   
   function renderSpotlightCards(members) {
@@ -70,10 +81,10 @@
     img.src = `images/${member.image}`;
     img.alt = `${member.name} logo`;
     img.loading = 'lazy';
-    img.width = 120;
-    img.height = 120;
+    img.width = 100;
+    img.height = 100;
     img.onerror = function() {
-      this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRjhGOUZBIi8+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjMwIiBmaWxsPSIjREVERkRGIi8+Cjx0ZXh0IHg9IjYwIiB5PSI2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E1QTVBNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5Mb2dvPC90ZXh0Pgo8L3N2Zz4K';
+      this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjhGOUZBIi8+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjI1IiBmaWxsPSIjREVERkRGIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E1QTVBNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj5Mb2dvPC90ZXh0Pgo8L3N2Zz4K';
       this.alt = 'Default business logo';
     };
     
@@ -92,7 +103,7 @@
     phone.innerHTML = `<strong>Phone:</strong> ${member.phone}`;
     
     const address = document.createElement('p');
-    address.innerHTML = `<strong>Address:</strong> ${member.address.split(',')[0]}`; // Shorten address
+    address.innerHTML = `<strong>Address:</strong> ${member.address.split(',')[0]}`;
     
     // Create website link
     const websiteLink = document.createElement('a');
