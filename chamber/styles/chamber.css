@@ -184,7 +184,7 @@ h1 {
   color: var(--text-main);
   text-decoration: none;
   padding: 0.5rem 0.25rem;
-  border-bottom: 3px solid transparent; /* FIX: Subrayado más grueso para mejor estética */
+  border-bottom: 3px solid transparent; 
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -242,14 +242,17 @@ h1 {
   transition: all 0.3s ease;
 }
 
-/* Primary Button - Enforced White Text for Contrast */
-.action-primary, .btn-primary {
+/* FIX: Primary Button - Use hex color explicitly and add link specificity to ensure WCAG AA contrast */
+.action-primary, 
+.btn-primary, 
+a.action-primary, 
+a.btn-primary {
   background: var(--primary);
-  color: var(--text-inverse) !important; 
+  color: #ffffff !important; /* Use pure white hex value to guarantee contrast */
   border-color: var(--text-inverse);
 }
 
-.action-primary:hover, .btn-primary:hover {
+.action-primary:hover, .btn-primary:hover, a.action-primary:hover, a.btn-primary:hover {
   background: var(--primary-dark);
   box-shadow: 0 4px 12px var(--shadow);
 }
@@ -547,7 +550,6 @@ h1 {
   margin: 2.5rem 0;
 }
 
-/* FIXED: Consolidate duplicate .membership-cta p rule into a single one */
 .membership-cta h2 { color: var(--text-inverse); margin-bottom: 1rem; font-size: 1.375rem; }
 .membership-cta p { 
   color: var(--bg-alt); 
@@ -585,7 +587,7 @@ h1 {
 .footer-section h3 { color: var(--text-inverse); margin-bottom: 0.875rem; }
 
 .footer-section p { 
-  color: rgba(var(--text-inverse-rgb), 0.9); 
+  color: var(--text-inverse); /* FIX: Asegura pure white para un contraste máximo 21:1 */
   font-size: 0.9rem;
   margin: 0.5rem 0;
 }
@@ -614,8 +616,6 @@ textarea:focus {
 }
 
 /* === MEDIA QUERIES === */
-
-/* FIX: Aumentar padding lateral en escritorio para dar más espacio visual (Aesthetic Polish) */
 @media (min-width: 1024px) {
   .wrap {
     padding: 1rem 2.5rem;
