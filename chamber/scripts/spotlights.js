@@ -111,7 +111,7 @@
     websiteLink.textContent = 'Visit Website';
     websiteLink.target = '_blank';
     websiteLink.rel = 'noopener noreferrer';
-    websiteLink.className = 'website';
+    websiteLink.className = 'website-link';
     
     // Create membership badge
     const badge = document.createElement('span');

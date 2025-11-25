@@ -68,7 +68,7 @@ function renderMembers(members) {
 
 function createMemberCard(member, index) {
   const card = document.createElement('article');
-  card.className = 'card';
+  card.className = 'business-card';
   card.setAttribute('data-membership', getMembershipLevel(member.membership).toLowerCase());
   card.setAttribute('aria-labelledby', `member-title-${index}`);
   
@@ -114,7 +114,7 @@ function createMemberCard(member, index) {
   websiteLink.textContent = 'Visit Website';
   websiteLink.target = '_blank';
   websiteLink.rel = 'noopener noreferrer';
-  websiteLink.className = 'website';
+  websiteLink.className = 'website-link';
   websiteLink.setAttribute('aria-label', `Visit ${member.name} website`);
 
   // Create membership badge
@@ -148,7 +148,7 @@ function showErrorState(message) {
   directory.innerHTML = `
     <div class="error-state" role="alert" aria-live="assertive">
       <p>${message}</p>
-      <button onclick="fetchMembers()" class="btn btn-primary" style="margin-top: 1rem;">
+      <button onclick="fetchMembers()" class="action-button action-primary" style="margin-top: 1rem;">
         Try Again
       </button>
     </div>
