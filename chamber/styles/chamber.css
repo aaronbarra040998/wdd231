@@ -242,13 +242,13 @@ h1 {
   transition: all 0.3s ease;
 }
 
-/* FIX: Primary Button - Use hex color explicitly and add link specificity to ensure WCAG AA contrast */
-.action-primary, 
-.btn-primary, 
-a.action-primary, 
+/* FIX: Primary Button - REINFORCING SELECTORS for WCAG AA Contrast (Fixing 2.44:1 violation) */
+.action-button.action-primary, 
+a.action-button.action-primary, 
+.btn.btn-primary, 
 a.btn-primary {
   background: var(--primary);
-  color: #ffffff !important; /* Use pure white hex value to guarantee contrast (Fixing 2.44:1 violation) */
+  color: #ffffff !important; /* Ensure pure white text (#ffffff) to guarantee contrast */
   border-color: var(--text-inverse);
 }
 
@@ -274,10 +274,12 @@ a.btn-primary {
   position: relative;
   /* WCAG FIX: Explicit dark background color behind image */
   background-color: var(--primary-dark);
-  background-image: linear-gradient(135deg, rgba(0, 87, 179, 0.98) 0%, rgba(0, 69, 148, 0.95) 100%), 
-                    url('images/hero-aqp.jpg');
+  /* Use a semi-transparent overlay so the background photo is visible and fix relative path */
+  background-image: linear-gradient(135deg, rgba(0, 87, 179, 0.079) 0%, rgba(0, 69, 148, 0.35) 100%), url('../images/hero-aqp.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
   color: var(--text-inverse);
   padding: 3rem 1.5rem;
   border-radius: var(--radius);
@@ -301,7 +303,7 @@ a.btn-primary {
 .hero-content p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
-  color: var(--text-inverse); /* FIX: Changed from var(--bg-alt) to var(--text-inverse) to resolve 1.14:1 violation if inherited on white background. */
+  color: var(--text-inverse); /* FIX: Now uses pure white text color for high contrast */
   text-shadow: 2px 2px 8px var(--text-shadow);
 }
 
