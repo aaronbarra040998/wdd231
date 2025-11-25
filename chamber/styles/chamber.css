@@ -284,11 +284,13 @@ h1 {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
+  color: #ffffff;
 }
 
 .current-events .event-day {
   font-size: 1.25rem;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .current-events .event-details h3 {
@@ -836,11 +838,13 @@ h1 {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
+  color: #ffffff;
 }
 
 .event-day {
   font-size: 1.25rem;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .event-details h2 {
@@ -1032,7 +1036,7 @@ h1 {
   margin: 0.5rem 0;
   opacity: 0.9;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* Focus styles */
@@ -1353,7 +1357,7 @@ img {
   }
 }
 
-/* ===== CORRECCIONES ESPECÍFICAS DE CONTRASTE ===== */
+/* ===== CORRECCIONES ESPECÍFICAS DE CONTRASTE WCAG AA ===== */
 
 /* Asegurar que todos los textos tengan suficiente contraste */
 .hero-content p {
@@ -1373,7 +1377,7 @@ img {
 }
 
 .footer-section p {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 /* Asegurar que ningún texto use var(--card) como color */
@@ -1400,4 +1404,45 @@ img {
 .stat-label,
 .forecast-note small {
   color: var(--text-muted) !important;
+}
+
+/* ===== CORRECCIONES ESPECÍFICAS DE CONTRASTE WCAG AA ===== */
+
+/* Corregir event-month que tiene texto negro sobre fondo azul */
+.current-events .event-month,
+.current-events .event-day,
+.event-month,
+.event-day {
+  color: #ffffff !important; /* Forzar texto blanco sobre fondo azul */
+}
+
+/* Asegurar que ningún texto use colores iguales al fondo */
+.hero * {
+  color: #ffffff !important; /* Texto siempre blanco en el hero */
+}
+
+.hero p {
+  color: #f0f0f0 !important; /* Un poco más suave pero con buen contraste */
+}
+
+/* Prevenir texto negro sobre fondos oscuros */
+.site-footer p {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Asegurar contraste en todos los textos principales */
+body, p, h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+/* Contraste específico para texto sobre primary */
+.action-secondary, 
+.menu-btn[aria-expanded="true"] .menu-icon {
+  color: #ffffff !important;
+}
+
+/* Garantizar contraste en elementos de fecha de eventos */
+.event-date,
+.event-date * {
+  color: #ffffff !important;
 }
