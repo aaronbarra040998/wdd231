@@ -248,7 +248,7 @@ h1 {
 a.action-primary, 
 a.btn-primary {
   background: var(--primary);
-  color: #ffffff !important; /* Use pure white hex value to guarantee contrast */
+  color: #ffffff !important; /* Use pure white hex value to guarantee contrast (Fixing 2.44:1 violation) */
   border-color: var(--text-inverse);
 }
 
@@ -301,7 +301,7 @@ a.btn-primary {
 .hero-content p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
-  color: var(--bg-alt); 
+  color: var(--text-inverse); /* FIX: Changed from var(--bg-alt) to var(--text-inverse) to resolve 1.14:1 violation if inherited on white background. */
   text-shadow: 2px 2px 8px var(--text-shadow);
 }
 
@@ -587,7 +587,7 @@ a.btn-primary {
 .footer-section h3 { color: var(--text-inverse); margin-bottom: 0.875rem; }
 
 .footer-section p { 
-  color: var(--text-inverse); /* FIX: Asegura pure white para un contraste máximo 21:1 */
+  color: var(--text-inverse); 
   font-size: 0.9rem;
   margin: 0.5rem 0;
 }
