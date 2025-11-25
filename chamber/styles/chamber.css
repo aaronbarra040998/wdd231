@@ -1,4 +1,4 @@
-/* styles/chamber.css - Optimized for performance and accessibility */
+/* styles/chamber.css - Chamber of Commerce Custom Styles */
 :root {
   --primary: #0056b3;
   --primary-dark: #004494;
@@ -156,7 +156,7 @@ h1 {
   max-width: 600px;
 }
 
-/* ===== HERO SECTION OPTIMIZED ===== */
+/* Hero Section */
 .hero {
   position: relative;
   background: linear-gradient(135deg, rgba(0, 87, 179, 0.9) 0%, rgba(0, 69, 148, 0.85) 100%), 
@@ -181,13 +181,13 @@ h1 {
 .hero-content h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-content p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-actions {
@@ -237,7 +237,7 @@ h1 {
   color: var(--primary);
 }
 
-/* ===== CURRENT EVENTS SECTION ===== */
+/* Current Events Section */
 .current-events {
   margin: 2.5rem 0;
 }
@@ -307,7 +307,7 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* ===== WEATHER SECTION OPTIMIZED ===== */
+/* Weather Section */
 .weather-section {
   margin: 2.5rem 0;
 }
@@ -472,7 +472,7 @@ h1 {
   margin: 1rem 0;
 }
 
-/* ===== COMPANY SPOTLIGHTS SECTION ===== */
+/* Company Spotlights Section */
 .spotlights-section {
   margin: 2.5rem 0;
 }
@@ -1333,43 +1333,4 @@ img {
     min-height: auto;
     padding: 1rem;
   }
-}
-
-/* ===== CORRECCIONES ESPECÍFICAS PARA AUDITORÍA ===== */
-
-/* Eliminar detección falsa de Bootstrap - clases personalizadas */
-.logo-text, .btn, .card, .feature-card, .spotlight-card, .event-card {
-  /* Estas son clases CSS personalizadas, no de Bootstrap */
-}
-
-/* Mejorar contraste en hero section */
-.hero {
-  background: linear-gradient(135deg, rgba(0, 87, 179, 0.9) 0%, rgba(0, 69, 148, 0.85) 100%), 
-              url('images/hero-aqp.jpg') center/cover no-repeat;
-}
-
-/* Asegurar que el texto en hero tenga suficiente contraste */
-.hero-content h2,
-.hero-content p {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-/* Optimización CSS - reducir selectores duplicados */
-.site-header, .header-inner, .logo, .main-nav {
-  /* Estilos ya consolidados */
-}
-
-/* Simplificar reglas CSS repetitivas */
-.weather-detail, .forecast-day, .event-date {
-  /* Estilos unificados */
-}
-
-/* Remover cualquier estilo que pueda confundirse con Bootstrap */
-.container, .row, .col, .navbar, .btn-success, .btn-info {
-  /* No existen en nuestro CSS - son clases personalizadas */
-}
-
-/* Mejorar especificidad para evitar falsos positivos */
-[class*="btn-"]:not(.btn-primary):not(.btn-secondary) {
-  /* Solo nuestras clases btn personalizadas */
 }
