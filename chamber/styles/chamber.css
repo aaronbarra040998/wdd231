@@ -19,11 +19,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: var(--text);
 }
 
 body {
   font-family: 'Inter', Arial, sans-serif;
-  color: var(--text);
   background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
@@ -145,7 +145,6 @@ body {
 h1 {
   font-size: 2.25rem;
   margin: 2rem 0 1rem;
-  color: var(--text);
   line-height: 1.2;
 }
 
@@ -280,33 +279,40 @@ h1 {
   flex-shrink: 0;
 }
 
-.current-events .event-month {
+.current-events .event-month,
+.current-events .event-day,
+.event-month,
+.event-day {
+  color: #ffffff;
+}
+
+.current-events .event-month,
+.event-month {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #ffffff;
 }
 
-.current-events .event-day {
+.current-events .event-day,
+.event-day {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ffffff;
 }
 
 .current-events .event-details h3 {
-  color: var(--text);
   margin-bottom: 0.5rem;
   font-size: 1.125rem;
 }
 
-.current-events .event-time {
+.current-events .event-time,
+.event-time {
   color: var(--text-muted);
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
 
-.current-events .event-description {
-  color: var(--text);
+.current-events .event-description,
+.event-description {
   line-height: 1.5;
   font-size: 0.95rem;
 }
@@ -357,7 +363,6 @@ h1 {
 
 .weather-main .weather-desc {
   font-size: 1.125rem;
-  color: var(--text);
   text-transform: capitalize;
   margin-bottom: 0.5rem;
 }
@@ -398,7 +403,6 @@ h1 {
 .weather-detail .value {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text);
   display: block;
 }
 
@@ -427,7 +431,6 @@ h1 {
 
 .forecast-date {
   font-weight: 600;
-  color: var(--text);
   text-align: left;
   font-size: 0.9rem;
 }
@@ -515,7 +518,6 @@ h1 {
 
 .spotlight-card h3 {
   margin: 0.5rem 0;
-  color: var(--text);
   font-size: 1.125rem;
 }
 
@@ -701,7 +703,6 @@ h1 {
 
 .business-card h3 {
   margin: 0.5rem 0;
-  color: var(--text);
   font-size: 1.0625rem;
   line-height: 1.3;
 }
@@ -834,35 +835,9 @@ h1 {
   text-align: center;
 }
 
-.event-month {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.event-day {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
 .event-details h2 {
-  color: var(--text);
   margin-bottom: 0.5rem;
   font-size: 1.125rem;
-}
-
-.event-time {
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.event-description {
-  color: var(--text);
-  line-height: 1.5;
-  font-size: 0.95rem;
 }
 
 .event-tag {
@@ -889,7 +864,6 @@ h1 {
 
 .cta-section h2 {
   margin-bottom: 1rem;
-  color: var(--text);
   font-size: 1.5rem;
 }
 
@@ -909,7 +883,6 @@ h1 {
 .contact-info h2,
 .contact-form h2 {
   margin-bottom: 1.25rem;
-  color: var(--text);
   font-size: 1.375rem;
 }
 
@@ -928,7 +901,6 @@ h1 {
 }
 
 .contact-item p {
-  color: var(--text);
   margin: 0;
 }
 
@@ -940,7 +912,6 @@ h1 {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: var(--text);
   font-size: 0.9rem;
 }
 
@@ -1053,7 +1024,6 @@ textarea:focus {
 .section-title {
   text-align: center;
   margin: 2.5rem 0 1.5rem;
-  color: var(--text);
   font-size: 1.625rem;
 }
 
@@ -1359,90 +1329,43 @@ img {
 
 /* ===== CORRECCIONES ESPECÍFICAS DE CONTRASTE WCAG AA ===== */
 
-/* Asegurar que todos los textos tengan suficiente contraste */
-.hero-content p {
-  color: #f0f0f0 !important;
+/* Asegurar contraste en elementos específicos */
+.hero * {
+  color: #ffffff;
 }
 
-/* Corregir cualquier elemento que use colores muy claros como texto */
-.contact-item p,
-.footer-section p,
-.cta-section p,
+.hero p {
+  color: #f0f0f0;
+}
+
+.membership-cta * {
+  color: white;
+}
+
 .membership-cta p {
-  color: var(--text) !important;
+  color: #f0f0f0;
 }
 
-.membership-cta p {
-  color: #f0f0f0 !important;
-}
-
-.footer-section p {
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Asegurar que ningún texto use var(--card) como color */
-* {
-  color: var(--text);
-}
-
-/* Excepciones para elementos que deben mantener colores específicos */
-.hero *,
-.hero-content *,
-.action-secondary,
-.membership-cta *,
 .site-footer * {
-  color: inherit;
+  color: white;
 }
 
+.site-footer p {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Garantizar contraste en elementos de eventos */
+.event-date * {
+  color: #ffffff;
+}
+
+/* Elementos que deben mantener colores muted */
 .loading-state,
 .error-state,
 .weather-error,
 .weather-detail .label,
-.event-time,
-.current-events .event-time,
 .page-description,
 .stat-label,
 .forecast-note small {
-  color: var(--text-muted) !important;
-}
-
-/* ===== CORRECCIONES ESPECÍFICAS DE CONTRASTE WCAG AA ===== */
-
-/* Corregir event-month que tiene texto negro sobre fondo azul */
-.current-events .event-month,
-.current-events .event-day,
-.event-month,
-.event-day {
-  color: #ffffff !important; /* Forzar texto blanco sobre fondo azul */
-}
-
-/* Asegurar que ningún texto use colores iguales al fondo */
-.hero * {
-  color: #ffffff !important; /* Texto siempre blanco en el hero */
-}
-
-.hero p {
-  color: #f0f0f0 !important; /* Un poco más suave pero con buen contraste */
-}
-
-/* Prevenir texto negro sobre fondos oscuros */
-.site-footer p {
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Asegurar contraste en todos los textos principales */
-body, p, h1, h2, h3, h4, h5, h6 {
-  color: var(--text) !important;
-}
-
-/* Contraste específico para texto sobre primary */
-.action-secondary, 
-.menu-btn[aria-expanded="true"] .menu-icon {
-  color: #ffffff !important;
-}
-
-/* Garantizar contraste en elementos de fecha de eventos */
-.event-date,
-.event-date * {
-  color: #ffffff !important;
+  color: var(--text-muted);
 }
