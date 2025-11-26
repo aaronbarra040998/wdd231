@@ -1,51 +1,64 @@
-// scripts/spotlights.js - Enhanced Random Gold/Silver Member Spotlights
+// scripts/spotlights.js - Random Gold/Silver Member Spotlights
+const CONFIG = {
+  DATA_URL: 'data/members.json',
+  ELIGIBLE_LEVELS: [2, 3], // Silver and Gold
+  MAX_SPOTLIGHTS: 3,
+  MIN_SPOTLIGHTS: 2,
+  LOADING_TEXT: 'Cargando miembros destacados...',
+  ERROR_TEXT: 'No se pudieron cargar los miembros destacados.',
+  NO_ELIGIBLE_TEXT: 'No hay miembros Gold o Silver disponibles para destacar.'
+};
+
 (function() {
   'use strict';
   
-  const dataUrl = 'data/members.json';
   const spotlightsContainer = document.getElementById('spotlights-container');
+  
+  if (!spotlightsContainer) {
+    console.warn('Spotlights container not found');
+    return;
+  }
   
   async function fetchSpotlightMembers() {
     try {
-      const response = await fetch(dataUrl);
+      const response = await fetch(CONFIG.DATA_URL);
       
       if (!response.ok) {
-        throw new Error(`Network error: ${response.status} ${response.statusText}`);
+        throw new Error(`Error de red: ${response.status} ${response.statusText}`);
       }
       
       const data = await response.json();
       const members = data.members || [];
       
       if (members.length === 0) {
-        throw new Error('No member data available');
+        throw new Error('No hay datos de miembros disponibles');
       }
       
       displayRandomSpotlights(members);
       
     } catch (error) {
       console.error('Error loading spotlight members:', error);
-      showSpotlightsError('Unable to load featured members. Please try again later.');
+      showSpotlightsError(CONFIG.ERROR_TEXT);
     }
   }
   
   function displayRandomSpotlights(members) {
-    // Filter for gold (3) and silver (2) members only
     const eligibleMembers = members.filter(member => 
-      member.membership === 3 || member.membership === 2
+      CONFIG.ELIGIBLE_LEVELS.includes(member.membership)
     );
     
     if (eligibleMembers.length === 0) {
-      showSpotlightsError('No gold or silver members available for spotlight.');
+      showSpotlightsError(CONFIG.NO_ELIGIBLE_TEXT);
       return;
     }
     
-    // Enhanced random selection with Fisher-Yates shuffle
     const shuffledMembers = shuffleArray([...eligibleMembers]);
+    const numToShow = Math.min(
+      eligibleMembers.length, 
+      Math.random() > 0.3 ? CONFIG.MAX_SPOTLIGHTS : CONFIG.MIN_SPOTLIGHTS
+    );
     
-    // Select 2-3 members (prefer 3 if available, otherwise 2)
-    const numToShow = Math.min(shuffledMembers.length, Math.random() > 0.3 ? 3 : 2);
     const selectedMembers = shuffledMembers.slice(0, numToShow);
-    
     renderSpotlightCards(selectedMembers);
   }
   
@@ -76,49 +89,42 @@
     card.setAttribute('data-membership', getMembershipLevel(member.membership).toLowerCase());
     card.setAttribute('aria-labelledby', `spotlight-title-${index}`);
     
-    // Create member image with error handling
     const img = document.createElement('img');
     img.src = `images/${member.image}`;
-    img.alt = `${member.name} logo`;
+    img.alt = `Logo de ${member.name}`;
     img.loading = 'lazy';
     img.width = 100;
     img.height = 100;
     img.onerror = function() {
       this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjhGOUZBIi8+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjI1IiBmaWxsPSIjREVERkRGIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E1QTVBNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj5Mb2dvPC90ZXh0Pgo8L3N2Zz4K';
-      this.alt = 'Default business logo';
+      this.alt = `Logo no disponible para ${member.name}`;
     };
     
-    // Create member name heading
     const heading = document.createElement('h3');
     heading.id = `spotlight-title-${index}`;
     heading.textContent = member.name;
     
-    // Create description
     const description = document.createElement('p');
-    description.textContent = member.description || 'Featured chamber member';
+    description.textContent = member.description || 'Miembro destacado de la cámara';
     description.className = 'spotlight-description';
     
-    // Create contact info
     const phone = document.createElement('p');
-    phone.innerHTML = `<strong>Phone:</strong> ${member.phone}`;
+    phone.innerHTML = `<strong>Teléfono:</strong> +51 ${member.phone}`;
     
     const address = document.createElement('p');
-    address.innerHTML = `<strong>Address:</strong> ${member.address.split(',')[0]}`;
+    address.innerHTML = `<strong>Dirección:</strong> ${member.address.split(',')[0]}`;
     
-    // Create website link
     const websiteLink = document.createElement('a');
     websiteLink.href = member.website;
-    websiteLink.textContent = 'Visit Website';
+    websiteLink.textContent = 'Visitar Sitio Web';
     websiteLink.target = '_blank';
     websiteLink.rel = 'noopener noreferrer';
     websiteLink.className = 'website-link';
     
-    // Create membership badge
     const badge = document.createElement('span');
     badge.className = 'spotlight-badge';
     badge.textContent = `${getMembershipLevel(member.membership)} Member`;
     
-    // Assemble card
     card.appendChild(img);
     card.appendChild(heading);
     card.appendChild(description);
@@ -147,7 +153,6 @@
     `;
   }
   
-  // Initialize when DOM is loaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', fetchSpotlightMembers);
   } else {

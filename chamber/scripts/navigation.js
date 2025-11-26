@@ -1,4 +1,4 @@
-// scripts/navigation.js - Enhanced with better accessibility and mobile support
+// scripts/navigation.js - Accessible Mobile Navigation
 (function() {
   'use strict';
   
@@ -10,35 +10,41 @@
     return;
   }
   
+  let focusTrapEnabled = false;
+  
   function toggleNavigation() {
     const isExpanded = mainNav.classList.toggle('open');
     
-    // Update ARIA attributes
     menuBtn.setAttribute('aria-expanded', isExpanded.toString());
     
-    // Update button text for screen readers
     const menuIcon = menuBtn.querySelector('.menu-icon');
     if (menuIcon) {
       menuIcon.textContent = isExpanded ? '✕' : '☰';
     }
     
-    // Optional: trap focus in navigation when open
     if (isExpanded) {
-      trapFocus(mainNav);
+      enableFocusTrap();
+    } else {
+      disableFocusTrap();
     }
   }
   
-  function trapFocus(element) {
-    const focusableElements = element.querySelectorAll(
-      'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
+  function enableFocusTrap() {
+    if (focusTrapEnabled) return;
+    
+    const focusableElements = Array.from(mainNav.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    ));
     
     if (focusableElements.length === 0) return;
     
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
     
-    element.addEventListener('keydown', function trapHandler(e) {
+    mainNav.addEventListener('keydown', handleKeydown);
+    focusTrapEnabled = true;
+    
+    function handleKeydown(e) {
       if (e.key === 'Tab') {
         if (e.shiftKey) {
           if (document.activeElement === firstElement) {
@@ -55,9 +61,24 @@
       
       if (e.key === 'Escape') {
         closeNavigation();
-        element.removeEventListener('keydown', trapHandler);
+        disableFocusTrap();
+        menuBtn.focus();
       }
-    });
+    }
+    
+    // Store reference for cleanup
+    mainNav._focusHandler = handleKeydown;
+    
+    // Focus first element
+    setTimeout(() => firstElement.focus(), 100);
+  }
+  
+  function disableFocusTrap() {
+    if (!focusTrapEnabled || !mainNav._focusHandler) return;
+    
+    mainNav.removeEventListener('keydown', mainNav._focusHandler);
+    delete mainNav._focusHandler;
+    focusTrapEnabled = false;
   }
   
   function closeNavigation() {
@@ -68,9 +89,6 @@
     if (menuIcon) {
       menuIcon.textContent = '☰';
     }
-    
-    // Return focus to menu button
-    menuBtn.focus();
   }
   
   function handleClickOutside(event) {
@@ -78,19 +96,22 @@
         !mainNav.contains(event.target) && 
         !menuBtn.contains(event.target)) {
       closeNavigation();
+      disableFocusTrap();
     }
   }
   
   function handleEscapeKey(event) {
     if (event.key === 'Escape' && mainNav.classList.contains('open')) {
       closeNavigation();
+      disableFocusTrap();
+      menuBtn.focus();
     }
   }
   
   function handleResize() {
-    // Close navigation on resize to larger screens
     if (window.innerWidth > 768 && mainNav.classList.contains('open')) {
       closeNavigation();
+      disableFocusTrap();
     }
   }
   
@@ -100,10 +121,10 @@
   document.addEventListener('keydown', handleEscapeKey);
   window.addEventListener('resize', handleResize);
   
-  // Close navigation when a nav link is clicked (useful for single page apps)
   mainNav.addEventListener('click', (event) => {
     if (event.target.tagName === 'A') {
       closeNavigation();
+      disableFocusTrap();
     }
   });
 })();

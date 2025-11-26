@@ -1,25 +1,28 @@
-// scripts/date.js - Enhanced with better formatting and error handling
+// scripts/date.js - Date utilities with localization
 (function() {
   'use strict';
   
-  // Function to update copyright year
+  const CONFIG = {
+    LOCALE: 'es-ES',
+    YEAR_ELEMENT: 'currentYear',
+    LAST_MODIFIED_ELEMENT: 'lastModified'
+  };
+  
   function updateCopyrightYear() {
     try {
-      const currentYearElement = document.getElementById('currentYear');
-      if (currentYearElement) {
-        const currentYear = new Date().getFullYear();
-        currentYearElement.textContent = currentYear;
+      const element = document.getElementById(CONFIG.YEAR_ELEMENT);
+      if (element) {
+        element.textContent = new Date().getFullYear();
       }
     } catch (error) {
       console.error('Error updating copyright year:', error);
     }
   }
   
-  // Function to update last modified date
   function updateLastModified() {
     try {
-      const lastModifiedElement = document.getElementById('lastModified');
-      if (lastModifiedElement && document.lastModified) {
+      const element = document.getElementById(CONFIG.LAST_MODIFIED_ELEMENT);
+      if (element && document.lastModified) {
         const lastModified = new Date(document.lastModified);
         const options = { 
           year: 'numeric', 
@@ -28,29 +31,28 @@
           hour: '2-digit',
           minute: '2-digit'
         };
-        const formattedDate = lastModified.toLocaleDateString('en-US', options);
-        lastModifiedElement.textContent = `Last modified: ${formattedDate}`;
-        
-        // Add machine-readable date for accessibility
-        lastModifiedElement.setAttribute('datetime', lastModified.toISOString());
+        const formattedDate = lastModified.toLocaleDateString(CONFIG.LOCALE, options);
+        element.textContent = `Última modificación: ${formattedDate}`;
+        element.setAttribute('datetime', lastModified.toISOString());
+        element.setAttribute('aria-label', `Última modificación del documento: ${formattedDate}`);
       }
     } catch (error) {
       console.error('Error updating last modified date:', error);
-      const lastModifiedElement = document.getElementById('lastModified');
-      if (lastModifiedElement) {
-        lastModifiedElement.textContent = `Last modified: ${document.lastModified}`;
+      const element = document.getElementById(CONFIG.LAST_MODIFIED_ELEMENT);
+      if (element) {
+        element.textContent = `Última modificación: ${document.lastModified}`;
       }
     }
   }
   
-  // Initialize when DOM is fully loaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      updateCopyrightYear();
-      updateLastModified();
-    });
-  } else {
+  function init() {
     updateCopyrightYear();
     updateLastModified();
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();

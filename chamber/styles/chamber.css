@@ -1,8 +1,8 @@
-/* styles/chamber.css - Chamber of Commerce Custom Styles */
-/* VERSION FINAL: 100% WCAG AA Compliant - CSS Optimizado (94 selectores -> 85) */
+/* styles/chamber.css - Arequipa Chamber of Commerce Styles */
+/* WCAG AA Compliant - CSS Optimizado - Versión Final Corregida */
 
 :root {
-  /* --- PALETA DE COLORES UNIFICADA (solo hex y var) --- */
+  /* Paleta de Colores Unificada */
   --primary: #0056b3;
   --primary-dark: #004494;
   --bg-body: #ffffff;
@@ -30,6 +30,10 @@
 /* === RESET & BASE === */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', Arial, sans-serif;
   color: var(--text-main);
@@ -56,6 +60,8 @@ h1 { font-size: 2.25rem; margin: 2rem 0 1rem; }
   margin-bottom: 2rem;
   max-width: 600px;
   color: var(--text-muted);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-title {
@@ -75,7 +81,7 @@ h1 { font-size: 2.25rem; margin: 2rem 0 1rem; }
   text-decoration: none;
   border-radius: 4px;
   z-index: 1000;
-  transition: top 0.3s;
+  transition: top 0.3s ease;
 }
 
 .skip-link:focus { top: 6px; }
@@ -160,7 +166,7 @@ h1 { font-size: 2.25rem; margin: 2rem 0 1rem; }
   border-bottom-color: var(--primary);
 }
 
-/* === COMPONENT: CARDS & CONTAINERS (AGRUPADO) === */
+/* === COMPONENT: CARDS & CONTAINERS === */
 .event-card, .feature-card, .spotlight-card, .business-card,
 .weather-detail, .forecast-day, .current-weather, .weather-forecast,
 .stats-section, .cta-section, .contact-item, .controls,
@@ -178,8 +184,10 @@ h1 { font-size: 2.25rem; margin: 2rem 0 1rem; }
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-/* === COMPONENT: BOTONES (OPTIMIZADO) === */
-.action-button, .btn {
+/* === COMPONENT: BOTONES (SIN !IMPORTANT) === */
+.button,
+.action-button,
+.btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   border: 2px solid transparent;
@@ -193,96 +201,63 @@ h1 { font-size: 2.25rem; margin: 2rem 0 1rem; }
   transition: all 0.3s ease;
 }
 
-/* Botón Primario - Contraste 7.67:1 ✅ */
-.action-primary, .btn-primary,
-a.action-primary, a.btn-primary {
-  background: #0056b3 !important;
-  color: #ffffff !important;
-  border-color: #ffffff !important;
-  border-width: 2px !important;
+/* Botón Primario - Contraste 7.67:1 */
+.button.button-primary,
+.action-button.action-primary,
+.btn.btn-primary,
+a.button.button-primary,
+a.action-button.action-primary,
+a.btn.btn-primary {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border-color: var(--text-inverse);
 }
 
-.action-primary:hover, .btn-primary:hover {
-  background: #004494 !important;
+.button.button-primary:hover,
+.action-button.action-primary:hover,
+.btn.btn-primary:hover {
+  background: var(--primary-dark);
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-/* Botón Secundario - CLASE EXPLÍCITA para fondos oscuros */
-.btn-secondary-dark {
-  background: transparent !important;
-  color: #ffffff !important;
-  border-color: #ffffff !important;
+/* Botón Secundario para fondos oscuros */
+.button.button-secondary-dark,
+.btn.btn-secondary-dark,
+a.button.button-secondary-dark,
+a.btn.btn-secondary-dark {
+  background: transparent;
+  color: var(--text-inverse);
+  border-color: var(--text-inverse);
 }
 
-.btn-secondary-dark:hover {
-  background: #ffffff !important;
-  color: #0056b3 !important;
+.button.button-secondary-dark:hover,
+.btn.btn-secondary-dark:hover {
+  background: var(--text-inverse);
+  color: var(--primary);
 }
 
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid transparent;
-  border-radius: var(--radius);
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-  min-width: 160px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+/* Botón Secundario para fondos claros (CTA) */
+.button.button-secondary-light,
+.btn.btn-secondary-light,
+a.button.button-secondary-light,
+a.btn.btn-secondary-light {
+  background: var(--text-inverse);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
-/* Botón Primario - Contraste 7.67:1 ✅ */
-.button-primary {
-  background: #0056b3 !important;
-  color: #ffffff !important;
-  border-color: #ffffff !important;
-  border-width: 2px !important;
+.button.button-secondary-light:hover,
+.btn.btn-secondary-light:hover {
+  background: var(--primary);
+  color: var(--text-inverse);
 }
 
-.button-primary:hover {
-  background: #004494 !important;
-  box-shadow: 0 4px 12px var(--shadow);
-}
-
-/* Botón Secundario - Para fondos oscuros */
-.button-secondary-dark {
-  background: transparent !important;
-  color: #ffffff !important;
-  border-color: #ffffff !important;
-}
-
-.button-secondary-dark:hover {
-  background: #ffffff !important;
-  color: #0056b3 !important;
-}
-
-
-
-/* Botón Secundario - Versión clara (membership CTA) */
-.membership-cta .action-secondary,
-.cta-section .action-secondary {
-  background: #ffffff !important;
-  color: #0056b3 !important;
-  border-color: #0056b3 !important;
-}
-
-.membership-cta .action-secondary:hover,
-.cta-section .action-secondary:hover {
-  background: #0056b3 !important;
-  color: #ffffff !important;
-}
-
-/* =========================================== */
-/* HERO SECTION - Fondo decorativo (comentario para validador) */
-/* decorative-background: hero-aqp.jpg */
-/* =========================================== */
+/* HERO SECTION */
 .hero {
   position: relative;
-  background-color: #270b0bc0 !important;
-  color: #ffffff !important;
-  padding: 0 !important;
+  background-color: #270b0bc0;
+  color: var(--text-inverse);
+  padding: 0;
   margin: 1.5rem 0;
   border-radius: var(--radius);
   min-height: 350px;
@@ -291,9 +266,7 @@ a.action-primary, a.btn-primary {
   justify-content: center;
   overflow: hidden;
 }
-.hero * {
-  color: #ffffff !important;
-}
+
 .hero-image {
   position: absolute;
   top: 0;
@@ -315,14 +288,14 @@ a.action-primary, a.btn-primary {
 .hero-content h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ffffff !important;
+  color: var(--text-inverse);
   text-shadow: 2px 2px 8px var(--text-shadow);
 }
 
 .hero-content p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
-  color: #bbc8ca !important;
+  color: #bbc8ca;
   text-shadow: 2px 2px 8px var(--text-shadow);
 }
 
@@ -332,6 +305,7 @@ a.action-primary, a.btn-primary {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 /* === GRIDS === */
 .events-grid,
 .weather-container,
@@ -399,7 +373,10 @@ a.action-primary, a.btn-primary {
   margin-top: 0.5rem;
 }
 
-.event-tag { background: var(--primary); color: var(--text-inverse); }
+.event-tag { 
+  background: var(--primary); 
+  color: var(--text-inverse); 
+}
 
 /* === MODULE: WEATHER === */
 .current-weather, .weather-forecast { padding: 1.5rem; }
@@ -429,8 +406,17 @@ a.action-primary, a.btn-primary {
   gap: 0.875rem;
 }
 
-.weather-detail { text-align: center; padding: 0.75rem; background: var(--bg-body); }
-.weather-detail .value { font-weight: 600; color: var(--text-main); display: block; }
+.weather-detail { 
+  text-align: center; 
+  padding: 0.75rem; 
+  background: var(--bg-body); 
+}
+
+.weather-detail .value { 
+  font-weight: 600; 
+  color: var(--text-main); 
+  display: block; 
+}
 
 .forecast-day {
   display: grid;
@@ -440,10 +426,18 @@ a.action-primary, a.btn-primary {
   background: var(--bg-body);
 }
 
-.forecast-temp { color: var(--primary); font-weight: 600; text-align: center; }
+.forecast-temp { 
+  color: var(--primary); 
+  font-weight: 600; 
+  text-align: center; 
+}
 
 /* === MODULE: DIRECTORY === */
-.business-cards { display: grid; gap: var(--gap); margin: 1.5rem 0; }
+.business-cards { 
+  display: grid; 
+  gap: var(--gap); 
+  margin: 1.5rem 0; 
+}
 
 .grid-view { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 
@@ -494,15 +488,19 @@ a.action-primary, a.btn-primary {
 }
 .list-view img, .list-view .description { display: none; }
 
-/* Badges */
-[data-membership="gold"] .badge, [data-membership="gold"] .spotlight-badge {
+/* Badges - Usando atributos data */
+[data-membership="gold"] .badge, 
+[data-membership="gold"] .spotlight-badge {
   background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
   color: var(--text-main); 
 }
-[data-membership="silver"] .badge, [data-membership="silver"] .spotlight-badge {
+
+[data-membership="silver"] .badge, 
+[data-membership="silver"] .spotlight-badge {
   background: linear-gradient(135deg, var(--silver-start), var(--silver-end));
   color: var(--text-main); 
 }
+
 [data-membership="member"] .badge {
   background: linear-gradient(135deg, var(--bronze-start), var(--bronze-end));
   color: var(--text-inverse);
@@ -541,14 +539,25 @@ a.action-primary, a.btn-primary {
   padding: 1.5rem; 
   text-align: center;
 }
+
 .contact-item h3 {
   color: var(--primary);
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
+
 .contact-item p {
   margin: 0.5rem 0; 
   color: var(--text-main);
+}
+
+.contact-item a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
 }
 
 .membership-cta {
@@ -560,16 +569,35 @@ a.action-primary, a.btn-primary {
   margin: 2.5rem 0;
 }
 
-.membership-cta h2 { color: var(--text-inverse); margin-bottom: 1rem; font-size: 1.375rem; }
+.membership-cta h2 { 
+  color: var(--text-inverse); 
+  margin-bottom: 1rem; 
+  font-size: 1.375rem; 
+}
 
-.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-.form-group input, .form-group select, .form-group textarea {
+.form-group label { 
+  display: block; 
+  margin-bottom: 0.5rem; 
+  font-weight: 600; 
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
   width: 100%;
   padding: 0.75rem;
   border: 2px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-body);
   color: var(--text-main);
+  font-family: inherit;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  border-color: var(--primary);
+  outline: none;
 }
 
 /* === FOOTER === */
@@ -580,12 +608,24 @@ a.action-primary, a.btn-primary {
   padding: 2.5rem 0; 
 }
 
-.footer-section h3 { color: var(--text-inverse); margin-bottom: 0.875rem; }
+.footer-section h3 { 
+  color: var(--text-inverse); 
+  margin-bottom: 0.875rem; 
+}
 
 .footer-section p { 
   color: var(--text-inverse); 
   font-size: 0.9rem;
   margin: 0.5rem 0;
+}
+
+.footer-section a {
+  color: var(--text-inverse);
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
 }
 
 /* === STATES === */
@@ -594,6 +634,7 @@ a.action-primary, a.btn-primary {
   background: var(--error-bg);
   border-color: var(--error-border);
 }
+
 .loading-weather, .weather-error {
   text-align: center;
   padding: 1.5rem;
@@ -630,6 +671,7 @@ textarea:focus {
     box-shadow: 0 4px 12px var(--shadow);
     z-index: 99;
   }
+  
   .main-nav.open { display: block; }
   .main-nav ul { flex-direction: column; padding: 1rem; }
   .main-nav a { display: block; padding: 0.75rem 1rem; }
@@ -670,6 +712,7 @@ textarea:focus {
     transition-duration: 0.01ms;
     scroll-behavior: auto;
   }
+  
   .business-card:hover,
   .feature-card:hover,
   .event-card:hover,
