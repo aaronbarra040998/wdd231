@@ -238,31 +238,34 @@ a.action-primary, a.btn-primary {
 /* decorative-background: hero-aqp.jpg */
 /* =========================================== */
 .hero {
-  background-color: #581818a3 !important;
-  background-image: linear-gradient(
-    135deg, 
-    rgba(0, 179, 15, 0.328) 0%,
-    rgba(148, 30, 0, 0.308) 100%
-  ), url('../images/hero-aqp.jpg') !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
+  position: relative;
+  background-color: #004494 !important; /* Respaldo sólido WCAG seguro */
   color: #ffffff !important;
-  padding: 3rem 1.5rem;
-  border-radius: var(--radius);
+  padding: 0 !important; /* Padding 0 para imagen full */
   margin: 1.5rem 0;
-  text-align: center;
+  border-radius: var(--radius);
   min-height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* Previene desbordamiento */
+}
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene proporción, recorta si es necesario */
+  opacity: 0.3; /* Hacerla semi-transparente para legibilidad */
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
+  padding: 3rem 1.5rem; /* Padding aquí en lugar de en .hero */
 }
 
 .hero-content h2 {
