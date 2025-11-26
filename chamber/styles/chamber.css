@@ -219,6 +219,47 @@ a.action-primary, a.btn-primary {
   color: #0056b3 !important;
 }
 
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  min-width: 160px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Botón Primario - Contraste 7.67:1 ✅ */
+.button-primary {
+  background: #0056b3 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  border-width: 2px !important;
+}
+
+.button-primary:hover {
+  background: #004494 !important;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Botón Secundario - Para fondos oscuros */
+.button-secondary-dark {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.button-secondary-dark:hover {
+  background: #ffffff !important;
+  color: #0056b3 !important;
+}
+
+
+
 /* Botón Secundario - Versión clara (membership CTA) */
 .membership-cta .action-secondary,
 .cta-section .action-secondary {
@@ -239,16 +280,19 @@ a.action-primary, a.btn-primary {
 /* =========================================== */
 .hero {
   position: relative;
-  background-color: #004494 !important; /* Respaldo sólido WCAG seguro */
+  background-color: #004494 !important;
   color: #ffffff !important;
-  padding: 0 !important; /* Padding 0 para imagen full */
+  padding: 0 !important;
   margin: 1.5rem 0;
   border-radius: var(--radius);
   min-height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Previene desbordamiento */
+  overflow: hidden;
+}
+.hero * {
+  color: #ffffff !important;
 }
 .hero-image {
   position: absolute;
@@ -256,8 +300,8 @@ a.action-primary, a.btn-primary {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Mantiene proporción, recorta si es necesario */
-  opacity: 0.3; /* Hacerla semi-transparente para legibilidad */
+  object-fit: cover;
+  opacity: 0.3;
   z-index: 1;
 }
 
@@ -265,7 +309,7 @@ a.action-primary, a.btn-primary {
   position: relative;
   z-index: 2;
   max-width: 800px;
-  padding: 3rem 1.5rem; /* Padding aquí en lugar de en .hero */
+  padding: 3rem 1.5rem;
 }
 
 .hero-content h2 {
@@ -288,7 +332,6 @@ a.action-primary, a.btn-primary {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 /* === GRIDS === */
 .events-grid,
 .weather-container,

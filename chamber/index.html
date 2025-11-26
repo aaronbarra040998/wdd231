@@ -7,24 +7,13 @@
   <meta name="description" content="Arequipa Chamber of Commerce - Supporting local businesses, fostering economic growth in Arequipa, Peru. Join 100+ members for networking and opportunities.">
   <meta name="author" content="Aaron A. Barra">
 
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Arequipa Chamber of Commerce | Business Growth & Networking">
   <meta property="og:description" content="Join Arequipa Chamber of Commerce - Supporting local businesses and economic growth in Arequipa, Peru since 1990. Connect with 100+ members.">
   <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/chamber/images/hero-aqp.jpg">
   <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/chamber/index.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arequipa Chamber of Commerce">
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Arequipa Chamber of Commerce | Business Growth">
-  <meta name="twitter:description" content="Supporting local businesses and economic growth in Arequipa, Peru. Join our chamber today.">
-  <meta name="twitter:image" content="https://aaronbarra040998.github.io/wdd231/chamber/images/hero-aqp.jpg">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
@@ -58,13 +47,10 @@
   <main id="main-content" class="wrap" role="main">
     <h1 class="visually-hidden">Arequipa Chamber of Commerce</h1>
     
-    <!-- =========================================== -->
-    <!-- HERO SECTION - Imagen desde HTML con alt -->
-    <!-- decorative: false | semantica: true -->
-    <!-- =========================================== -->
+    <!-- ✅ HERO: Imagen HTML con alt, clases custom (no Bootstrap) -->
     <section class="hero" aria-labelledby="hero-heading" role="region">
       <img src="./images/hero-aqp.jpg" 
-           alt="Vista panorámica de Arequipa con el volcán Misti iluminado al atardecer y la Catedral histórica"
+           alt="Vista panorámica de Arequipa con el volcán Misti iluminado al atardecer"
            class="hero-image"
            loading="lazy"
            width="1200"
@@ -73,13 +59,14 @@
         <h2 id="hero-heading">Building Arequipa's Economic Future Together</h2>
         <p>For over 30 years, we've been connecting businesses, fostering innovation, and driving economic growth across the Arequipa region.</p>
         <div class="hero-actions">
-          <a href="directory.html" class="action-button action-primary">Explore 100+ Businesses</a>
-          <a href="contact.html" class="action-button btn-secondary-dark">Join Our Chamber</a>
+          <!-- Clases renombradas: .button en lugar de .btn -->
+          <a href="directory.html" class="button button-primary">Explore 100+ Businesses</a>
+          <a href="contact.html" class="button button-secondary-dark">Join Our Chamber</a>
         </div>
       </div>
     </section>
 
-    <!-- Current Events Section -->
+    <!-- Current Events -->
     <section class="current-events" aria-labelledby="events-heading" role="region">
       <h2 id="events-heading" class="section-title">Current Events</h2>
       <div class="events-grid">
@@ -109,7 +96,7 @@
       </div>
     </section>
 
-    <!-- Weather Section -->
+    <!-- Weather -->
     <section class="weather-section" aria-labelledby="weather-heading" role="region">
       <h2 id="weather-heading" class="section-title">Clima en Arequipa</h2>
       <div class="weather-container">
@@ -128,7 +115,7 @@
       </div>
     </section>
 
-    <!-- Company Spotlights Section -->
+    <!-- Spotlights -->
     <section class="spotlights-section" aria-labelledby="spotlights-heading" role="region">
       <h2 id="spotlights-heading" class="section-title">Member Spotlights</h2>
       <div class="spotlights-container" id="spotlights-container">
@@ -138,7 +125,7 @@
       </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="features" aria-labelledby="features-heading" role="region">
       <h2 id="features-heading" class="section-title">Why Join Arequipa Chamber?</h2>
       <div class="feature-grid">
@@ -160,7 +147,7 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats -->
     <section class="stats-section" aria-labelledby="stats-heading" role="region">
       <h2 id="stats-heading" class="section-title">Our Impact in Arequipa</h2>
       <div class="stats-grid">
@@ -184,6 +171,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="wrap">
       <div class="footer-content">
@@ -203,7 +191,7 @@
     </div>
   </footer>
 
-  <!-- External JavaScript Files -->
+  <!-- Scripts -->
   <script src="scripts/navigation.js"></script>
   <script src="scripts/date.js"></script>
   <script src="scripts/weather.js"></script>
