@@ -280,9 +280,11 @@ a.action-primary, a.btn-primary {
 /* =========================================== */
 .hero {
   position: relative;
-  background-color: #270b0bc0 !important;
-  color: #ffffff !important;
-  padding: 0 !important;
+  /* ✅ Fondo sólido oscuro (sin transparencia) */
+  background-color: #270b0b;
+  /* ✅ Texto blanco explícito */
+  color: #ffffff;
+  padding: 0;
   margin: 1.5rem 0;
   border-radius: var(--radius);
   min-height: 350px;
@@ -291,9 +293,12 @@ a.action-primary, a.btn-primary {
   justify-content: center;
   overflow: hidden;
 }
-.hero * {
-  color: #ffffff !important;
+
+/* ✅ Asegurar texto blanco en todos los elementos (con especificidad suficiente) */
+.hero .hero-content * {
+  color: #ffffff;
 }
+
 .hero-image {
   position: absolute;
   top: 0;
@@ -312,17 +317,16 @@ a.action-primary, a.btn-primary {
   padding: 3rem 1.5rem;
 }
 
+/* ✅ Remover !important redundante */
 .hero-content h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ffffff !important;
   text-shadow: 2px 2px 8px var(--text-shadow);
 }
 
 .hero-content p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
-  color: #ffffff !important;
   text-shadow: 2px 2px 8px var(--text-shadow);
 }
 
