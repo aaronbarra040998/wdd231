@@ -721,3 +721,164 @@ textarea:focus {
     box-shadow: none;
   }
 }
+/* Join Page Styles */
+.join-container {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .join-container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.join-form {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.join-form h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.membership-cards h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.cards-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.membership-card {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.membership-card:nth-child(1) { animation-delay: 0.1s; }
+.membership-card:nth-child(2) { animation-delay: 0.2s; }
+.membership-card:nth-child(3) { animation-delay: 0.3s; }
+.membership-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.membership-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.membership-card p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+/* Modales */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--bg-body);
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: var(--primary);
+}
+
+.modal h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.modal ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal li {
+  margin-bottom: 0.5rem;
+}
+
+/* Thank You Page */
+.submitted-info {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.submitted-info h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.summary-item {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-body);
+  border-radius: var(--radius);
+  text-align: left;
+}
+
+.summary-item strong {
+  color: var(--primary);
+}
+
+/* Form improvements */
+.form-group small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
