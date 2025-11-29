@@ -798,7 +798,7 @@ textarea:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Aumentar opacidad para mejor contraste */
+  background: rgba(186, 180, 180, 0.7); /* Aumentar opacidad para mejor contraste */
   z-index: 1000;
   align-items: center;
   justify-content: center;
