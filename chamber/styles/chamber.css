@@ -950,3 +950,135 @@ textarea:focus {
     justify-content: center;
   }
 }
+/* Discover Page Styles */
+.visit-message {
+  margin: 2rem 0;
+}
+
+.visit-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-inverse);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+  font-weight: 500;
+}
+
+.local-stats {
+  margin: 3rem 0;
+}
+
+/* Discover Grid Layout */
+.discover-grid {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.discover-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.discover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+.discover-figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+.discover-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.discover-content {
+  padding: 1.5rem;
+}
+
+.discover-content h2 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.discover-content address {
+  font-style: normal;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.discover-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.discover-button {
+  width: 100%;
+}
+
+/* Image Hover Effect - Desktop Only */
+@media (min-width: 769px) {
+  .discover-image {
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .discover-card:hover .discover-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
+
+/* Grid Areas - Mobile First (1 column) */
+.discover-grid {
+  grid-template-areas: 
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6"
+    "card7"
+    "card8";
+}
+
+.discover-card:nth-child(1) { grid-area: card1; }
+.discover-card:nth-child(2) { grid-area: card2; }
+.discover-card:nth-child(3) { grid-area: card3; }
+.discover-card:nth-child(4) { grid-area: card4; }
+.discover-card:nth-child(5) { grid-area: card5; }
+.discover-card:nth-child(6) { grid-area: card6; }
+.discover-card:nth-child(7) { grid-area: card7; }
+.discover-card:nth-child(8) { grid-area: card8; }
+
+/* Medium screens (2 columns) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .discover-grid {
+    grid-template-areas: 
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Large screens (3 columns) */
+@media (min-width: 1025px) {
+  .discover-grid {
+    grid-template-areas: 
+      "card1 card2 card3"
+      "card4 card5 card6"
+      "card7 card8 .";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
