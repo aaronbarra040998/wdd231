@@ -882,3 +882,51 @@ textarea:focus {
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+/* Navigation updates for 5 menu items */
+@media (min-width: 769px) {
+  .main-nav ul {
+    gap: 1.5rem;
+  }
+  
+  .main-nav a {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav ul {
+    gap: 0;
+  }
+  
+  .main-nav a {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+  }
+  
+  .main-nav a[aria-current="page"] {
+    background: var(--primary);
+    color: var(--text-inverse);
+    border-bottom-color: var(--primary-dark);
+  }
+}
+
+/* Ensure menu doesn't break on medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+  
+  .main-nav {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
