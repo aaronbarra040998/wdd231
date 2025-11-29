@@ -139,10 +139,3 @@
     init();
   }
 })();
-  document.addEventListener('DOMContentLoaded', function() {
-    const timestampField = document.getElementById('timestamp');
-    if (timestampField && !timestampField.value) {
-      timestampField.value = new Date().toISOString();
-      console.log('Timestamp establecido via fallback:', timestampField.value);
-    }
-  });
