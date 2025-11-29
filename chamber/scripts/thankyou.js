@@ -7,6 +7,29 @@
     return urlParams.get(param);
   }
   
+  function formatTimestamp(timestamp) {
+    if (!timestamp) return 'No disponible';
+    
+    try {
+      const date = new Date(timestamp);
+      if (isNaN(date.getTime())) {
+        return timestamp; // Devolver el string original si no es una fecha válida
+      }
+      
+      return date.toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    } catch (error) {
+      console.error('Error formateando timestamp:', error);
+      return timestamp;
+    }
+  }
+  
   function displayApplicationSummary() {
     const summaryElement = document.getElementById('applicationSummary');
     if (!summaryElement) return;
@@ -36,14 +59,7 @@
         membership = 'No seleccionado';
     }
     
-    const date = new Date(timestamp);
-    const formattedDate = date.toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
+    const formattedDate = formatTimestamp(timestamp);
     
     summaryElement.innerHTML = `
       <div class="summary-item">
@@ -69,6 +85,10 @@
   
   function init() {
     displayApplicationSummary();
+    
+    // Log para debugging
+    console.log('Parámetros de URL:', window.location.search);
+    console.log('Timestamp recibido:', getQueryParam('timestamp'));
   }
   
   if (document.readyState === 'loading') {

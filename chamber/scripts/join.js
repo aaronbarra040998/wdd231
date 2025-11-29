@@ -10,7 +10,14 @@
   function initTimestamp() {
     const timestampField = document.getElementById(CONFIG.TIMESTAMP_ID);
     if (timestampField) {
-      timestampField.value = new Date().toISOString();
+      // Usar formato más legible y asegurar que se establezca inmediatamente
+      const now = new Date();
+      timestampField.value = now.toISOString();
+      
+      // También establecer un atributo data-timestamp para referencia
+      timestampField.setAttribute('data-timestamp', now.toLocaleString('es-ES'));
+      
+      console.log('Timestamp establecido:', timestampField.value);
     }
   }
   
@@ -27,6 +34,9 @@
         if (modal) {
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
+          // Enfocar el primer elemento enfocable del modal para accesibilidad
+          const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          if (firstFocusable) firstFocusable.focus();
         }
       });
     });
@@ -56,8 +66,10 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         modals.forEach(modal => {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto';
+          if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
         });
       }
     });
@@ -80,8 +92,15 @@
     
     if (form) {
       form.addEventListener('submit', function(e) {
-        // Additional validation can be added here
-        console.log('Form submitted successfully');
+        // Validar que el timestamp esté establecido
+        const timestampField = document.getElementById(CONFIG.TIMESTAMP_ID);
+        if (!timestampField || !timestampField.value) {
+          e.preventDefault();
+          alert('Error: El timestamp no se ha establecido correctamente. Por favor, recargue la página.');
+          return;
+        }
+        
+        console.log('Formulario enviado con timestamp:', timestampField.value);
       });
     }
   }
@@ -95,12 +114,25 @@
   }
   
   function init() {
+    // Establecer timestamp inmediatamente
     initTimestamp();
+    
+    // Inicializar el resto de funcionalidades
     initModals();
     initFormValidation();
     initCardAnimations();
+    
+    // Verificación adicional del timestamp
+    setTimeout(() => {
+      const timestampField = document.getElementById(CONFIG.TIMESTAMP_ID);
+      if (timestampField && !timestampField.value) {
+        console.warn('Timestamp no se estableció, reintentando...');
+        initTimestamp();
+      }
+    }, 100);
   }
   
+  // Inicializar inmediatamente, no esperar DOMContentLoaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
