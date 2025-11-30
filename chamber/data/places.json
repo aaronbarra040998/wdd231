@@ -1,50 +1,51 @@
 {
   "places": [
     {
-      "name": "Plaza de Armas de Arequipa",
-      "address": "Centro Histórico, Arequipa 04001",
-      "description": "El corazón de la ciudad, rodeado de impresionantes edificios de sillar y la catedral.",
+      "name": "Arequipa Main Square",
+      "address": "Historic Center, Arequipa 04001",
+      "description": "The heart of the city, surrounded by impressive ashlar stone buildings and the cathedral.",
       "image": "../imagen1.webp"
     },
     {
-      "name": "Monasterio de Santa Catalina",
+      "name": "Santa Catalina Monastery",
       "address": "Santa Catalina 301, Arequipa 04001",
-      "description": "Un monasterio que parece una pequeña ciudad, con calles y plazas, fundado en 1579.",
+      "description": "A monastery that resembles a small city with streets and squares, founded in 1579.",
       "image": "../imagen1.webp"
     },
     {
-      "name": "Volcán Misti",
-      "address": "Arequipa, Perú",
-      "description": "El volcán emblemático de Arequipa, con una altura de 5,822 metros sobre el nivel del mar.",
+      "name": "Misti Volcano",
+      "address": "Arequipa, Peru",
+      "description": "The iconic volcano of Arequipa, standing at 5,822 meters above sea level.",
       "image": "../imagen1.webp"
-    },{
-      "name": "Mirador de Yanahuara",
+    },
+    {
+      "name": "Yanahuara Viewpoint",
       "address": "Yanahuara, Arequipa 04017",
-      "description": "Famoso por sus arcos de sillar y una vista panorámica de la ciudad y el volcán Misti.",
+      "description": "Famous for its ashlar stone arches and panoramic view of the city and Misti Volcano.",
       "image": "../imagen1.webp"
     },
     {
-      "name": "Mansión del Fundador",
-      "address": "Calle Bolívar 204, Arequipa 04000",
-      "description": "Una casa museo que muestra la arquitectura y el estilo de vida de la época colonial.",
+      "name": "Founder's Mansion",
+      "address": "Bolivar Street 204, Arequipa 04000",
+      "description": "A house museum showcasing colonial era architecture and lifestyle.",
       "image": "../imagen1.webp"
     },
     {
-      "name": "Catedral de Arequipa",
-      "address": "Plaza de Armas, Arequipa 04001",
-      "description": "Una de las catedrales más importantes del Perú, construida en sillar blanco.",
+      "name": "Arequipa Cathedral",
+      "address": "Main Square, Arequipa 04001",
+      "description": "One of the most important cathedrals in Peru, built with white ashlar stone.",
       "image": "../imagen1.webp"
     },
     {
-      "name": "Museo Santuarios Andinos",
+      "name": "Andean Sanctuaries Museum",
       "address": "La Merced 110, Arequipa 04001",
-      "description": "Alberga a la momia Juanita, una joven inca sacrificada en el volcán Ampato.",
+      "description": "Home to the mummy Juanita, a young Inca girl sacrificed on the Ampato volcano.",
       "image": "../imagen1.webp"
     },
     {
-      "name": "Cañón del Colca",
-      "address": "Provincia de Caylloma, Arequipa",
-      "description": "Uno de los cañones más profundos del mundo, famoso por el vuelo del cóndor.",
+      "name": "Colca Canyon",
+      "address": "Caylloma Province, Arequipa",
+      "description": "One of the world's deepest canyons, famous for condor flights.",
       "image": "../imagen1.webp"
     }
   ]
