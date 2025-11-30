@@ -10,43 +10,44 @@
       "name": "Santa Catalina Monastery",
       "address": "Santa Catalina 301, Arequipa 04001",
       "description": "A monastery that resembles a small city with streets and squares, founded in 1579.",
-      "image": "../imagen1.webp"
+      "image": "../imagen2.webp"
     },
     {
       "name": "Misti Volcano",
       "address": "Arequipa, Peru",
       "description": "The iconic volcano of Arequipa, standing at 5,822 meters above sea level.",
-      "image": "../imagen1.webp"
+      "image": "../imagen3.webp"
     },
     {
-      "name": "Yanahuara Viewpoint",
-      "address": "Yanahuara, Arequipa 04017",
-      "description": "Famous for its ashlar stone arches and panoramic view of the city and Misti Volcano.",
-      "image": "../imagen1.webp"
+
+      "name": "Colca Canyon",
+      "address": "Caylloma Province, Arequipa",
+      "description": "One of the world's deepest canyons, famous for condor flights.",
+      "image": "../imagen4.webp"
     },
     {
       "name": "Founder's Mansion",
       "address": "Bolivar Street 204, Arequipa 04000",
       "description": "A house museum showcasing colonial era architecture and lifestyle.",
-      "image": "../imagen1.webp"
+      "image": "../imagen5.webp"
     },
     {
       "name": "Arequipa Cathedral",
       "address": "Main Square, Arequipa 04001",
       "description": "One of the most important cathedrals in Peru, built with white ashlar stone.",
-      "image": "../imagen1.webp"
+      "image": "../imagen6.webp"
     },
     {
       "name": "Andean Sanctuaries Museum",
       "address": "La Merced 110, Arequipa 04001",
       "description": "Home to the mummy Juanita, a young Inca girl sacrificed on the Ampato volcano.",
-      "image": "../imagen1.webp"
+      "image": "../imagen7.webp"
     },
     {
-      "name": "Colca Canyon",
-      "address": "Caylloma Province, Arequipa",
-      "description": "One of the world's deepest canyons, famous for condor flights.",
-      "image": "../imagen1.webp"
+            "name": "Yanahuara Viewpoint",
+      "address": "Yanahuara, Arequipa 04017",
+      "description": "Famous for its ashlar stone arches and panoramic view of the city and Misti Volcano.",
+      "image": "../imagen8.webp"
     }
   ]
 }
