@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Descubre Arequipa — Cámara de Comercio de Arequipa</title>
-  <meta name="description" content="Descubre los lugares más emblemáticos de Arequipa, Perú. Conoce sobre nuestra cultura, historia y paisajes únicos.">
+  <title>Discover Arequipa — Arequipa Chamber of Commerce</title>
+  <meta name="description" content="Discover the most emblematic places of Arequipa, Peru. Learn about our culture, history and unique landscapes.">
   <meta name="author" content="Aaron A. Barra">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Descubre Arequipa — Cámara de Comercio de Arequipa">
-  <meta property="og:description" content="Explora los principales atractivos turísticos y culturales de la Ciudad Blanca.">
+  <meta property="og:title" content="Discover Arequipa — Arequipa Chamber of Commerce">
+  <meta property="og:description" content="Explore the main tourist and cultural attractions of the White City.">
   <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/chamber/images/discover-hero.webp">
   <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/chamber/discover.html">
   <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -35,57 +35,55 @@
           <span class="logo-text">AQP Chamber</span>
         </a>
       </div>
-      <button id="menuBtn" class="menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNav">
+      <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
         <span class="menu-icon">☰</span>
       </button>
-      <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="directory.html">Directorio</a></li>
-          <li><a href="events.html">Eventos</a></li>
-          <li><a href="contact.html">Contacto</a></li>
-          <li><a href="join.html">Unirse</a></li>
-          <li><a href="discover.html" aria-current="page">Descubre</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="discover.html" aria-current="page">Discover</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="wrap">
-    <h1>Descubre Arequipa</h1>
-    <p class="page-description">Explora los lugares más emblemáticos de la Ciudad Blanca y sus alrededores. Conoce nuestra rica cultura, historia y paisajes únicos.</p>
+    <h1>Discover Arequipa</h1>
+    <p class="page-description">Explore the most emblematic places of the White City and its surroundings. Learn about our rich culture, history and unique landscapes.</p>
 
-    <!-- Mensaje de visita -->
+    <!-- Visit message -->
     <div id="visit-message" class="visit-message" aria-live="polite"></div>
 
-    <!-- Estadísticas locales -->
+    <!-- Local statistics -->
     <section class="local-stats" aria-labelledby="stats-heading">
-      <h2 id="stats-heading" class="section-title">Arequipa en Números</h2>
+      <h2 id="stats-heading" class="section-title">Arequipa in Numbers</h2>
       <div class="stats-grid">
         <div class="stat-item">
           <span class="stat-number">1.1M</span>
-          <span class="stat-label">Habitantes</span>
+          <span class="stat-label">Inhabitants</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">2,335</span>
-          <span class="stat-label">msnm Altura</span>
+          <span class="stat-label">meters above sea level</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">300+</span>
-          <span class="stat-label">Días soleados/año</span>
+          <span class="stat-label">Sunny days/year</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">200+</span>
-          <span class="stat-label">Monumentos históricos</span>
+          <span class="stat-label">Historical monuments</span>
         </div>
       </div>
     </section>
 
-    <!-- Galería de lugares -->
+    <!-- Places gallery -->
     <section class="discover-gallery" aria-labelledby="gallery-heading">
-      <h2 id="gallery-heading" class="section-title">Lugares de Interés</h2>
+      <h2 id="gallery-heading" class="section-title">Places of Interest</h2>
       <div class="discover-grid" id="discover-grid">
-        <!-- Las tarjetas se generarán con JavaScript -->
+        <!-- Cards will be generated with JavaScript -->
       </div>
     </section>
   </main>
@@ -94,15 +92,15 @@
     <div class="wrap">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Información de Contacto</h3>
+          <h3>Contact Information</h3>
           <p>Email: cont-adm@AQPchamber.com</p>
-          <p>Teléfono: +51 948 487 985</p>
-          <p>Dirección: Av. San Martin 3410, Arequipa</p>
+          <p>Phone: +51 948 487 985</p>
+          <p>Address: Av. San Martin 3410, Arequipa</p>
         </div>
         <div class="footer-section">
-          <h3>Información de Desarrollo</h3>
+          <h3>Development Information</h3>
           <p>Aaron A. Barra | WDD 231</p>
-          <p id="lastModified">Última modificación: Cargando...</p>
+          <p id="lastModified">Last modified: Loading...</p>
           <p>&copy; <span id="currentYear"></span> Arequipa Chamber of Commerce</p>
         </div>
       </div>

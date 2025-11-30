@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -35,19 +35,17 @@
           <span class="logo-text">AQP Chamber</span>
         </a>
       </div>
-      <button id="menuBtn" class="menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNav">
+      <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
         <span class="menu-icon">☰</span>
       </button>
-<nav id="mainNav" class="main-nav" aria-label="Navegación principal">
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="directory.html">Directorio</a></li>
-    <li><a href="events.html">Eventos</a></li>
-    <li><a href="contact.html">Contacto</a></li>
-    <li><a href="join.html">Unirse</a></li>
-    <li><a href="discover.html">Descubre</a></li>
-  </ul>
-</nav>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -57,24 +55,24 @@
     <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-heading">
       <img src="./images/hero-aqp.jpg" 
-           alt="Vista panorámica de Arequipa con el volcán Misti iluminado al atardecer"
+           alt="Panoramic view of Arequipa with Misti volcano illuminated at sunset"
            class="hero-image"
            width="1200"
            height="600"
            loading="eager">
       <div class="hero-content">
-        <h2 id="hero-heading">Construyendo el Futuro Económico de Arequipa Juntos</h2>
-        <p>Por más de 30 años, hemos conectado negocios, fomentado innovación y impulsado el crecimiento económico en la región de Arequipa.</p>
+        <h2 id="hero-heading">Building Arequipa's Economic Future Together</h2>
+        <p>For over 30 years, we have connected businesses, fostered innovation, and driven economic growth in the Arequipa region.</p>
         <div class="hero-actions">
-          <a href="directory.html" class="button button-primary">Explorar 100+ Negocios</a>
-          <a href="contact.html" class="button button-secondary-dark">Unirse a la Cámara</a>
+          <a href="directory.html" class="button button-primary">Explore 100+ Businesses</a>
+          <a href="join.html" class="button button-secondary-dark">Join the Chamber</a>
         </div>
       </div>
     </section>
 
     <!-- Current Events -->
     <section class="current-events" aria-labelledby="events-heading">
-      <h2 id="events-heading" class="section-title">Eventos Actuales</h2>
+      <h2 id="events-heading" class="section-title">Current Events</h2>
       <div class="events-grid">
         <article class="event-card">
           <div class="event-date">
@@ -82,9 +80,9 @@
             <span class="event-day">15</span>
           </div>
           <div class="event-details">
-            <h3>Networking Empresarial Mensual</h3>
-            <p class="event-time">🕒 6:00 PM - 8:30 PM | 📍 Sala de Conferencias de la Cámara</p>
-            <p class="event-description">Conecta con otros miembros de la cámara y líderes empresariales de la comunidad de Arequipa.</p>
+            <h3>Monthly Business Networking</h3>
+            <p class="event-time">🕒 6:00 PM - 8:30 PM | 📍 Chamber Conference Room</p>
+            <p class="event-description">Connect with other chamber members and business leaders from the Arequipa community.</p>
           </div>
         </article>
 
@@ -94,9 +92,9 @@
             <span class="event-day">22</span>
           </div>
           <div class="event-details">
-            <h3>Taller de Marketing Digital</h3>
-            <p class="event-time">🕒 9:00 AM - 1:00 PM | 📍 Centro Empresarial Arequipa</p>
-            <p class="event-description">Aprende estrategias efectivas de marketing digital para PYMEs en el mercado arequipeño.</p>
+            <h3>Digital Marketing Workshop</h3>
+            <p class="event-time">🕒 9:00 AM - 1:00 PM | 📍 Arequipa Business Center</p>
+            <p class="event-description">Learn effective digital marketing strategies for SMEs in the Arequipa market.</p>
           </div>
         </article>
       </div>
@@ -104,18 +102,18 @@
 
     <!-- Weather -->
     <section class="weather-section" aria-labelledby="weather-heading">
-      <h2 id="weather-heading" class="section-title">Clima en Arequipa</h2>
+      <h2 id="weather-heading" class="section-title">Weather in Arequipa</h2>
       <div class="weather-container">
         <div class="current-weather">
-          <h3>Clima Actual</h3>
+          <h3>Current Weather</h3>
           <div id="current-weather" class="weather-info">
-            <div class="loading-weather">Cargando clima actual...</div>
+            <div class="loading-weather">Loading current weather...</div>
           </div>
         </div>
         <div class="weather-forecast">
-          <h3>Pronóstico de 3 Días</h3>
+          <h3>3-Day Forecast</h3>
           <div id="weather-forecast" class="forecast-info">
-            <div class="loading-weather">Cargando pronóstico...</div>
+            <div class="loading-weather">Loading forecast...</div>
           </div>
         </div>
       </div>
@@ -123,55 +121,55 @@
 
     <!-- Spotlights -->
     <section class="spotlights-section" aria-labelledby="spotlights-heading">
-      <h2 id="spotlights-heading" class="section-title">Miembros Destacados</h2>
+      <h2 id="spotlights-heading" class="section-title">Featured Members</h2>
       <div class="spotlights-container" id="spotlights-container">
         <div class="loading-state">
-          <p>Cargando miembros destacados...</p>
+          <p>Loading featured members...</p>
         </div>
       </div>
     </section>
 
     <!-- Features -->
     <section class="features" aria-labelledby="features-heading">
-      <h2 id="features-heading" class="section-title">¿Por Qué Unirse a AQP Chamber?</h2>
+      <h2 id="features-heading" class="section-title">Why Join AQP Chamber?</h2>
       <div class="feature-grid">
         <div class="feature-card">
-          <h3>Networking Empresarial</h3>
-          <p>Conecta con más de 100 empresas establecidas en los principales sectores económicos de Arequipa.</p>
-          <a href="directory.html" class="feature-link">Ver Directorio →</a>
+          <h3>Business Networking</h3>
+          <p>Connect with over 100 established businesses in Arequipa's main economic sectors.</p>
+          <a href="directory.html" class="feature-link">View Directory →</a>
         </div>
         <div class="feature-card">
-          <h3>Representación Institucional</h3>
-          <p>Representamos los intereses empresariales ante el gobierno regional y municipal.</p>
-          <a href="events.html" class="feature-link">Saber Más →</a>
+          <h3>Institutional Representation</h3>
+          <p>We represent business interests before regional and municipal government.</p>
+          <a href="join.html" class="feature-link">Learn More →</a>
         </div>
         <div class="feature-card">
-          <h3>Recursos para Crecimiento</h3>
-          <p>Accede a talleres de desarrollo empresarial, insights de mercado y asistencia para exportación.</p>
-          <a href="contact.html" class="feature-link">Obtener Apoyo →</a>
+          <h3>Growth Resources</h3>
+          <p>Access business development workshops, market insights, and export assistance.</p>
+          <a href="join.html" class="feature-link">Get Support →</a>
         </div>
       </div>
     </section>
 
     <!-- Stats -->
     <section class="stats-section" aria-labelledby="stats-heading">
-      <h2 id="stats-heading" class="section-title">Nuestro Impacto en Arequipa</h2>
+      <h2 id="stats-heading" class="section-title">Our Impact in Arequipa</h2>
       <div class="stats-grid">
         <div class="stat-item">
           <span class="stat-number">100+</span>
-          <span class="stat-label">Empresas Miembros</span>
+          <span class="stat-label">Member Businesses</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">30</span>
-          <span class="stat-label">Años de Servicio</span>
+          <span class="stat-label">Years of Service</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">15</span>
-          <span class="stat-label">Sectores Económicos</span>
+          <span class="stat-label">Economic Sectors</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">36</span>
-          <span class="stat-label">Eventos Anuales</span>
+          <span class="stat-label">Annual Events</span>
         </div>
       </div>
     </section>
@@ -182,15 +180,15 @@
     <div class="wrap">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Información de Contacto</h3>
+          <h3>Contact Information</h3>
           <p>Email: cont-adm@AQPchamber.com</p>
-          <p>Teléfono: +51 948 487 985</p>
-          <p>Dirección: Av. San Martin 3410, Arequipa</p>
+          <p>Phone: +51 948 487 985</p>
+          <p>Address: Av. San Martin 3410, Arequipa</p>
         </div>
         <div class="footer-section">
-          <h3>Información de Desarrollo</h3>
+          <h3>Development Information</h3>
           <p>Aaron A. Barra | WDD 231</p>
-          <p id="lastModified">Última modificación: Cargando...</p>
+          <p id="lastModified">Last modified: Loading...</p>
           <p>&copy; <span id="currentYear"></span> Arequipa Chamber of Commerce</p>
         </div>
       </div>
