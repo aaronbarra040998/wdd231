@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive site plan for Pokémon-themed final project - W05 Assignment">
+    <meta name="author" content="Student">
+    <title>W05 Project Site Plan - Pokémon Hub Final Project</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/site-plan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <div class="pokeball-icon"></div>
+                    <span class="logo-text">Pokémon Hub</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#site-name">Site Name</a></li>
+                    <li><a href="#site-purpose">Purpose</a></li>
+                    <li><a href="#scenarios">Scenarios</a></li>
+                    <li><a href="#color-schema">Colors</a></li>
+                    <li><a href="#typography">Typography</a></li>
+                    <li><a href="#wireframe">Wireframes</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Pokémon Hub</h1>
+                    <p class="hero-subtitle">Final Project Site Plan</p>
+                    <p class="hero-description">A comprehensive planning document for a 3-page Pokémon website with advanced JavaScript functionality</p>
+                    <div class="hero-badges">
+                        <span class="badge"><i class="fas fa-mobile-alt"></i> Responsive</span>
+                        <span class="badge"><i class="fas fa-bolt"></i> Dynamic</span>
+                        <span class="badge"><i class="fas fa-code"></i> JavaScript</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="pokeball-animation">
+                        <div class="pokeball">
+                            <div class="pokeball-top"></div>
+                            <div class="pokeball-middle"></div>
+                            <div class="pokeball-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Site Name Section -->
+        <section class="section" id="site-name">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h2>Site Name & Branding</h2>
+            </div>
+            <div class="content-block">
+                <div class="brand-presentation">
+                    <div class="logo-display">
+                        <div class="logo-large">
+                            <div class="logo-icon-large"></div>
+                            <h3 class="site-name">Pokémon Hub</h3>
+                        </div>
+                        <div class="logo-variations">
+                            <div class="logo-variant">
+                                <div class="logo-icon-small"></div>
+                                <span>Favicon</span>
+                            </div>
+                            <div class="logo-variant">
+                                <div class="logo-icon-small dark"></div>
+                                <span>Dark Mode</span>
+                            </div>
+                            <div class="logo-variant">
+                                <div class="logo-icon-small mono"></div>
+                                <span>Monochrome</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand-info">
+                        <h4>Why "Pokémon Hub"?</h4>
+                        <p>The name clearly communicates the site's purpose as a central destination for Pokémon enthusiasts. It's memorable, brandable, and suggests a comprehensive resource.</p>
+                        
+                        <div class="brand-details">
+                            <div class="detail-card">
+                                <i class="fas fa-brain"></i>
+                                <h5>Memorable</h5>
+                                <p>Short, catchy, and easy to remember</p>
+                            </div>
+                            <div class="detail-card">
+                                <i class="fas fa-search"></i>
+                                <h5>SEO Friendly</h5>
+                                <p>Contains primary keyword "Pokémon"</p>
+                            </div>
+                            <div class="detail-card">
+                                <i class="fas fa-users"></i>
+                                <h5>Community Focus</h5>
+                                <p>"Hub" implies community gathering</p>
+                            </div>
+                        </div>
+                        
+                        <div class="domain-info">
+                            <h5>Domain Availability</h5>
+                            <p><strong>Preferred:</strong> pokemonhub.dev (available)</p>
+                            <p><strong>Alternatives:</strong> pokemonhub.site, thepokemonhub.net</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Site Purpose Section -->
+        <section class="section" id="site-purpose">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h2>Site Purpose & Scope</h2>
+            </div>
+            <div class="content-block">
+                <div class="purpose-grid">
+                    <div class="purpose-card main-purpose">
+                        <div class="purpose-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Home Page</h3>
+                        <p>Dashboard with featured content, interactive type calculator, and quick access tools for trainers.</p>
+                        <ul class="purpose-features">
+                            <li><i class="fas fa-calculator"></i> Type Effectiveness Calculator</li>
+                            <li><i class="fas fa-star"></i> Featured Pokémon Spotlight</li>
+                            <li><i class="fas fa-newspaper"></i> Latest Pokémon News</li>
+                            <li><i class="fas fa-bolt"></i> Quick Search Tool</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="purpose-card">
+                        <div class="purpose-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Pokédex Page</h3>
+                        <p>Interactive database of 150+ Pokémon with search, filter, and detailed modal views.</p>
+                        <ul class="purpose-features">
+                            <li><i class="fas fa-search"></i> Advanced Search & Filter</li>
+                            <li><i class="fas fa-expand"></i> Modal Detail Views</li>
+                            <li><i class="fas fa-heart"></i> Favorite System</li>
+                            <li><i class="fas fa-sort"></i> Sort by Multiple Criteria</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="purpose-card">
+                        <div class="purpose-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Page</h3>
+                        <p>Fan art gallery, strategy sharing, and contact form with action page.</p>
+                        <ul class="purpose-features">
+                            <li><i class="fas fa-image"></i> Fan Art Gallery</li>
+                            <li><i class="fas fa-comments"></i> Strategy Discussion</li>
+                            <li><i class="fas fa-envelope"></i> Contact Form</li>
+                            <li><i class="fas fa-calendar"></i> Event Calendar</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="technical-overview">
+                    <h4>Technical Implementation</h4>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript ES6+</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>REST API Integration</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Responsive Design</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-universal-access"></i>
+                            <span>Accessibility</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Performance Optimized</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Forms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Scenarios Section -->
+        <section class="section" id="scenarios">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <h2>User Scenarios</h2>
+            </div>
+            
+            <div class="scenarios-container">
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4>Alex, 12</h4>
+                            <p class="user-role">New Pokémon Trainer</p>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-question">
+                            <i class="fas fa-question-circle"></i>
+                            <p>"I just caught a Pikachu. What types is it strong against?"</p>
+                        </div>
+                        <div class="scenario-solution">
+                            <h5>Site Solution:</h5>
+                            <p>Type effectiveness calculator on homepage with visual guides and beginner tips.</p>
+                        </div>
+                        <div class="scenario-features">
+                            <span class="feature-tag">Type Calculator</span>
+                            <span class="feature-tag">Beginner Guides</span>
+                            <span class="feature-tag">Visual Learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="user-avatar competitive">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4>Jamie, 25</h4>
+                            <p class="user-role">Competitive Player</p>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-question">
+                            <i class="fas fa-question-circle"></i>
+                            <p>"I need to compare stats of 15+ Pokémon for my tournament team."</p>
+                        </div>
+                        <div class="scenario-solution">
+                            <h5>Site Solution:</h5>
+                            <p>Advanced Pokédex with filtering, comparison tools, and team builder functionality.</p>
+                        </div>
+                        <div class="scenario-features">
+                            <span class="feature-tag">Advanced Search</span>
+                            <span class="feature-tag">Team Builder</span>
+                            <span class="feature-tag">Stats Comparison</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="user-avatar creator">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4>Morgan, 30</h4>
+                            <p class="user-role">Content Creator</p>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <div class="scenario-question">
+                            <i class="fas fa-question-circle"></i>
+                            <p>"Where can I share my Pokémon fan art and connect with other fans?"</p>
+                        </div>
+                        <div class="scenario-solution">
+                            <h5>Site Solution:</h5>
+                            <p>Community page with gallery, submission form, and social features.</p>
+                        </div>
+                        <div class="scenario-features">
+                            <span class="feature-tag">Gallery</span>
+                            <span class="feature-tag">Community</span>
+                            <span class="feature-tag">Social Features</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Color Schema Section -->
+        <section class="section" id="color-schema">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <h2>Color Schema</h2>
+            </div>
+            
+            <div class="color-presentation">
+                <div class="color-primary">
+                    <h3>Primary Colors</h3>
+                    <div class="color-grid">
+                        <div class="color-card">
+                            <div class="color-display pokemon-red"></div>
+                            <div class="color-info">
+                                <h4>Pokémon Red</h4>
+                                <p>#FF0000</p>
+                                <p>RGB(255, 0, 0)</p>
+                                <p class="color-usage">Primary brand color, headers, CTAs</p>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-display pokemon-blue"></div>
+                            <div class="color-info">
+                                <h4>Pokémon Blue</h4>
+                                <p>#3B4CCA</p>
+                                <p>RGB(59, 76, 202)</p>
+                                <p class="color-usage">Navigation, footer, secondary elements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="color-secondary">
+                    <h3>Secondary & Accent Colors</h3>
+                    <div class="color-grid">
+                        <div class="color-card">
+                            <div class="color-display pokemon-yellow"></div>
+                            <div class="color-info">
+                                <h4>Pokémon Yellow</h4>
+                                <p>#FFDE00</p>
+                                <p>RGB(255, 222, 0)</p>
+                                <p class="color-usage">Highlights, borders, accents</p>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-display pokemon-light"></div>
+                            <div class="color-info">
+                                <h4>Light Background</h4>
+                                <p>#F8F9FA</p>
+                                <p>RGB(248, 249, 250)</p>
+                                <p class="color-usage">Backgrounds, cards, sections</p>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-display pokemon-dark"></div>
+                            <div class="color-info">
+                                <h4>Dark Text</h4>
+                                <p>#212529</p>
+                                <p>RGB(33, 37, 41)</p>
+                                <p class="color-usage">Body text, headings on light backgrounds</p>
+                            </div>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-display pokemon-success"></div>
+                            <div class="color-info">
+                                <h4>Success Green</h4>
+                                <p>#28A745</p>
+                                <p>RGB(40, 167, 69)</p>
+                                <p class="color-usage">Success messages, positive actions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="color-application">
+                    <h3>Color Application Examples</h3>
+                    <div class="application-examples">
+                        <div class="application-card">
+                            <div class="app-visual header-example">
+                                <div class="app-header"></div>
+                                <div class="app-nav"></div>
+                            </div>
+                            <p>Header & Navigation</p>
+                        </div>
+                        <div class="application-card">
+                            <div class="app-visual button-example">
+                                <button class="app-button primary">Primary Button</button>
+                                <button class="app-button secondary">Secondary Button</button>
+                            </div>
+                            <p>Buttons & CTAs</p>
+                        </div>
+                        <div class="application-card">
+                            <div class="app-visual card-example">
+                                <div class="app-card">
+                                    <div class="app-card-header"></div>
+                                    <div class="app-card-body"></div>
+                                </div>
+                            </div>
+                            <p>Cards & Components</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Typography Section -->
+        <section class="section" id="typography">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <h2>Typography</h2>
+            </div>
+            
+            <div class="typography-presentation">
+                <div class="typography-primary">
+                    <div class="font-card heading-font">
+                        <div class="font-header">
+                            <h3 class="font-demo-title">Press Start 2P</h3>
+                            <span class="font-category">Heading Font</span>
+                        </div>
+                        <div class="font-samples">
+                            <div class="font-sample-item">
+                                <h1>H1: The quick brown fox</h1>
+                                <p class="font-details">Size: 2.5rem • Weight: 400 • Line height: 1.2</p>
+                            </div>
+                            <div class="font-sample-item">
+                                <h2>H2: Jumps over the lazy dog</h2>
+                                <p class="font-details">Size: 2rem • Weight: 400 • Line height: 1.3</p>
+                            </div>
+                            <div class="font-sample-item">
+                                <h3>H3: 1234567890 !@#$%^&*()</h3>
+                                <p class="font-details">Size: 1.5rem • Weight: 400 • Line height: 1.4</p>
+                            </div>
+                            <div class="font-sample-item">
+                                <div class="font-usage">
+                                    <span class="usage-tag">Headings</span>
+                                    <span class="usage-tag">Logo</span>
+                                    <span class="usage-tag">Navigation</span>
+                                    <span class="usage-tag">Buttons</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="typography-secondary">
+                    <div class="font-card body-font">
+                        <div class="font-header">
+                            <h3 class="font-demo-title">Roboto</h3>
+                            <span class="font-category">Body Font</span>
+                        </div>
+                        <div class="font-samples">
+                            <div class="font-sample-item">
+                                <p class="font-regular">Regular: The quick brown fox jumps over the lazy dog. 1234567890</p>
+                                <p class="font-details">Size: 1rem • Weight: 400 • Line height: 1.6</p>
+                            </div>
+                            <div class="font-sample-item">
+                                <p class="font-light">Light: The quick brown fox jumps over the lazy dog.</p>
+                                <p class="font-details">Size: 1rem • Weight: 300 • Line height: 1.6</p>
+                            </div>
+                            <div class="font-sample-item">
+                                <p class="font-bold">Bold: The quick brown fox jumps over the lazy dog.</p>
+                                <p class="font-details">Size: 1rem • Weight: 700 • Line height: 1.6</p>
+                            </div>
+                            <div class="font-sample-item">
+                                <div class="font-usage">
+                                    <span class="usage-tag">Body Text</span>
+                                    <span class="usage-tag">Paragraphs</span>
+                                    <span class="usage-tag">Forms</span>
+                                    <span class="usage-tag">Captions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="typography-rules">
+                    <h3>Typography Rules</h3>
+                    <div class="rules-grid">
+                        <div class="rule-card">
+                            <i class="fas fa-text-height"></i>
+                            <h4>Hierarchy</h4>
+                            <p>Clear visual hierarchy with consistent spacing between headings and paragraphs.</p>
+                        </div>
+                        <div class="rule-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Responsive</h4>
+                            <p>Fluid typography scales appropriately across all device sizes.</p>
+                        </div>
+                        <div class="rule-card">
+                            <i class="fas fa-eye"></i>
+                            <h4>Readability</h4>
+                            <p>Minimum 16px font size for body text, generous line height for comfort.</p>
+                        </div>
+                        <div class="rule-card">
+                            <i class="fas fa-contrast"></i>
+                            <h4>Contrast</h4>
+                            <p>All text maintains WCAG 2.1 AA contrast ratios for accessibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Wireframe Section -->
+        <section class="section" id="wireframe">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <h2>Wireframes & Layouts</h2>
+            </div>
+            
+            <div class="wireframe-presentation">
+                <div class="wireframe-device-selector">
+                    <button class="device-btn active" data-device="mobile">
+                        <i class="fas fa-mobile-alt"></i> Mobile
+                    </button>
+                    <button class="device-btn" data-device="tablet">
+                        <i class="fas fa-tablet-alt"></i> Tablet
+                    </button>
+                    <button class="device-btn" data-device="desktop">
+                        <i class="fas fa-desktop"></i> Desktop
+                    </button>
+                </div>
+                
+                <!-- Home Page Wireframes -->
+                <div class="page-wireframe">
+                    <h3 class="page-title">Home Page</h3>
+                    <div class="wireframe-container">
+                        <!-- Mobile -->
+                        <div class="wireframe-device mobile-view active">
+                            <div class="device-frame">
+                                <div class="device-header">
+                                    <div class="status-bar">
+                                        <span>9:41</span>
+                                        <div class="signal-icons">
+                                            <i class="fas fa-signal"></i>
+                                            <i class="fas fa-wifi"></i>
+                                            <i class="fas fa-battery-full"></i>
+                                        </div>
+                                    </div>
+                                    <div class="app-header">
+                                        <div class="menu-toggle-small">
+                                            <i class="fas fa-bars"></i>
+                                        </div>
+                                        <div class="app-logo-small"></div>
+                                        <div class="header-title">Pokémon Hub</div>
+                                    </div>
+                                </div>
+                                <div class="device-content">
+                                    <div class="wireframe-hero">
+                                        <div class="search-bar">
+                                            <i class="fas fa-search"></i>
+                                            <span>Search Pokémon...</span>
+                                        </div>
+                                    </div>
+                                    <div class="wireframe-section">
+                                        <div class="section-label">Featured Pokémon</div>
+                                        <div class="pokemon-cards">
+                                            <div class="pokemon-card-small"></div>
+                                            <div class="pokemon-card-small"></div>
+                                            <div class="pokemon-card-small"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wireframe-section">
+                                        <div class="section-label">Type Calculator</div>
+                                        <div class="calculator-widget">
+                                            <div class="type-selector"></div>
+                                            <div class="result-display"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wireframe-section">
+                                        <div class="section-label">Latest News</div>
+                                        <div class="news-item"></div>
+                                        <div class="news-item"></div>
+                                    </div>
+                                </div>
+                                <div class="device-footer">
+                                    <div class="nav-tabs">
+                                        <div class="nav-tab active">
+                                            <i class="fas fa-home"></i>
+                                            <span>Home</span>
+                                        </div>
+                                        <div class="nav-tab">
+                                            <i class="fas fa-book"></i>
+                                            <span>Pokédex</span>
+                                        </div>
+                                        <div class="nav-tab">
+                                            <i class="fas fa-users"></i>
+                                            <span>Community</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Desktop -->
+                        <div class="wireframe-device desktop-view">
+                            <div class="device-frame desktop">
+                                <div class="desktop-header">
+                                    <div class="desktop-logo"></div>
+                                    <div class="desktop-nav">
+                                        <span class="nav-item active">Home</span>
+                                        <span class="nav-item">Pokédex</span>
+                                        <span class="nav-item">Community</span>
+                                        <span class="nav-item">Tools</span>
+                                        <span class="nav-item">About</span>
+                                    </div>
+                                    <div class="desktop-search">
+                                        <i class="fas fa-search"></i>
+                                        <span>Search...</span>
+                                    </div>
+                                </div>
+                                <div class="desktop-content">
+                                    <div class="desktop-hero">
+                                        <div class="hero-left">
+                                            <div class="hero-title">Welcome to Pokémon Hub</div>
+                                            <div class="hero-subtitle">Your ultimate Pokémon resource</div>
+                                            <div class="hero-search-large">
+                                                <input type="text" placeholder="Search Pokémon by name, type, or ability...">
+                                                <button aria-label="Buscar"><i class="fas fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="hero-right">
+                                            <div class="featured-pokemon-large"></div>
+                                        </div>
+                                    </div>
+                                    <div class="desktop-main">
+                                        <div class="main-content">
+                                            <div class="content-section">
+                                                <h4>Pokédex Spotlight</h4>
+                                                <div class="pokemon-grid">
+                                                    <div class="pokemon-card"></div>
+                                                    <div class="pokemon-card"></div>
+                                                    <div class="pokemon-card"></div>
+                                                    <div class="pokemon-card"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content-section">
+                                                <h4>Type Effectiveness Calculator</h4>
+                                                <div class="calculator-large">
+                                                    <div class="calculator-inputs"></div>
+                                                    <div class="calculator-results"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sidebar">
+                                            <div class="sidebar-section">
+                                                <h4>Latest News</h4>
+                                                <div class="news-list">
+                                                    <div class="news-item-large"></div>
+                                                    <div class="news-item-large"></div>
+                                                    <div class="news-item-large"></div>
+                                                </div>
+                                            </div>
+                                            <div class="sidebar-section">
+                                                <h4>Quick Links</h4>
+                                                <div class="quick-links">
+                                                    <div class="quick-link"></div>
+                                                    <div class="quick-link"></div>
+                                                    <div class="quick-link"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pokédex Page Wireframes -->
+                <div class="page-wireframe">
+                    <h3 class="page-title">Pokédex Page</h3>
+                    <div class="wireframe-container">
+                        <!-- Mobile -->
+                        <div class="wireframe-device mobile-view">
+                            <div class="device-frame">
+                                <div class="device-header">
+                                    <div class="app-header">
+                                        <div class="back-button">
+                                            <i class="fas fa-arrow-left"></i>
+                                        </div>
+                                        <div class="header-title">Pokédex</div>
+                                        <div class="filter-toggle">
+                                            <i class="fas fa-filter"></i>
+                                        </div>
+                                    </div>
+                                    <div class="search-container">
+                                        <div class="search-bar expanded">
+                                            <i class="fas fa-search"></i>
+                                            <span>Search Pokémon...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="device-content">
+                                    <div class="filter-bar">
+                                        <div class="filter-chip">All Types</div>
+                                        <div class="filter-chip">Gen 1</div>
+                                        <div class="filter-chip">Favorites</div>
+                                    </div>
+                                    <div class="pokemon-list">
+                                        <div class="list-item">
+                                            <div class="pokemon-sprite"></div>
+                                            <div class="pokemon-info">
+                                                <div class="pokemon-name">#001 Bulbasaur</div>
+                                                <div class="pokemon-types">
+                                                    <span class="type-badge grass">Grass</span>
+                                                    <span class="type-badge poison">Poison</span>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-icon">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="pokemon-sprite"></div>
+                                            <div class="pokemon-info">
+                                                <div class="pokemon-name">#002 Ivysaur</div>
+                                                <div class="pokemon-types">
+                                                    <span class="type-badge grass">Grass</span>
+                                                    <span class="type-badge poison">Poison</span>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-icon">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="pokemon-sprite"></div>
+                                            <div class="pokemon-info">
+                                                <div class="pokemon-name">#003 Venusaur</div>
+                                                <div class="pokemon-types">
+                                                    <span class="type-badge grass">Grass</span>
+                                                    <span class="type-badge poison">Poison</span>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-icon">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wireframe-legend">
+                    <h4>Wireframe Legend</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-box header"></div>
+                            <span>Header / Navigation</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box content"></div>
+                            <span>Content Area</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box card"></div>
+                            <span>Card / Component</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box interactive"></div>
+                            <span>Interactive Element</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- JavaScript Features -->
+        <section class="section" id="javascript">
+            <div class="section-header">
+                <div class="section-number">07</div>
+                <h2>JavaScript Features</h2>
+            </div>
+            
+            <div class="javascript-features">
+                <div class="feature-highlight">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>API Integration with PokéAPI</h3>
+                        <p>Fetch real-time Pokémon data using the PokéAPI with robust error handling and fallback mechanisms.</p>
+                        <div class="code-snippet">
+                            <pre><code>async function fetchPokemonData(id) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const data = await response.json();
+        return {
+            name: data.name,
+            types: data.types.map(t => t.type.name),
+            stats: data.stats,
+            sprite: data.sprites.front_default
+        };
+    } catch (error) {
+        console.error('API Error:', error);
+        return getLocalPokemonData(id); // Fallback
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Local Storage</h4>
+                        <p>Save user preferences, favorites, and recently viewed Pokémon</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                        <h4>Modal Dialogs</h4>
+                        <p>Detailed Pokémon information in accessible modal windows</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Dynamic Search</h4>
+                        <p>Real-time filtering and search with debouncing</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sort"></i>
+                        </div>
+                        <h4>Array Methods</h4>
+                        <p>map(), filter(), reduce() for data processing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="pokeball-icon"></div>
+                        <span class="logo-text">Pokémon Hub</span>
+                    </div>
+                    <p class="footer-description">Final Project Site Plan • W05 Assignment</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h5>Project</h5>
+                        <a href="#site-name">Site Name</a>
+                        <a href="#site-purpose">Purpose</a>
+                        <a href="#wireframe">Wireframes</a>
+                    </div>
+                    <div class="link-group">
+                        <h5>Design</h5>
+                        <a href="#color-schema">Colors</a>
+                        <a href="#typography">Typography</a>
+                        <a href="#javascript">JavaScript</a>
+                    </div>
+                </div>
+                <div class="footer-validation">
+                    <h5>Validation</h5>
+                    <div class="validation-badges">
+                        <span class="validation-badge">
+                            <i class="fas fa-check-circle"></i> HTML5
+                        </span>
+                        <span class="validation-badge">
+                            <i class="fas fa-check-circle"></i> CSS3
+                        </span>
+                        <span class="validation-badge">
+                            <i class="fas fa-universal-access"></i> WCAG 2.1
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>This document uses the defined color schema and typography throughout.</p>
+                <p>All wireframes represent actual page layouts for the final project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for device toggling
+        document.querySelectorAll('.device-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const device = btn.dataset.device;
+                // Show/hide wireframes based on device
+                // This is a simplified version - in a real implementation you'd toggle visibility
+            });
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
