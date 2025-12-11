@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokédex Interactive — Pokémon Hub</title>
+  <meta name="description" content="Interactive Pokédex with dynamic search, stats and Pokémon data.">
+  <meta name="author" content="Aaron A. Barra">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Pokédex Interactive — Pokémon Hub">
+  <meta property="og:description" content="Explore 150+ Pokémon with dynamic stats and information.">
+  <meta property="og:image" content="images/pokeball-preview.png">
+  <meta property="og:url" content="pokedex.html">
+  <meta property="og:type" content="website">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="images/pokeball.ico" type="image/x-icon">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pokedex.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="logo">
+        <a href="index.html" aria-label="Pokémon Hub homepage">
+          <span class="logo-text">⚡ Pokémon Hub</span>
+        </a>
+      </div>
+      <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+        <span class="menu-icon">☰</span>
+      </button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="pokedex.html" aria-current="page">📖 Pokédex</a></li>
+          <li><a href="community.html">👥 Community</a></li>
+          <li><a href="attributions.html">📋 Attributions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="wrap">
+    <!-- POKÉDEX PREMIUM INTERFACE -->
+    <div class="pokedex-premium-container">
+      
+      <!-- Header con búsqueda y timer -->
+      <header class="pokedex-header">
+        <div class="pokedex-logo-section">
+          <div class="pokeball-icon-premium"></div>
+          <h1 class="pokedex-title">📖 INTERACTIVE POKÉDEX</h1>
+        </div>
+        
+        <div class="pokedex-controls">
+          <div class="search-container-premium">
+            <div class="search-icon-premium">🔍</div>
+            <input 
+              type="text" 
+              id="pokemon-search" 
+              class="search-input-premium"
+              placeholder="Search by name or # (1-151)..."
+              autocomplete="off"
+            >
+          </div>
+          
+          <div class="timer-section-premium">
+            <span class="timer-label-premium">NEXT IN:</span>
+            <div class="timer-count-premium" id="pokedex-timer">30</div>
+            <button id="refresh-pokemon-btn" class="refresh-btn-premium" aria-label="Refresh Pokémon">↻</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Contenedor Principal -->
+      <div class="pokedex-main-content">
+        
+        <!-- Panel Izquierdo: Pokémon Actual -->
+        <section class="pokemon-main-display" id="pokemon-main-display">
+          <div class="pokemon-header-premium">
+            <div>
+              <h2 class="pokemon-name-premium" id="pokemon-name-display">----------</h2>
+              <p class="pokemon-species-premium" id="pokemon-species-display">----------</p>
+            </div>
+            <div class="pokemon-id-premium" id="pokemon-id-display">#000</div>
+          </div>
+
+          <div class="pokemon-image-container" id="pokemon-image-container">
+            <div class="welcome-message" style="text-align: center; padding: 2rem;">
+              <p style="font-size: 1.5rem; color: var(--pokemon-blue);">🔍 Welcome, Trainer!</p>
+              <p style="color: var(--text-muted);">Search a Pokémon or wait for auto-refresh in <span id="initial-timer">30</span> seconds...</p>
+            </div>
+          </div>
+
+          <div class="pokemon-types-premium" id="pokemon-types-display"></div>
+
+          <!-- BOTÓN DE FAVORITOS -->
+          <div class="favorite-button-container">
+            <button id="favoriteBtn" class="favorite-btn-premium" aria-label="Toggle favorite" aria-pressed="false">
+              <span class="favorite-icon">⭐</span>
+              <span class="favorite-text">Add to Favorites</span>
+            </button>
+          </div>
+
+          <div class="stats-overview-premium" id="stats-overview-display"></div>
+        </section>
+
+        <!-- Panel Derecho: Tabs de Información -->
+        <section class="info-panel-premium">
+          <div class="tabs-header-premium">
+            <button class="tab-btn-premium active" data-tab="about">About</button>
+            <button class="tab-btn-premium" data-tab="stats">Stats</button>
+            <button class="tab-btn-premium" data-tab="history">History</button>
+          </div>
+
+          <div class="tab-content-premium">
+            <!-- Tab About -->
+            <div class="tab-pane-premium active" id="about-tab-premium">
+              <div class="about-grid-premium">
+                <div class="about-item">
+                  <span class="about-label">Height</span>
+                  <span class="about-value" id="pokemon-height-display">--.- m</span>
+                </div>
+                <div class="about-item">
+                  <span class="about-label">Weight</span>
+                  <span class="about-value" id="pokemon-weight-display">--.- kg</span>
+                </div>
+                <div class="about-item">
+                  <span class="about-label">Abilities</span>
+                  <span class="about-value" id="pokemon-abilities-display">------</span>
+                </div>
+                <div class="about-item">
+                  <span class="about-label">Habitat</span>
+                  <span class="about-value" id="pokemon-habitat-display">------</span>
+                </div>
+              </div>
+              <div class="biology-text-premium" id="pokemon-biology-display">
+                Loading Pokémon data...
+              </div>
+            </div>
+
+            <!-- Tab Stats -->
+            <div class="tab-pane-premium" id="stats-tab-premium">
+              <div class="stats-container-premium" id="stats-container-display"></div>
+            </div>
+
+            <!-- Tab History - Con Filtros Verticales -->
+            <div class="tab-pane-premium" id="history-tab-premium">
+              <div class="history-container-premium">
+                <div class="filter-sidebar-premium" id="filter-sidebar-premium">
+                  <!-- Filtros generados por JS -->
+                </div>
+                <div class="history-grid-container-premium">
+                  <div class="history-header-premium">
+                    <div class="history-title-premium">Recently Viewed</div>
+                    <div class="history-count-premium" id="history-count-display">0 Pokémon</div>
+                  </div>
+                  <div class="history-grid-premium" id="history-grid-display">
+                    <!-- Items del historial -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ✅ SECCIÓN DE FAVORITOS NUEVA -->
+    <section class="favorites-section-premium">
+      <div class="wrap">
+        <div class="favorites-header-premium">
+          <h2 class="favorites-title-premium">❤️ My Favorite Pokémon</h2>
+          <button id="clearFavoritesBtn" class="clear-favorites-btn" aria-label="Clear all favorites">
+            🗑️ Clear All
+          </button>
+        </div>
+        
+        <div id="favorites-grid-premium" class="favorites-grid-premium">
+          <div class="no-favorites-message">
+            <div class="no-favorites-icon">⭐</div>
+            <h3>No favorites yet</h3>
+            <p>Click the ⭐ button on any Pokémon to add it to your favorites!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL DE POKÉMON -->
+    <div id="pokemon-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🎮 Pokémon Hub</h3>
+          <p>Interactive Pokémon experience built with vanilla web technologies.</p>
+          <p><a href="attributions.html">📋 Resource Attributions</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>💻 Development</h3>
+          <p>Aaron A. Barra | WDD 231</p>
+          <p id="lastModified">Last modified: Loading...</p>
+          <p><a href="https://youtube.com/your-video-demo" target="_blank" rel="noopener noreferrer">📹 Project Video</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script type="module" src="scripts/main.js"></script>
+  <script type="module" src="scripts/pages/pokedex.js"></script>
+  
+  <script>
+    // Contador visual inicial para mejor UX
+    let initialCount = 30;
+    const initialTimer = setInterval(() => {
+      initialCount--;
+      const el = document.getElementById('initial-timer');
+      if (el) el.textContent = initialCount;
+      if (initialCount <= 0) clearInterval(initialTimer);
+    }, 1000);
+  </script>
+</body>
+</html>

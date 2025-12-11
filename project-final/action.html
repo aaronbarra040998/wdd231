@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>✅ Submission Confirmed — Pokémon Hub</title>
+  <meta name="description" content="Your Pokémon Hub community submission has been successfully recorded.">
+  <meta name="author" content="Aaron A. Barra">
+  <link rel="icon" href="images/pokeball.ico" type="image/x-icon">
+  
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <style>
+    .wrap {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    h1 {
+      font-family: var(--font-pixel);
+      color: var(--pokemon-blue);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    /* ✅ ESTILOS MEJORADOS PARA RESUMEN */
+    #submissionSummary {
+      background: linear-gradient(135deg, var(--bg-card), #E8F5E9);
+      border: 3px solid var(--pokemon-green);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-medium);
+      text-align: left;
+    }
+    
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+    
+    .summary-item strong {
+      color: var(--pokemon-blue);
+    }
+    
+    .summary-value {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+    
+    /* ✅ CONTADOR DE REDIRECCIÓN */
+    #redirectNotice {
+      background: linear-gradient(135deg, #FFF9C4, #FFECB3);
+      border: 3px solid var(--pokemon-yellow);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-light);
+      display: none;
+    }
+    
+    #redirectNotice p {
+      margin: 0.5rem 0;
+      font-weight: 600;
+    }
+    
+    #countdown {
+      font-family: var(--font-pixel);
+      color: var(--pokemon-red);
+      font-size: 1.2rem;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    
+    .button {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>🎉 Welcome to the Community, Trainer!</h1>
+    <div id="submissionSummary">
+      <p style="text-align: center; color: var(--text-muted);">
+        Processing your submission...
+      </p>
+    </div>
+    
+    <!-- ✅ INDICADOR DE REDIRECCIÓN -->
+    <div id="redirectNotice" role="alert">
+      <p>✅ Submission saved successfully!</p>
+      <p>Redirecting to Community Hub in <span id="countdown">5</span> seconds...</p>
+      <p>Or click <button id="returnNow" class="button button-primary">Return Now</button></p>
+    </div>
+    
+    <div class="button-group">
+      <a href="community.html" class="button button-primary">👥 Go to Community</a>
+      <a href="index.html" class="button button-secondary-light">🏠 Return Home</a>
+    </div>
+  </main>
+  <script type="module" src="scripts/pages/action.js"></script>
+</body>
+</html>
