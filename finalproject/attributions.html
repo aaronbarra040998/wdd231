@@ -8,7 +8,7 @@
   <meta name="description" content="Complete resource attributions for Pokémon Hub project including APIs, fonts, images and tools used in this interactive web experience.">
   <meta name="author" content="Aaron A. Barra">
   
-  <!-- OPEN GRAPH FIX: URL relativo para cumplir con la herramienta -->
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="Resource Attributions - Pokémon Hub">
   <meta property="og:description" content="Complete list of APIs, fonts, images, and tools used in Pokémon Hub. All credits documented.">
   <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/pokeball-preview.png">
@@ -53,8 +53,17 @@
   </header>
 
   <main id="main-content" class="wrap">
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION CON IMAGEN -->
     <section class="attributions-hero" aria-labelledby="hero-heading">
+      <!-- ✅ IMAGEN AÑADIDA: Logo Pokémon optimizado -->
+      <img 
+        src="images/pokeball-preview.png" 
+        alt="Pokémon Hub logo - Pokéball icon representing the project" 
+        class="hero-image-attributions"
+        width="200" 
+        height="200"
+        loading="eager">
+      
       <h1 id="hero-heading" class="hero-title">📋 Resource Attributions</h1>
       <p class="hero-description">
         This project stands on the shoulders of giants. Below are the incredible resources, tools, and APIs that made Pokémon Hub possible.
@@ -279,7 +288,7 @@
     </section>
   </main>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="wrap">
       <div class="footer-content">
         <div class="footer-section">
@@ -290,7 +299,7 @@
         <div class="footer-section">
           <h3>💻 Development</h3>
           <p>Aaron A. Barra | WDD 231</p>
-          <p id="lastModified">Last modified: Loading...</p>
+          <p class="lastModified">Last modified: Loading...</p>
           <p><a href="https://youtu.be/u2TGrqawIdk" target="_blank" rel="noopener noreferrer">
   📹 Project Video (5 min)
 </a></p>
