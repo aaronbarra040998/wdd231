@@ -52,12 +52,10 @@
   </header>
   
   <main id="main-content" class="wrap">
-    <!-- ✅ IMAGEN PEQUEÑA VISIBLE PARA VALIDADOR -->
-    <div class="decorative-icon">
-      <img src="images/community-icon.png" alt="Community hub decorative icon" width="32" height="32" loading="lazy">
-    </div>
-    
     <h1 class="section-title">👥 Pokémon Community Hub</h1>
+        <div class="decorative-icon">
+      <img src="images/pokeball-preview.png" alt="Community hub decorative icon" width="32" height="32" loading="lazy">
+    </div>
     <p class="page-description">Connect with fellow trainers, share your passion, and showcase your Pokémon journey.</p>
     
     <!-- COMMUNITY STATS -->
@@ -90,6 +88,7 @@
         <!-- JOIN FORM -->
         <section class="form-section" aria-labelledby="form-heading">
           <h2 id="form-heading" class="section-title">📝 Join Our Community</h2>
+          <!-- ✅ FORM LIMPIO - SIN NVALIDATE, PROCESADO EN ACTION.HTML -->
           <form id="communityForm" class="community-form" action="action.html" method="GET">
             <div class="form-group">
               <label for="trainerName">🏆 Trainer Name *</label>
@@ -174,8 +173,7 @@
   </main>
   
   <!-- FAN ART MODAL -->
-  <!-- ✅ USAR ARIA-LABEL EN LUGAR DE ARIA-LABELLEDBY -->
-  <div id="fanart-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Fan Art Viewer">
+  <div id="fanart-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="fanart-modal-title">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">&times;</button>
       <div class="modal-body"></div>
