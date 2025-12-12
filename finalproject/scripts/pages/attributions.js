@@ -1,36 +1,36 @@
 /**
  * attributions.js - Módulo ES6 para interacciones en la página de atribuciones
- * FIX: Inicialización segura y verificación de elementos
+ * CORREGIDO: Añadido manejo de errores robusto
+ * CORREGIDO: Añadido console.log para debugging
+ * CORREGIDO: Verificación de existencia de elementos antes de operar
  */
-
-// ✅ NUEVO: Verifica que el DOM esté listo y los elementos existan
-function isPageReady() {
-  return document.querySelector('.attributions-grid') !== null;
-}
 
 /**
- * Inicializa la página de atribuciones de forma segura
+ * Inicializa la página de atribuciones
  */
 export function initAttributions() {
-  if (!isPageReady()) {
-    console.warn('Attributions page not ready. Initialization skipped.');
-    return;
-  }
-  
-  console.log('📋 Initializing attributions page...');
+  console.log('📄 Initializing attributions page...');
   
   try {
+    // Verificar que el DOM esté listo y los elementos existan
+    if (!document.querySelector('.attributions-grid')) {
+      console.warn('⚠️ Attributions grid not found. Skipping initialization.');
+      return;
+    }
+    
     countResources();
     addResourceInteractions();
     animateCategories();
+    
     console.log('✅ Attributions page initialized successfully');
   } catch (error) {
-    console.error('❌ Error initializing attributions page:', error);
+    console.error('❌ Error initializing attributions:', error);
+    // No lanzar el error para no romper la experiencia del usuario
   }
 }
 
 /**
- * Cuenta recursos por categoría de forma segura
+ * Cuenta recursos por categoría
  */
 function countResources() {
   const categories = [
@@ -40,71 +40,104 @@ function countResources() {
   ];
   
   categories.forEach(category => {
-    const list = document.getElementById(category.id);
-    const counter = document.getElementById(category.countId);
-    
-    if (list && counter) {
-      const items = list.querySelectorAll('.resource-item').length;
-      counter.textContent = items;
-    } else {
-      console.warn(`⚠️ Elements not found: ${category.id} or ${category.countId}`);
+    try {
+      const list = document.getElementById(category.id);
+      const counter = document.getElementById(category.countId);
+      
+      if (list && counter) {
+        const items = list.querySelectorAll('.resource-item').length;
+        counter.textContent = items;
+        console.log(`📊 Counted ${items} resources for ${category.id}`);
+      } else {
+        console.warn(`⚠️ Elements not found for category: ${category.id}`);
+      }
+    } catch (error) {
+      console.error(`❌ Error counting resources for ${category.id}:`, error);
     }
   });
 }
 
 /**
- * Añade interacciones a los recursos de forma segura
+ * Añade interacciones a los recursos
  */
 function addResourceInteractions() {
   const resourceLinks = document.querySelectorAll('.resource-link');
   
+  if (resourceLinks.length === 0) {
+    console.warn('⚠️ No resource links found.');
+    return;
+  }
+  
   resourceLinks.forEach(link => {
-    // ✅ Verifica que sea un enlace externo
-    if (link.hostname && link.hostname !== window.location.hostname) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
+    try {
+      // Añadir target="_blank" a enlaces externos automáticamente
+      if (link.hostname && link.hostname !== window.location.hostname) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+      
+      // Añadir evento de click con animación
+      link.addEventListener('click', (e) => {
+        console.log(`🔗 Navigating to: ${link.href}`);
+        
+        // Añadir clase de animación
+        link.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          link.style.transform = '';
+        }, 150);
+      });
+      
+      // Hover effect para accesibilidad
+      link.addEventListener('mouseenter', () => {
+        link.style.transition = 'transform 0.2s ease';
+      });
+    } catch (error) {
+      console.error('❌ Error adding interaction to link:', error);
     }
-    
-    // Añadir animación hover
-    link.addEventListener('mouseenter', () => {
-      link.style.transform = 'translateY(-2px)';
-    });
-    
-    link.addEventListener('mouseleave', () => {
-      link.style.transform = '';
-    });
   });
 }
 
 /**
- * Anima las categorías al cargar de forma segura
+ * Anima las categorías al cargar
  */
 function animateCategories() {
   const cards = document.querySelectorAll('.category-card');
   
-  if (!cards || cards.length === 0) {
-    console.warn('⚠️ No category cards found for animation');
+  if (cards.length === 0) {
+    console.warn('⚠️ No category cards found for animation.');
     return;
   }
   
   cards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    
-    setTimeout(() => {
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, index * 100);
+    try {
+      // Estado inicial
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      
+      // Animar después de un delay escalonado
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, index * 100);
+    } catch (error) {
+      console.error(`❌ Error animating card ${index}:`, error);
+    }
   });
 }
 
-// ✅ Inicialización automática con verificación doble
+// Inicialización automática con múltiples verificaciones
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initAttributions);
+  // Document aún cargando
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('📄 DOM content loaded for attributions');
+    initAttributions();
+  });
 } else {
-  // DOM ya está listo
+  // Document ya cargado
+  console.log('📄 DOM already loaded for attributions');
   initAttributions();
 }
 
+// Exportar para uso en otros módulos si es necesario
 export default { initAttributions };
