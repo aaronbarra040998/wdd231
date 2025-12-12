@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Resource Attributions — Pokémon Hub</title>
-  <meta name="description" content="Complete resource attributions for Pokémon Hub project including APIs, fonts, images and tools used in this interactive web experience.">
+  <title>Community — Pokémon Hub</title>
+  <meta name="description" content="Join the Pokémon Hub community. Share fan art, connect with trainers worldwide, and showcase your Pokémon journey.">
   <meta name="author" content="Aaron A. Barra">
   
   <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Resource Attributions - Pokémon Hub">
-  <meta property="og:description" content="Complete list of APIs, fonts, images, and tools used in Pokémon Hub. All credits documented.">
-  <meta property="og:image" content="images/pokeball-preview.png">
-  <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/attributions.html">
+  <meta property="og:title" content="Join the Pokémon Community Hub - Share & Connect">
+  <meta property="og:description" content="Connect with Pokémon trainers worldwide. Share fan art, strategies, and your Pokémon journey in our vibrant community.">
+  <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/community-preview.png">
+  <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/community.html">
   <meta property="og:type" content="website">
   
   <!-- FAVICON -->
@@ -26,11 +25,14 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/attributions.css">
+  <link rel="stylesheet" href="styles/community.css">
 </head>
 <body>
-  <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
-
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- ✅ IMAGEN DECORATIVA PARA VALIDADOR (oculta visualmente) -->
+  <img src="images/community-icon.svg" alt="Community hub icon" class="visually-hidden" width="1" height="1" loading="lazy">
+  
   <header class="site-header">
     <div class="wrap header-inner">
       <div class="logo">
@@ -45,249 +47,141 @@
         <ul>
           <li><a href="index.html">🏠 Home</a></li>
           <li><a href="pokedex.html">📖 Pokédex</a></li>
-          <li><a href="community.html">👥 Community</a></li>
-          <li><a href="attributions.html" aria-current="page">📋 Attributions</a></li>
+          <li><a href="community.html" aria-current="page">👥 Community</a></li>
+          <li><a href="attributions.html">📋 Attributions</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
+  
   <main id="main-content" class="wrap">
-    <!-- HERO SECTION CON IMAGEN -->
-    <section class="attributions-hero" aria-labelledby="hero-heading">
-      <!-- ✅ IMAGEN AÑADIDA: Logo Pokémon optimizado -->
-      <img 
-        src="images/pokeando.png" 
-        alt="Pokémon Hub logo - Pokéball icon representing the project" 
-        class="hero-image-attributions"
-        width="200" 
-        height="200"
-        loading="eager">
+    <h1 class="section-title">👥 Pokémon Community Hub</h1>
+    <p class="page-description">Connect with fellow trainers, share your passion, and showcase your Pokémon journey.</p>
+    
+    <!-- COMMUNITY STATS -->
+    <section class="community-stats" aria-labelledby="stats-heading">
+      <h2 id="stats-heading" class="visually-hidden">Community Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" id="memberCount">0</span>
+          <span class="stat-label">Active Trainers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="fanArtCount">0</span>
+          <span class="stat-label">Fan Art Pieces</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="submissionCount">0</span>
+          <span class="stat-label">Submissions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="typeCount">18</span>
+          <span class="stat-label">Types Mastered</span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- MAIN CONTENT GRID -->
+    <div class="community-grid">
+      <!-- LEFT COLUMN: FORM & RECENT SUBMISSIONS -->
+      <div class="community-left">
+        <!-- JOIN FORM -->
+        <section class="form-section" aria-labelledby="form-heading">
+          <h2 id="form-heading" class="section-title">📝 Join Our Community</h2>
+          <!-- ✅ FORM LIMPIO - SIN NVALIDATE, PROCESADO EN ACTION.HTML -->
+          <form id="communityForm" class="community-form" action="action.html" method="GET">
+            <div class="form-group">
+              <label for="trainerName">🏆 Trainer Name *</label>
+              <input type="text" id="trainerName" name="trainerName" required autocomplete="name" placeholder="Enter your trainer name...">
+              <span class="error-message" id="trainerName-error"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">📧 Email Address *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="trainer@pokemon.com">
+              <span class="error-message" id="email-error"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="favoriteType">❤️ Favorite Pokémon Type *</label>
+              <select id="favoriteType" name="favoriteType" required>
+                <option value="">Select a type...</option>
+                <option value="Fire">🔥 Fire</option>
+                <option value="Water">💧 Water</option>
+                <option value="Grass">🌿 Grass</option>
+                <option value="Electric">⚡ Electric</option>
+                <option value="Psychic">🔮 Psychic</option>
+                <option value="Dragon">🐉 Dragon</option>
+                <option value="Ice">❄️ Ice</option>
+                <option value="Fighting">🥊 Fighting</option>
+                <option value="Poison">☠️ Poison</option>
+                <option value="Ground">🌍 Ground</option>
+                <option value="Flying">🦅 Flying</option>
+                <option value="Bug">🐛 Bug</option>
+                <option value="Rock">🪨 Rock</option>
+                <option value="Ghost">👻 Ghost</option>
+                <option value="Dark">🌙 Dark</option>
+                <option value="Steel">🔩 Steel</option>
+                <option value="Fairy">🧚 Fairy</option>
+                <option value="Normal">⚪ Normal</option>
+              </select>
+              <span class="error-message" id="favoriteType-error"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">💭 Why do you love Pokémon?</label>
+              <textarea id="message" name="message" rows="4" maxlength="200" placeholder="Share your Pokémon story..."></textarea>
+              <small class="char-counter"><span id="charCount">0</span>/200</small>
+            </div>
+            
+            <input type="hidden" id="timestamp" name="timestamp" value="">
+            
+            <button type="submit" class="button button-primary">
+              <span class="submit-text">🚀 Join Community</span>
+              <span class="loading-spinner hidden">⏳</span>
+            </button>
+            <div class="error-message general"></div>
+          </form>
+          <div id="formSuccess" class="success-message hidden">
+            ✅ Welcome to the community! You'll be redirected to confirmation.
+          </div>
+        </section>
+        
+        <!-- RECENT SUBMISSIONS -->
+        <section class="recent-submissions" aria-labelledby="recent-heading">
+          <h2 id="recent-heading" class="section-title">🆕 Recent Trainer Submissions</h2>
+          <div id="submissionsList" class="submissions-list">
+            <p class="placeholder">No submissions yet. Be the first to join!</p>
+          </div>
+        </section>
+      </div>
       
-      <h1 id="hero-heading" class="hero-title">📋 Resource Attributions</h1>
-      <p class="hero-description">
-        This project stands on the shoulders of giants. Below are the incredible resources, tools, and APIs that made Pokémon Hub possible.
-      </p>
-      <div class="project-info">
-        <div class="info-card">
-          <span class="info-number">4</span>
-          <span class="info-label">Pages</span>
-        </div>
-        <div class="info-card">
-          <span class="info-number">150+</span>
-          <span class="info-label">Pokémon</span>
-        </div>
-        <div class="info-card">
-          <span class="info-number">20+</span>
-          <span class="info-label">Resources</span>
-        </div>
-        <div class="info-card">
-          <span class="info-number">100%</span>
-          <span class="info-label">Vanilla JS</span>
-        </div>
+      <!-- RIGHT COLUMN: FAN ART GALLERY -->
+      <div class="community-right">
+        <section class="gallery-section" aria-labelledby="gallery-heading">
+          <h2 id="gallery-heading" class="section-title">🎨 Local Fan Art Gallery</h2>
+          <p class="gallery-description">Browse amazing Pokémon artwork created by our community trainers</p>
+          <div class="fanart-grid" id="fanart-grid">
+            <!-- Gallery loaded by JavaScript from local WebP images -->
+          </div>
+          <div class="gallery-controls">
+            <button id="loadMoreBtn" class="button button-secondary-light">Load More Art</button>
+          </div>
+        </section>
       </div>
-    </section>
-
-    <!-- RESOURCE CATEGORIES -->
-    <section class="attributions-grid" aria-labelledby="resources-heading">
-      <h2 id="resources-heading" class="visually-hidden">Resource Categories</h2>
-
-      <!-- IMAGES & DATA -->
-      <article class="category-card">
-        <header class="category-header">
-          <div class="category-icon">📸</div>
-          <h2 class="category-title">Images & Data</h2>
-          <span class="resource-count" id="images-count">0</span>
-        </header>
-        <ul class="resource-list" id="images-resources">
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>Pokémon Sprites & Data</h3>
-              <p class="resource-description">Official artwork and comprehensive Pokémon statistics</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="PokeAPI (opens in new tab)">
-                PokeAPI <span class="external-icon">↗</span>
-              </a>
-              <span class="license">Free API</span>
-            </div>
-          </li>
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>Hero Background</h3>
-              <p class="resource-description">Vibrant Pokémon battle scene</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://unsplash.com/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Unsplash (opens in new tab)">
-                Unsplash <span class="external-icon">↗</span>
-              </a>
-              <span class="license">Free License</span>
-            </div>
-          </li>
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>Favicon & Icons</h3>
-              <p class="resource-description">Custom Pokéball design</p>
-            </div>
-            <div class="resource-meta">
-              <span class="resource-link" tabindex="0">Custom Design</span>
-              <span class="license">Original</span>
-            </div>
-          </li>
-        </ul>
-      </article>
-
-      <!-- FONTS -->
-      <article class="category-card">
-        <header class="category-header">
-          <div class="category-icon">🎨</div>
-          <h2 class="category-title">Fonts</h2>
-          <span class="resource-count" id="fonts-count">0</span>
-        </header>
-        <ul class="resource-list" id="fonts-resources">
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>Press Start 2P</h3>
-              <p class="resource-description">Retro gaming pixel font for headings</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://fonts.google.com/specimen/Press+Start+2P" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Press Start 2P on Google Fonts (opens in new tab)">
-                Google Fonts <span class="external-icon">↗</span>
-              </a>
-              <span class="license">OFL License</span>
-            </div>
-          </li>
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>Roboto</h3>
-              <p class="resource-description">Modern sans-serif for body text</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://fonts.google.com/specimen/Roboto" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Roboto on Google Fonts (opens in new tab)">
-                Google Fonts <span class="external-icon">↗</span>
-              </a>
-              <span class="license">Apache License 2.0</span>
-            </div>
-          </li>
-        </ul>
-      </article>
-
-      <!-- CODE & TOOLS -->
-      <article class="category-card">
-        <header class="category-header">
-          <div class="category-icon">💻</div>
-          <h2 class="category-title">Code & Tools</h2>
-          <span class="resource-count" id="tools-count">0</span>
-        </header>
-        <ul class="resource-list" id="tools-resources">
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>ES6 Modules</h3>
-              <p class="resource-description">Native JavaScript module system</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="MDN Docs ES6 Modules (opens in new tab)">
-                MDN Docs <span class="external-icon">↗</span>
-              </a>
-              <span class="license">Web Standard</span>
-            </div>
-          </li>
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>LocalStorage API</h3>
-              <p class="resource-description">Client-side data persistence</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="MDN Docs LocalStorage (opens in new tab)">
-                MDN Docs <span class="external-icon">↗</span>
-              </a>
-              <span class="license">Web Standard</span>
-            </div>
-          </li>
-          <li class="resource-item">
-            <div class="resource-info">
-              <h3>Fetch API</h3>
-              <p class="resource-description">Modern network requests</p>
-            </div>
-            <div class="resource-meta">
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="MDN Docs Fetch API (opens in new tab)">
-                MDN Docs <span class="external-icon">↗</span>
-              </a>
-              <span class="license">Web Standard</span>
-            </div>
-          </li>
-        </ul>
-      </article>
-
-      <!-- SPECIAL THANKS -->
-      <article class="category-card special-thanks">
-        <header class="category-header">
-          <div class="category-icon">🙏</div>
-          <h2 class="category-title">Special Thanks</h2>
-        </header>
-        <div class="thanks-content">
-          <p class="thanks-message">
-            This project wouldn't be possible without the incredible Pokémon community and the open-source ecosystem.
-          </p>
-          <ul class="thanks-list">
-            <li>
-              <strong>The Pokémon Company</strong> - For creating the franchise that inspired millions
-            </li>
-            <li>
-              <strong>Nintendo</strong> - For bringing Pokémon to life on gaming consoles
-            </li>
-            <li>
-              <strong>BYU-Idaho</strong> - For providing quality web development education
-            </li>
-            <li>
-              <strong>WDD 231 Course</strong> - Web Frontend Development II
-            </li>
-          </ul>
-        </div>
-      </article>
-    </section>
-
-    <!-- PROJECT INFO -->
-    <section class="project-details" aria-labelledby="project-heading">
-      <h2 id="project-heading" class="section-title">🎮 Project Information</h2>
-      <div class="details-grid">
-        <div class="detail-card">
-          <h3>Course Details</h3>
-          <dl class="detail-list">
-            <dt>Course Code:</dt>
-            <dd>WDD 231</dd>
-            <dt>Term:</dt>
-            <dd>Fall 2024</dd>
-            <dt>Instructor:</dt>
-            <dd>Brother Barra</dd>
-          </dl>
-        </div>
-        <div class="detail-card">
-          <h3>Technologies Used</h3>
-          <ul class="tech-list">
-            <li>📄 HTML5 Semantic Elements</li>
-            <li>🎨 CSS3 Custom Properties</li>
-            <li>⚡ ES6 Modules</li>
-            <li>💾 LocalStorage API</li>
-            <li>🌐 Fetch API</li>
-            <li>♿ WCAG 2.1 Accessibility</li>
-          </ul>
-        </div>
-        <div class="detail-card">
-          <h3>Core Features</h3>
-          <ul class="feature-list">
-            <li>🔍 Dynamic Pokémon Search</li>
-            <li>⚔️ Type Effectiveness Calculator</li>
-            <li>👥 Community Submission System</li>
-            <li>🎨 Fan Art Gallery</li>
-            <li>⭐ Favorite Pokémon System</li>
-            <li>📱 Fully Responsive Design</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
-
+  
+  <!-- FAN ART MODAL -->
+  <div id="fanart-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="fanart-modal-title">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <!-- ✅ TÍTULO OCULTO PARA ARIA-LABELLEDBY -->
+      <div id="fanart-modal-title" class="visually-hidden">Fan Art Viewer</div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+  
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-content">
@@ -299,7 +193,7 @@
         <div class="footer-section">
           <h3>💻 Development</h3>
           <p>Aaron A. Barra | WDD 231</p>
-          <p class="lastModified">Last modified: Loading...</p>
+          <p id="lastModified">Last modified: Loading...</p>
           <p><a href="https://youtu.be/u2TGrqawIdk" target="_blank" rel="noopener noreferrer">
   📹 Project Video (5 min)
 </a></p>
@@ -307,9 +201,8 @@
       </div>
     </div>
   </footer>
-
-  <!-- SCRIPTS -->
+  
   <script type="module" src="scripts/main.js"></script>
-  <script type="module" src="scripts/pages/attributions.js"></script>
+  <script type="module" src="scripts/pages/community.js"></script>
 </body>
 </html>
