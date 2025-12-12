@@ -60,6 +60,9 @@ class PokedexPremiumApp {
     this.favoritesManager.init();
     this.loadRandomPokemon();
     
+    // ✅ INICIALIZAR TIMER DE BIENVENIDA
+    this.initWelcomeTimer();
+    
     console.log('✅ Pokédex Premium initialized with synchronized data');
   }
 
@@ -103,7 +106,8 @@ class PokedexPremiumApp {
       favoritesGrid: document.getElementById('favorites-grid-premium'),
       clearFavoritesBtn: document.getElementById('clearFavoritesBtn'),
       pokemonModal: document.getElementById('pokemon-modal'),
-      modalBody: document.getElementById('modal-body')
+      modalBody: document.getElementById('modal-body'),
+      initialTimer: document.getElementById('initial-timer') // ✅ NUEVO ELEMENTO
     };
   }
 
@@ -133,6 +137,23 @@ class PokedexPremiumApp {
         }
       });
     }
+  }
+
+  // ✅ NUEVO MÉTODO - INICIALIZAR TIMER DE BIENVENIDA (REEMPLAZA SCRIPT INLINE)
+  initWelcomeTimer() {
+    if (!this.elements.initialTimer) return;
+    
+    let initialCount = 30;
+    const timer = setInterval(() => {
+      initialCount--;
+      this.elements.initialTimer.textContent = initialCount;
+      
+      if (initialCount <= 0) {
+        clearInterval(timer);
+      }
+    }, 1000);
+    
+    console.log('✅ Welcome timer initialized');
   }
 
   // ✅ NUEVO MÉTODO - ASEGURA QUE UN POKÉMON ESTÉ EN LA CACHÉ

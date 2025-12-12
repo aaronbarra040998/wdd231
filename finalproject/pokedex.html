@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Pokédex Interactive — Pokémon Hub</title>
-  <meta name="description" content="Interactive Pokédex with dynamic search, stats and Pokémon data.">
+  <meta name="description" content="Interactive Pokédex with dynamic search, detailed stats, and real-time Pokémon data.">
   <meta name="author" content="Aaron A. Barra">
 
   <!-- OPEN GRAPH -->
@@ -13,7 +13,6 @@
   <meta property="og:description" content="Explore 150+ Pokémon with dynamic stats and information.">
   <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/pokeball-preview.png">
   <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/pokedex.html">
-
   <meta property="og:type" content="website">
 
   <!-- FAVICON -->
@@ -98,9 +97,10 @@
           </div>
 
           <div class="pokemon-image-container" id="pokemon-image-container">
-            <div class="welcome-message" style="text-align: center; padding: 2rem;">
-              <p style="font-size: 1.5rem; color: var(--pokemon-blue);">🔍 Welcome, Trainer!</p>
-              <p style="color: var(--text-muted);">Search a Pokémon or wait for auto-refresh in <span id="initial-timer">30</span> seconds...</p>
+            <!-- WELCOME MESSAGE - REEMPLAZADO POR CLASE CSS -->
+            <div class="welcome-message">
+              <p class="welcome-title">🔍 Welcome, Trainer!</p>
+              <p class="welcome-subtitle">Search a Pokémon or wait for auto-refresh in <span id="initial-timer">30</span> seconds...</p>
             </div>
           </div>
 
@@ -178,7 +178,7 @@
       </div>
     </div>
 
-    <!-- ✅ SECCIÓN DE FAVORITOS NUEVA -->
+    <!-- SECCIÓN DE FAVORITOS -->
     <section class="favorites-section-premium">
       <div class="wrap">
         <div class="favorites-header-premium">
@@ -230,16 +230,5 @@
   <!-- SCRIPTS -->
   <script type="module" src="scripts/main.js"></script>
   <script type="module" src="scripts/pages/pokedex.js"></script>
-  
-  <script>
-    // Contador visual inicial para mejor UX
-    let initialCount = 30;
-    const initialTimer = setInterval(() => {
-      initialCount--;
-      const el = document.getElementById('initial-timer');
-      if (el) el.textContent = initialCount;
-      if (initialCount <= 0) clearInterval(initialTimer);
-    }, 1000);
-  </script>
 </body>
 </html>
