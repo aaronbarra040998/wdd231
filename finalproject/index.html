@@ -7,11 +7,12 @@
   <meta name="description" content="Interactive Pokémon tools, Pokédex data, and community features built with vanilla web technologies for trainers worldwide.">
   <meta name="author" content="Aaron A. Barra">
 
-  <!-- OPEN GRAPH - CORREGIDO: URLs absolutas y descripción con longitud adecuada -->
+  <!-- OPEN GRAPH CORREGIDO -->
   <meta property="og:title" content="Pokémon Hub | Interactive Pokémon Experience">
-  <meta property="og:description" content="Explore comprehensive Pokémon data, calculate type effectiveness, test your knowledge with trivia, and connect with trainers in our community.">
+  <meta property="og:description" content="Explore comprehensive Pokémon data, calculate type effectiveness, test your knowledge with trivia, and connect with trainers in our community hub.">
   <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/pokeball-preview.png">
-  <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/attributions.html">
+  <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/index.html">
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pokémon Hub">
 
@@ -27,7 +28,7 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
 
-  <!-- JAVASCRIPT CORREGIDO: Movido al head con defer para cumplir requisitos del validador -->
+  <!-- JAVASCRIPT CON DEFER -->
   <script type="module" src="scripts/main.js" defer></script>
   <script type="module" src="scripts/pages/home.js" defer></script>
 </head>
@@ -76,7 +77,7 @@
       </div>
     </section>
 
-    <!-- TYPE CALCULATOR MEJORADO -->
+    <!-- TYPE CALCULATOR -->
     <section class="calculator-section" aria-labelledby="calc-heading">
       <h2 id="calc-heading" class="section-title">⚔️ Type Effectiveness Calculator</h2>
       <div class="calculator-container">
@@ -101,7 +102,6 @@
           <div class="result-details"></div>
         </div>
         
-        <!-- POKÉMON RECOMENDADO -->
         <div id="recommendedPokemon" class="recommended-pokemon" aria-live="polite">
           <h3>💡 Recommended Attacker</h3>
           <div class="pokemon-suggestion">
@@ -121,13 +121,11 @@
           <div class="trivia-feedback" role="alert"></div>
         </div>
         <div class="trivia-controls">
-          <!-- CORREGIDO: Eliminado estilo inline -->
           <button id="nextQuestion" class="button button-primary hidden">Next Question →</button>
         </div>
         <div class="trivia-score">
           Score: <span id="trivia-score">0</span> / <span id="trivia-total">0</span>
         </div>
-        <!-- CORREGIDO: Eliminado estilo inline -->
         <div class="trivia-completion hidden" id="trivia-completion">
           <h3>🎉 Congratulations!</h3>
           <p>You scored <strong id="final-score"></strong> out of <span id="final-total"></span>!</p>

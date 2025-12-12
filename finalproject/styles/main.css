@@ -621,7 +621,7 @@ h1 {
   font-family: var(--font-pixel);
 }
 
-/* CORREGIDO: Clases para reemplazar estilos inline */
+/* === CLASE PARA REEMPLAZAR ESTILOS INLINE === */
 .hidden {
   display: none !important;
 }

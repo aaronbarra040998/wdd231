@@ -137,26 +137,15 @@ async function calculateEffectiveness(attackerSelect, defenderSelect, resultBox,
 
 /**
  * Muestra un Pokémon con el tipo seleccionado
- * AHORA CON FETCH AUTOMÁTICO SI NO HAY DATOS
  */
 async function showRecommendedPokemon(type, container) {
   try {
-    // Verificar si hay datos en localStorage
     let pokemonData = Storage.getPokemonData();
     
-    // Si no hay datos, hacer fetch automáticamente
     if (!pokemonData || pokemonData.length === 0) {
       console.log('No Pokemon data found, fetching from API...');
       pokemonData = await fetchPokemon();
-      // Guardar los datos para futuras usos
       Storage.setPokemonData(pokemonData);
-    }
-    
-    console.log('Pokemon data available:', pokemonData.length);
-    
-    // Verificar que los datos sean un array válido
-    if (!Array.isArray(pokemonData)) {
-      throw new Error('Pokemon data is not an array');
     }
     
     const matchingPokemon = pokemonData.filter(p => 
@@ -171,8 +160,6 @@ async function showRecommendedPokemon(type, container) {
     }
 
     const randomPokemon = matchingPokemon[Math.floor(Math.random() * matchingPokemon.length)];
-    
-    // Manejo seguro de stats con optional chaining
     const hp = randomPokemon.stats?.hp || 'N/A';
     const attack = randomPokemon.stats?.attack || 'N/A';
     
@@ -221,7 +208,6 @@ async function initTrivia() {
     return;
   }
 
-  // Event listeners
   document.getElementById('nextQuestion')?.addEventListener('click', loadQuestion);
   document.getElementById('restartTrivia')?.addEventListener('click', restartTrivia);
 }
@@ -241,15 +227,12 @@ function loadQuestion() {
   const feedbackDiv = document.querySelector('.trivia-feedback');
   const nextBtn = document.getElementById('nextQuestion');
 
-  // Reset UI - CORREGIDO: Usa clases CSS en lugar de style.display
   feedbackDiv.classList.remove('show');
   nextBtn.classList.add('hidden');
   feedbackDiv.textContent = '';
 
-  // Mostrar pregunta
   questionDiv.textContent = question.question;
 
-  // Mostrar opciones
   optionsDiv.innerHTML = '';
   question.options.forEach((option, index) => {
     const button = document.createElement('button');
@@ -259,7 +242,6 @@ function loadQuestion() {
     optionsDiv.appendChild(button);
   });
 
-  // Actualizar score
   document.getElementById('trivia-score').textContent = triviaScore;
   document.getElementById('trivia-total').textContent = currentQuestionIndex;
 }
@@ -273,10 +255,8 @@ function selectAnswer(selectedIndex) {
   const feedbackDiv = document.querySelector('.trivia-feedback');
   const nextBtn = document.getElementById('nextQuestion');
 
-  // Deshabilitar botones
   options.forEach(btn => btn.disabled = true);
 
-  // Mostrar respuesta correcta/incorrecta
   options[question.correct].classList.add('correct');
   
   if (selectedIndex !== question.correct) {
@@ -287,7 +267,6 @@ function selectAnswer(selectedIndex) {
     feedbackDiv.textContent = `✅ Correct! ${question.explanation}`;
   }
 
-  // Mostrar feedback y botón siguiente
   feedbackDiv.classList.add('show');
   nextBtn.classList.remove('hidden');
 
@@ -332,7 +311,6 @@ export function initHome() {
   initTypeCalculator();
   initTrivia();
   
-  // Registrar visita
   Storage.setLastVisit();
   
   console.log('Home page initialized successfully');
