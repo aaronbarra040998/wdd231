@@ -1,6 +1,6 @@
 /**
  * pokedex.css - Estilos Premium para Pokédex (Tema Claro)
- * FIX: Imagen de bienvenida y botones clickeables sin bloqueo
+ * FIX: Imagen estática en header + div reemplazando section
  */
 
 /* === CONTENEDOR PRINCIPAL PREMIUM === */
@@ -33,13 +33,22 @@
   z-index: 2;
 }
 
+/* === IMAGEN ESTÁTICA EN HEADER - NUEVO === */
+.pokedex-static-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  animation: bounce 2s infinite alternate;
+}
+
 /* === CONTENEDOR IMAGEN - ESTILOS PARA BIENVENIDA === */
 .welcome-message {
   text-align: center;
   padding: 2rem;
 }
 
-/* ✅ IMAGEN DE BIENVENIDA - ESTILOS NUEVOS */
 .welcome-image {
   width: 120px;
   height: 120px;
@@ -940,10 +949,10 @@
   100% { transform: scale(1); }
 }
 
-/* === ANIMACIÓN DE BIENVENIDA === */
+/* === ANIMACIÓN POKÉBALL ESTÁTICA === */
 @keyframes bounce {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
+  100% { transform: translateY(-5px); }
 }
 
 /* Responsive */
@@ -955,6 +964,11 @@
   
   .favorite-text {
     display: none;
+  }
+  
+  .pokedex-static-icon {
+    width: 30px;
+    height: 30px;
   }
 }
 

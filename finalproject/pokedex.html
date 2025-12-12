@@ -59,6 +59,8 @@
       <!-- Header con búsqueda y timer -->
       <header class="pokedex-header">
         <div class="pokedex-logo-section">
+          <!-- ✅ IMAGEN ESTÁTICA AÑADIDA - Siempre visible en el body -->
+          <img src="images/pokeando.png" alt="Pokéball icon" class="pokedex-static-icon" loading="lazy">
           <div class="pokeball-icon-premium"></div>
           <h1 class="pokedex-title">📖 INTERACTIVE POKÉDEX</h1>
         </div>
@@ -97,7 +99,6 @@
           </div>
 
           <div class="pokemon-image-container" id="pokemon-image-container">
-            <!-- IMAGEN DE BIENVENIDA AÑADIDA -->
             <div class="welcome-message">
               <img src="images/pikachu-welcome.png" alt="Pikachu welcome icon" class="welcome-image" loading="lazy">
               <p class="welcome-title">🔍 Welcome, Trainer!</p>
@@ -119,8 +120,8 @@
         </section>
 
         <!-- Panel Derecho: Tabs de Información -->
-        <!-- ✅ CORREGIDO: Cambiado de <section> a <div> para evitar warning de heading -->
-        <div class="info-panel-premium">
+        <!-- ✅ CORREGIDO: <div> en lugar de <section> para evitar warning W3C -->
+        <div class="info-panel-premium" id="info-panel-premium">
           <div class="tabs-header-premium">
             <button class="tab-btn-premium active" data-tab="about">About</button>
             <button class="tab-btn-premium" data-tab="stats">Stats</button>
