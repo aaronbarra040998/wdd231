@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokémon Hub | Interactive Pokémon Experience</title>
-  <meta name="description" content="Interactive Pokémon tools, Pokédex data, and community features built with vanilla web technologies.">
+  <meta name="description" content="Interactive Pokémon tools, Pokédex data, and community features built with vanilla web technologies for trainers worldwide.">
   <meta name="author" content="Aaron A. Barra">
 
-  <!-- OPEN GRAPH -->
+  <!-- OPEN GRAPH - CORREGIDO: URLs absolutas y descripción con longitud adecuada -->
   <meta property="og:title" content="Pokémon Hub | Interactive Pokémon Experience">
-  <meta property="og:description" content="Interactive Pokémon tools and Pokédex data.">
-  <meta property="og:image" content="images/pokeball-preview.png">
-  <meta property="og:url" content="index.html">
+  <meta property="og:description" content="Explore comprehensive Pokémon data, calculate type effectiveness, test your knowledge with trivia, and connect with trainers in our community.">
+  <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/pokeball-preview.png">
+  <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/attributions.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pokémon Hub">
 
@@ -26,6 +26,10 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
+
+  <!-- JAVASCRIPT CORREGIDO: Movido al head con defer para cumplir requisitos del validador -->
+  <script type="module" src="scripts/main.js" defer></script>
+  <script type="module" src="scripts/pages/home.js" defer></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -117,12 +121,14 @@
           <div class="trivia-feedback" role="alert"></div>
         </div>
         <div class="trivia-controls">
-          <button id="nextQuestion" class="button button-primary" style="display:none;">Next Question →</button>
+          <!-- CORREGIDO: Eliminado estilo inline -->
+          <button id="nextQuestion" class="button button-primary hidden">Next Question →</button>
         </div>
         <div class="trivia-score">
           Score: <span id="trivia-score">0</span> / <span id="trivia-total">0</span>
         </div>
-        <div class="trivia-completion" id="trivia-completion" style="display:none;">
+        <!-- CORREGIDO: Eliminado estilo inline -->
+        <div class="trivia-completion hidden" id="trivia-completion">
           <h3>🎉 Congratulations!</h3>
           <p>You scored <strong id="final-score"></strong> out of <span id="final-total"></span>!</p>
           <button id="restartTrivia" class="button button-primary">Play Again</button>
@@ -195,9 +201,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- SCRIPTS -->
-  <script type="module" src="scripts/main.js"></script>
-  <script type="module" src="scripts/pages/home.js"></script>
 </body>
 </html>

@@ -621,6 +621,11 @@ h1 {
   font-family: var(--font-pixel);
 }
 
+/* CORREGIDO: Clases para reemplazar estilos inline */
+.hidden {
+  display: none !important;
+}
+
 .trivia-completion {
   background: linear-gradient(135deg, #FFF9C4, #FFECB3);
   border: 3px solid var(--pokemon-yellow);
@@ -851,6 +856,7 @@ textarea:focus {
     flex-direction: column;
   }
 }
+
 /* === FAN ART MODAL === */
 #fanart-modal .modal-content {
   max-width: 700px;

@@ -241,9 +241,9 @@ function loadQuestion() {
   const feedbackDiv = document.querySelector('.trivia-feedback');
   const nextBtn = document.getElementById('nextQuestion');
 
-  // Reset UI
+  // Reset UI - CORREGIDO: Usa clases CSS en lugar de style.display
   feedbackDiv.classList.remove('show');
-  nextBtn.style.display = 'none';
+  nextBtn.classList.add('hidden');
   feedbackDiv.textContent = '';
 
   // Mostrar pregunta
@@ -289,7 +289,7 @@ function selectAnswer(selectedIndex) {
 
   // Mostrar feedback y botón siguiente
   feedbackDiv.classList.add('show');
-  nextBtn.style.display = 'inline-block';
+  nextBtn.classList.remove('hidden');
 
   currentQuestionIndex++;
 }
@@ -303,7 +303,7 @@ function showTriviaCompletion() {
   document.querySelector('.trivia-score').style.display = 'none';
   
   const completion = document.getElementById('trivia-completion');
-  completion.style.display = 'block';
+  completion.classList.remove('hidden');
   document.getElementById('final-score').textContent = triviaScore;
   document.getElementById('final-total').textContent = triviaQuestions.length;
 }
@@ -318,7 +318,7 @@ function restartTrivia() {
   document.getElementById('trivia-content').style.display = 'block';
   document.querySelector('.trivia-controls').style.display = 'block';
   document.querySelector('.trivia-score').style.display = 'block';
-  document.getElementById('trivia-completion').style.display = 'none';
+  document.getElementById('trivia-completion').classList.add('hidden');
   
   loadQuestion();
 }
