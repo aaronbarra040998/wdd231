@@ -1,7 +1,5 @@
 /**
  * attributions.css - Estilos profesionales para la página de atribuciones
- * CORREGIDO: Removido backdrop-filter para evitar problemas de validación
- * CORREGIDO: Simplificado selectores para mejor especificidad
  */
 
 :root {
@@ -65,7 +63,7 @@
 
 .info-card {
   background: rgba(255, 255, 255, 0.1);
-  /* REMOVIDO backdrop-filter: blur(10px); */
+  /* backdrop-filter: blur(10px); */
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -149,8 +147,8 @@
   font-weight: 700;
 }
 
-/* CORREGIDO: Selectores simplificados */
-.category-card:first-child .category-icon { color: var(--category-red); }
+/* Category-specific colors */
+.category-card:nth-child(1) .category-icon { color: var(--category-red); }
 .category-card:nth-child(2) .category-icon { color: var(--category-green); }
 .category-card:nth-child(3) .category-icon { color: var(--category-yellow); }
 .category-card:nth-child(4) .category-icon { color: var(--category-purple); }
