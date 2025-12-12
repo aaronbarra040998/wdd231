@@ -1,13 +1,13 @@
 /**
  * attributions.css - Estilos profesionales para la página de atribuciones
- * FIXED: Eliminados warnings de CSS Validation
+ * FIXED: Contraste WCAG AA compliant
  */
 
 :root {
   --category-blue: #3B4CCA;
-  --category-red: #FF0000;
+  --category-red: #CC0000; /* Más oscuro para contraste */
   --category-green: #2E7D32;
-  --category-yellow: #FFDE00;
+  --category-yellow: #D4B106; /* Amarillo oscuro para texto */
   --category-purple: #6A1B9A;
   --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -43,7 +43,7 @@
   font-family: var(--font-pixel);
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--pokemon-yellow);
+  color: #FFD700; /* Amarillo oro con mejor contraste */
   text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -63,8 +63,8 @@
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2); /* Más oscuro para mejor contraste */
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius);
   padding: 1.5rem;
   min-width: 120px;
@@ -73,15 +73,15 @@
 
 .info-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.15);
-  border-color: var(--pokemon-yellow);
+  background: rgba(0, 0, 0, 0.25);
+  border-color: #FFD700;
 }
 
 .info-number {
   display: block;
   font-family: var(--font-pixel);
   font-size: 1.8rem;
-  color: var(--pokemon-yellow);
+  color: #FFD700; /* Amarillo oro */
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
@@ -89,6 +89,7 @@
 .info-label {
   font-size: 0.9rem;
   font-weight: 600;
+  color: white; /* Blanco puro para mejor contraste */
 }
 
 /* === ATTRIBUTIONS GRID === */
@@ -112,7 +113,7 @@
 
 .category-card:hover {
   transform: translateY(-8px);
-  border-color: var(--pokemon-yellow);
+  border-color: #FFD700;
   box-shadow: var(--shadow-heavy);
 }
 
@@ -147,10 +148,10 @@
   font-weight: 700;
 }
 
-/* Category-specific colors */
-.category-card:nth-child(1) .category-icon { color: var(--category-red); }
+/* Category-specific colors with better contrast */
+.category-card:nth-child(1) .category-icon { color: #CC0000; }
 .category-card:nth-child(2) .category-icon { color: var(--category-green); }
-.category-card:nth-child(3) .category-icon { color: var(--category-yellow); }
+.category-card:nth-child(3) .category-icon { color: #D4B106; }
 .category-card:nth-child(4) .category-icon { color: var(--category-purple); }
 
 /* === RESOURCE LIST === */
@@ -180,14 +181,14 @@
 }
 
 .resource-info h3 {
-  color: var(--pokemon-red);
+  color: #CC0000; /* Rojo más oscuro */
   font-family: var(--font-body);
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
 .resource-description {
-  color: var(--text-muted);
+  color: #333; /* Oscurizado para mejor contraste */
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -226,7 +227,7 @@
 
 .license {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #333; /* Oscurizado */
   background: rgba(0, 0, 0, 0.05);
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
@@ -235,7 +236,7 @@
 /* === SPECIAL THANKS === */
 .category-card.special-thanks {
   background: linear-gradient(135deg, #FFF9C4, #FFECB3);
-  border-color: var(--pokemon-yellow);
+  border-color: #D4B106;
 }
 
 .thanks-content {
@@ -245,7 +246,7 @@
 .thanks-message {
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--text-main);
+  color: #333; /* Oscurizado */
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
@@ -259,6 +260,7 @@
   padding: 0.75rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 0.95rem;
+  color: #333; /* Oscurizado */
 }
 
 .thanks-list li:last-child {
@@ -266,7 +268,7 @@
 }
 
 .thanks-list strong {
-  color: var(--pokemon-red);
+  color: #CC0000; /* Rojo más oscuro */
 }
 
 /* === PROJECT DETAILS === */
@@ -274,7 +276,7 @@
   margin: 4rem 0 2rem;
   padding: 3rem;
   background: linear-gradient(135deg, var(--bg-card), #F5F5F5);
-  border: 3px solid var(--pokemon-green);
+  border: 3px solid var(--category-green);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-medium);
 }
@@ -314,14 +316,14 @@
 
 .detail-list dt {
   font-weight: 700;
-  color: var(--pokemon-red);
+  color: #CC0000; /* Rojo más oscuro */
   font-size: 0.9rem;
 }
 
 .detail-list dd {
   margin-left: 0;
   margin-bottom: 0.5rem;
-  color: var(--text-main);
+  color: #333; /* Oscurizado */
   font-size: 0.95rem;
 }
 
@@ -338,6 +340,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.95rem;
+  color: #333; /* Oscurizado */
 }
 
 .tech-list li::before,
