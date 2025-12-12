@@ -4,7 +4,6 @@
  */
 import { fetchPokemon } from '../modules/api/pokemon.js';
 import { Storage } from '../modules/storage.js';
-import { openModal } from '../modules/ui/modals.js';
 
 class PokedexPremiumApp {
   constructor() {
@@ -17,7 +16,6 @@ class PokedexPremiumApp {
     this.searchTimeout = null;
     this.favoritesManager = null;
     
-    // ✅ DATOS POKÉMON COMPARTIDOS - INCLUYE CACHÉ DINÁMICO
     this.pokemonData = [];
     
     this.pokemonTypes = [
@@ -52,7 +50,6 @@ class PokedexPremiumApp {
     this.initHistoryFilters();
     this.startTimer();
     
-    // ✅ CARGAR DATOS PRIMERO
     await this.loadPokemonData();
     
     this.loadHistory();
@@ -60,7 +57,6 @@ class PokedexPremiumApp {
     this.favoritesManager.init();
     this.loadRandomPokemon();
     
-    // ✅ INICIALIZAR TIMER DE BIENVENIDA
     this.initWelcomeTimer();
     
     console.log('✅ Pokédex Premium initialized with synchronized data');
@@ -105,9 +101,7 @@ class PokedexPremiumApp {
       historyCount: document.getElementById('history-count-display'),
       favoritesGrid: document.getElementById('favorites-grid-premium'),
       clearFavoritesBtn: document.getElementById('clearFavoritesBtn'),
-      pokemonModal: document.getElementById('pokemon-modal'),
-      modalBody: document.getElementById('modal-body'),
-      initialTimer: document.getElementById('initial-timer') // ✅ NUEVO ELEMENTO
+      initialTimer: document.getElementById('initial-timer')
     };
   }
 
@@ -130,7 +124,6 @@ class PokedexPremiumApp {
     if (this.elements.favoriteBtn) {
       this.elements.favoriteBtn.addEventListener('click', () => {
         if (this.currentPokemon) {
-          // ✅ ASEGURAR QUE EL POKÉMON ESTÁ EN LA CACHÉ
           this.ensurePokemonInCache(this.currentPokemon.id);
           this.toggleFavorite(this.currentPokemon.id);
           this.favoritesManager?.renderFavorites();
@@ -139,7 +132,6 @@ class PokedexPremiumApp {
     }
   }
 
-  // ✅ NUEVO MÉTODO - INICIALIZAR TIMER DE BIENVENIDA (REEMPLAZA SCRIPT INLINE)
   initWelcomeTimer() {
     if (!this.elements.initialTimer) return;
     
@@ -156,7 +148,6 @@ class PokedexPremiumApp {
     console.log('✅ Welcome timer initialized');
   }
 
-  // ✅ NUEVO MÉTODO - ASEGURA QUE UN POKÉMON ESTÉ EN LA CACHÉ
   async ensurePokemonInCache(pokemonId) {
     const exists = this.pokemonData.some(p => p.id === pokemonId);
     if (!exists) {
@@ -656,10 +647,7 @@ class FavoritesManager {
     this.pokedexApp = pokedexApp;
     this.favoritesGrid = document.getElementById('favorites-grid-premium');
     this.clearBtn = document.getElementById('clearFavoritesBtn');
-    // ✅ USAR DATOS COMPARTIDOS
     this.pokemonData = sharedPokemonData || [];
-    
-    // ✅ CACHE DINÁMICA para Pokémon que no están en el JSON inicial
     this.dynamicCache = new Map();
   }
 
@@ -676,27 +664,22 @@ class FavoritesManager {
     });
   }
 
-  // ✅ MÉTODO CLAVE - OBTENER POKÉMON CON CACHÉ DINÁMICA
   async getPokemonForFavorites() {
     const favorites = Storage.getFavorites();
     const result = [];
     const missingIds = [];
 
-    // Primero, intentar encontrar en datos locales
     favorites.forEach(id => {
       const pokemon = this.pokemonData.find(p => p && p.id === id);
       if (pokemon) {
         result.push(pokemon);
       } else if (this.dynamicCache.has(id)) {
-        // Buscar en caché dinámica
         result.push(this.dynamicCache.get(id));
       } else {
-        // Si no está en ningún lado, marcar para buscar
         missingIds.push(id);
       }
     });
 
-    // ✅ BUSCAR DINÁMICAMENTE LOS QUE FALTAN
     if (missingIds.length > 0) {
       console.log(`🔍 Searching ${missingIds.length} missing Pokémon...`);
       const fetchedPokemon = await this.fetchMissingPokemon(missingIds);
@@ -708,20 +691,17 @@ class FavoritesManager {
         }
       });
       
-      // ✅ ORDENAR POR ID para mantener consistencia
       result.sort((a, b) => favorites.indexOf(a.id) - favorites.indexOf(b.id));
     }
 
     return result;
   }
 
-  // ✅ BUSCAR POKÉMON QUE NO ESTÁN EN EL JSON INICIAL
   async fetchMissingPokemon(ids) {
     const results = [];
     
     for (const id of ids) {
       try {
-        // ✅ INTENTAR CARGAR DESDE pokemon.json PRIMERO
         const response = await fetch(`data/pokemon.json`);
         const allPokemon = await response.json();
         const pokemon = allPokemon.find(p => p.id === id);
@@ -730,12 +710,10 @@ class FavoritesManager {
           results.push(pokemon);
           console.log(`✅ Found Pokémon #${id} in pokemon.json`);
         } else {
-          // ✅ SI NO ESTÁ EN JSON, BUSCAR EN LA API
           console.log(`🌐 Fetching Pokémon #${id} from API...`);
           const apiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
           const data = await apiResponse.json();
           
-          // ✅ TRANSFORMAR FORMATO API AL FORMATO LOCAL
           const transformedPokemon = {
             id: data.id,
             name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
@@ -769,7 +747,6 @@ class FavoritesManager {
     return results;
   }
 
-  // ✅ CORREGIDO: Renderizado async con datos dinámicos
   async renderFavorites() {
     const favorites = Storage.getFavorites();
     
@@ -778,7 +755,6 @@ class FavoritesManager {
       return;
     }
 
-    // ✅ OBTENER TODOS LOS POKÉMON (incluyendo los que buscamos dinámicamente)
     const favoritePokemon = await this.getPokemonForFavorites();
     
     if (favoritePokemon.length === 0) {
