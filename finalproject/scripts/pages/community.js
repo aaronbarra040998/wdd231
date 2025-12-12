@@ -67,7 +67,7 @@ function initModal() {
   });
   
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'flex') {
+    if (e.key === 'Escape' && modal.classList.contains('fanart-modal-active')) {
       closeModal();
     }
   });
@@ -79,10 +79,9 @@ function closeModal() {
   const modal = document.getElementById('fanart-modal');
   if (!modal) return;
   
-  modal.style.display = 'none';
+  modal.classList.remove('fanart-modal-active');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = 'auto';
-  modal.classList.remove('fanart-modal-active');
 }
 
 function initCommunityStats() {
@@ -197,10 +196,9 @@ function openImageModal(img) {
     </div>
   `;
   
-  modal.style.display = 'flex';
+  modal.classList.add('fanart-modal-active');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  modal.classList.add('fanart-modal-active');
   
   const closeBtn = modal.querySelector('.modal-close');
   if (closeBtn) {
@@ -261,8 +259,8 @@ function initCommunityForm() {
     const btnText = submitBtn.querySelector('.submit-text');
     const spinner = submitBtn.querySelector('.loading-spinner');
     
-    btnText.style.display = 'none';
-    spinner.style.display = 'inline-block';
+    btnText.classList.add('hidden');
+    spinner.classList.remove('hidden');
     submitBtn.disabled = true;
     
     // ✅ PERMITIR QUE action.html PROCESE LOS DATOS

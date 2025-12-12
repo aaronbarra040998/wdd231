@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community — Pokémon Hub</title>
-  <meta name="description" content="Join the Pokémon Hub community, share fan art and connect with trainers.">
+  <meta name="description" content="Join the Pokémon Hub community. Share fan art, connect with trainers worldwide, and showcase your Pokémon journey.">
   <meta name="author" content="Aaron A. Barra">
   
   <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Community — Pokémon Hub">
-  <meta property="og:description" content="Connect with Pokémon trainers and share your fan art.">
-  <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/pokeball-preview.png">
+  <meta property="og:title" content="Join the Pokémon Community Hub - Share & Connect">
+  <meta property="og:description" content="Connect with Pokémon trainers worldwide. Share fan art, strategies, and your Pokémon journey in our vibrant community.">
+  <meta property="og:image" content="https://aaronbarra040998.github.io/wdd231/finalproject/images/community-preview.png">
   <meta property="og:url" content="https://aaronbarra040998.github.io/wdd231/finalproject/community.html">
-
   <meta property="og:type" content="website">
   
   <!-- FAVICON -->
@@ -136,10 +135,11 @@
             
             <button type="submit" class="button button-primary">
               <span class="submit-text">🚀 Join Community</span>
-              <span class="loading-spinner" style="display:none;">⏳</span>
+              <span class="loading-spinner hidden">⏳</span>
             </button>
+            <div class="error-message general"></div>
           </form>
-          <div id="formSuccess" class="success-message" style="display:none;">
+          <div id="formSuccess" class="success-message hidden">
             ✅ Welcome to the community! You'll be redirected to confirmation.
           </div>
         </section>
@@ -170,7 +170,7 @@
   </main>
   
   <!-- FAN ART MODAL -->
-  <div id="fanart-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="fanart-modal-title" style="display:none;">
+  <div id="fanart-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="fanart-modal-title">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">&times;</button>
       <div class="modal-body"></div>

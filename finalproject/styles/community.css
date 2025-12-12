@@ -177,6 +177,11 @@
   animation: spin 1s linear infinite;
 }
 
+/* ✅ NUEVA CLASE PARA OCULTAR ELEMENTOS */
+.hidden {
+  display: none !important;
+}
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -382,11 +387,8 @@
   margin: 1.5rem 0;
 }
 
-
-
 /* === FAN ART MODAL ESTILOS CORREGIDOS === */
 #fanart-modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -396,7 +398,7 @@
   z-index: 1000;
   align-items: center;
   justify-content: center;
-  /* backdrop-filter: blur(5px); */
+  display: none; /* ✅ CONTROLADO POR CLASES EN JS */
 }
 
 #fanart-modal.fanart-modal-active {
