@@ -1,5 +1,6 @@
 /**
  * attributions.css - Estilos profesionales para la página de atribuciones
+ * FIXED: Eliminados warnings de CSS Validation
  */
 
 :root {
@@ -29,7 +30,7 @@
 }
 
 .attributions-hero::before {
-  content: '📋';
+  content: "📋";
   position: absolute;
   top: 20px;
   right: 30px;
@@ -63,7 +64,6 @@
 
 .info-card {
   background: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: blur(10px); */
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -342,7 +342,7 @@
 
 .tech-list li::before,
 .feature-list li::before {
-  content: '✅';
+  content: "✅";
   font-size: 1rem;
 }
 
