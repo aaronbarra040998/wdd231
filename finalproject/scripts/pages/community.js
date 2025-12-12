@@ -67,7 +67,7 @@ function initModal() {
   });
   
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('fanart-modal-active')) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       closeModal();
     }
   });
@@ -79,7 +79,7 @@ function closeModal() {
   const modal = document.getElementById('fanart-modal');
   if (!modal) return;
   
-  modal.classList.remove('fanart-modal-active');
+  modal.classList.add('hidden');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = 'auto';
 }
@@ -190,13 +190,13 @@ function openImageModal(img) {
   modalBody.innerHTML = `
     <img src="${img.src}" alt="${img.alt}" style="width:100%; max-height:80vh; object-fit:contain;">
     <div class="modal-info">
-      <h3 id="fanart-modal-title">${img.alt}</h3>
+      <h3>${img.alt}</h3>
       <p><strong>Artist:</strong> ${img.artist}</p>
       <p>❤️ ${img.likes} likes</p>
     </div>
   `;
   
-  modal.classList.add('fanart-modal-active');
+  modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   
